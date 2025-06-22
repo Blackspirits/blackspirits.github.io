@@ -1,0 +1,5 @@
+title: My Personal Page
+description: "Welcome to my personal page on GitHub Pages."
+theme: minima
+plugins:
+  - jekyll-feed
