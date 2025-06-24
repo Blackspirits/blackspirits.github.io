@@ -8,8 +8,10 @@
     body {
       background-color: #1e1e2e;
       color: #cdd6f4;
-      font-family: 'Fira Code', monospace, monospace;
-      margin: 2rem;
+      font-family: 'Fira Code', monospace;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
     }
     a {
       color: #f5c2e7;
@@ -19,31 +21,58 @@
       color: #f38ba8;
       text-decoration: underline;
     }
-    header, h1, h2 {
-      color: #cdd6f4;
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+    header img {
+      border-radius: 50%;
+      width: 120px;
+      margin-top: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
       text-align: center;
     }
     section {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    ul li {
+      margin: 0.5rem 0;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Hi, I’m Filipe Mota (BlackSpirits)</h1>
-    <p><br />Welcome to my personal page on GitHub Pages.</p>
+    <h1>Hi, I’m Filipe Mota<br />(BlackSpirits)</h1>
+    <p>Welcome to my personal page on GitHub Pages.</p>
+    <img src="https://github.com/Blackspirits/blackspirits.github.io/blob/main/assets/avatar.png?raw=true" alt="BlackSpirits avatar">
   </header>
+
   <section>
-    <h2><br /><br />About me</h2>
+    <h2>About me</h2>
     <p>
-       Programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).<br /><br />
-       Administrator of the website Pipocas.tv and moderator at TheTVDB.<br /><br />
-       Also passionate about the Seventh Art — cinema, movies, series, and more.</p>
+      Programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).<br /><br />
+      Administrator of the website <a href="https://pipocas.tv" target="_blank" rel="noopener">Pipocas.tv</a> and moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener">TheTVDB</a>.<br /><br />
+      Also passionate about the Seventh Art — cinema, movies, series, and more.
+    </p>
   </section>
+
   <section>
-    <h2><br /><br />Contact</h2>
+    <h2>Contact</h2>
     <ul>
       <li><a href="https://github.com/Blackspirits" target="_blank" rel="noopener">GitHub</a></li>
       <li><a href="mailto:blackspirits@gmail.com">Email</a></li>
