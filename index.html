@@ -4,21 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Born to explore • Filipe Mota (BlackSpirits)</title>
-  
+
   <meta name="description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv admin & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
 
+  /* Open Graph */
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://blackspirits.github.io/">
   <meta property="og:title" content="Born to explore • Filipe Mota (BlackSpirits)">
   <meta property="og:description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv admin & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
   <meta property="og:image" content="https://raw.githubusercontent.com/BlackSpirits/blackspirits.github.io/main/assets/avatar.png">
 
+  /* Twitter Card */
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://blackspirits.github.io/">
   <meta property="twitter:title" content="Born to explore • Filipe Mota (BlackSpirits)">
   <meta property="twitter:description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv admin & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
   <meta property="twitter:image" content="https://raw.githubusercontent.com/BlackSpirits/blackspirits.github.io/main/assets/avatar.png">
-  
+
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/BlackSpirits/blackspirits.github.io/main/assets/avatar.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,45 +29,46 @@
 
   <style>
     body {
-      background-color: #1e1e2e; /* Base escura */
-      color: #cdd6f4;             /* Texto claro */
+      background-color: #1e1e2e; /* Dark Base */
+      color: #cdd6f4;            /* Light Text */
       font-family: 'Fira Code', monospace;
       margin: 0;
       padding: 0;
       line-height: 1.6;
     }
-    
-    /* Links gerais no texto */
+
+    /* General Links */
     a {
-      color: #f5c2e7; /* Rosa suave */
+      color: #cba6f7;
       text-decoration: none;
       transition: color 0.3s;
     }
+
     a:hover {
-      color: #f38ba8; /* Rosa mais escuro no hover */
+      color: #b4befe;
       text-decoration: underline;
     }
 
     header {
       text-align: center;
       padding: 3rem 1rem 1rem;
-      background: linear-gradient(180deg, #181825 0%, #1e1e2e 100%); /* Ligeiro gradiente */
+      background: linear-gradient(180deg, #181825 0%, #1e1e2e 100%);
     }
-    
+
     header img {
       border-radius: 50%;
       width: 120px;
       height: 120px;
       object-fit: cover;
       margin-top: 1rem;
-      border: 3px solid #f5c2e7; /* Borda a condizer com o tema */
-      box-shadow: 0 0 15px rgba(245, 194, 231, 0.2);
+      border: 3px solid #cba6f7;
+      box-shadow: 0 0 15px rgba(203, 166, 247, 0.25);
     }
 
     h1 {
       font-size: 1.8rem;
       margin-bottom: 0.2rem;
-      color: #cba6f7; /* Roxo suave */
+      color: #cba6f7;
     }
 
     .tagline {
@@ -91,12 +94,12 @@
       margin-top: 2.5rem;
       margin-bottom: 1rem;
       text-align: center;
-      color: #89b4fa; /* Azul suave */
+      color: #89b4fa;
       border-bottom: 1px dashed #45475a;
       padding-bottom: 0.5rem;
       display: inline-block;
     }
-    
+
     .section-title-container {
       text-align: center;
     }
@@ -109,10 +112,10 @@
 
     section {
       margin-bottom: 1.5rem;
-      text-align: justify; /* Texto alinhado fica mais elegante */
+      text-align: justify;
     }
-    
-    /* Estilo para a lista de botões */
+
+    /* Button List */
     .link-list {
       list-style: none;
       padding: 0;
@@ -124,7 +127,6 @@
       margin: 0 auto;
     }
 
-    /* Transformar links em botões bonitos */
     .button-link {
       display: block;
       background-color: #313244;
@@ -139,10 +141,10 @@
     }
 
     .button-link:hover {
-      background-color: #f5c2e7;
-      color: #1e1e2e; /* Texto escuro no fundo claro */
-      text-decoration: none;
-      transform: translateY(-2px);
+      background-color: #cba6f7;
+      color: #1e1e2e;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(203, 166, 247, 0.35);
     }
 
     footer {
@@ -155,71 +157,72 @@
 </head>
 <body>
 
-  <header>
-    <h1>Hi, I’m Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span></h1>
-    <p class="tagline">Born to explore 🌍</p>
+<header>
+  <h1>Hi, I’m Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span></h1>
+  <p class="tagline">Born to explore 🌍</p>
 
-    <div class="insta-vibe">
-      📸 Capturing moments & memories<br />
-      ☕ Tech • Travel • Coffee<br />
-      🚀 Wanderer at heart
-    </div>
+  <div class="insta-vibe">
+    📸 Capturing moments & memories<br />
+    ☕ Tech • Travel • Coffee<br />
+    🚀 Wanderer at heart
+  </div>
 
-    <div style="max-width: 420px; margin: 1.5rem auto 0; opacity: 0.9;">
-      <iframe title="Spotify Player" style="border-radius:12px"
-        src="https://open.spotify.com/embed/track/4yyg2J2uXOjCtCyT64984C?utm_source=generator&theme=0"
-                width="100%" height="80" frameborder="0"
-        allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-      </iframe>
-    </div>
+  <div style="max-width: 420px; margin: 1.5rem auto 0; opacity: 0.9;">
+    <iframe
+      title="BlackSpirits • Coding & Travel"
+      style="border-radius:12px"
+      src="https://open.spotify.com/embed/playlist/02IGbxtl3YDh3x6tCSY8Ua?utm_source=generator&theme=0"
+      width="100%"
+      height="352"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+  </div>
 
-    <img src="assets/avatar.png" alt="Avatar of Filipe Mota (BlackSpirits)">
+  <img src="assets/avatar.png" alt="Avatar of Filipe Mota (BlackSpirits)">
+</header>
 
-  </header>
+<main>
+  <div class="section-title-container">
+    <h2 id="about-me">About me</h2>
+  </div>
 
-  <main>
-    <div class="section-title-container">
-      <h2 id="about-me">About me</h2>
-    </div>
-    <section aria-labelledby="about-me">
-      <p>
-        I’m a programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).
-      </p>
-      <p>
-        I’m the administrator of <a href="https://pipocas.tv" target="_blank" rel="noopener">Pipocas.tv</a> and a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener">TheTVDB</a>.
-      </p>
-      <p>
-        I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.
-      </p>
-    </section>
+  <section aria-labelledby="about-me">
+    <p>I’m a programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).</p>
+    <p>I’m the administrator of <a href="https://pipocas.tv" target="_blank" rel="noopener">Pipocas.tv</a> and a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener">TheTVDB</a>.</p>
+    <p>I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.</p>
+  </section>
 
-    <div class="section-title-container">
-      <h2 id="from-instagram">From Instagram?</h2>
-    </div>
-    <section aria-labelledby="from-instagram">
-      <p style="text-align: center; opacity: 0.8;">
-        If you arrived here from Instagram, welcome.<br>
-        This is where my technical side lives — scripts, projects, platforms and contributions.<br><br>
-        <i>The same traveler, just in code form.</i>
-      </p>
-    </section>
+  <div class="section-title-container">
+    <h2 id="from-instagram">From Instagram?</h2>
+  </div>
 
-    <div class="section-title-container">
-      <h2 id="get-in-touch">Get in Touch</h2>
-    </div>
-    <section aria-labelledby="get-in-touch">
-      <ul class="link-list">
-        <li><a href="https://github.com/Blackspirits" target="_blank" rel="noopener" class="button-link">🐙 GitHub</a></li>
-        <li><a href="https://pipocas.tv" target="_blank" rel="noopener" class="button-link">🍿 Pipocas.tv</a></li>
-        <li><a href="https://www.thetvdb.com" target="_blank" rel="noopener" class="button-link">📺 TheTVDB</a></li>
-        <li><a href="mailto:blackspirits@gmail.com" class="button-link" target="_blank" rel="noopener">✉️ Email Me</a></li>
-      </ul>
-    </section>
-  </main>
+  <section aria-labelledby="from-instagram">
+    <p style="text-align: center; opacity: 0.8;">
+      If you arrived here from Instagram, welcome.<br>
+      This is where my technical side lives — scripts, projects, platforms and contributions.<br><br>
+      <i>The same traveler, just in code form.</i>
+    </p>
+  </section>
 
-  <footer>
-    &copy; 2025 BlackSpirits. Built with 💻, ❤️ & ☕
-  </footer>
+  <div class="section-title-container">
+    <h2 id="get-in-touch">Get in Touch</h2>
+  </div>
+
+  <section aria-labelledby="get-in-touch">
+    <ul class="link-list">
+      <li><a href="https://github.com/Blackspirits" target="_blank" rel="noopener" class="button-link">🐙 GitHub</a></li>
+      <li><a href="https://pipocas.tv" target="_blank" rel="noopener" class="button-link">🍿 Pipocas.tv</a></li>
+      <li><a href="https://www.thetvdb.com" target="_blank" rel="noopener" class="button-link">📺 TheTVDB</a></li>
+      <li><a href="mailto:blackspirits@gmail.com" class="button-link" target="_blank" rel="noopener">📩 Email Me</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 BlackSpirits. Built with 💻, ❤️ & ☕
+</footer>
 
 </body>
 </html>
