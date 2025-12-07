@@ -223,8 +223,8 @@
     }
     
     .button-link:hover {
-      background-color: var(--accent-primary);
-      color: var(--bg-dark);
+      background-color: #b38df5; /* mauve elegante */
+      color: #1e1e2e;
       transform: translateY(-2px);
     }
   
@@ -237,8 +237,8 @@
 
     .button-link:hover::after {
       box-shadow:
-        0 0 12px rgba(203, 166, 247, 0.45),
-        0 0 28px rgba(203, 166, 247, 0.18);
+        0 0 10px rgba(179, 141, 245, 0.45),
+        0 0 22px rgba(179, 141, 245, 0.18);
     }
         
     .year-hacker {
@@ -263,7 +263,7 @@
   <p class="tagline" id="hero-tagline">Born to explore 🌍</p>
 
   <div class="lang-toggle">
-    <span class="lang-toggle-label">Idioma:</span>
+    <span id="lang-toggle-label" class="lang-toggle-label">Idioma:</span>
     <button
       id="lang-toggle-btn"
       type="button"
@@ -448,6 +448,7 @@
         htmlLang: "en",
         heroTitle: 'Hi, I’m Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span>',
         tagline: "Born to explore 🌍",
+        langLabel: "Language:",
         instaVibe: "📸 Capturing moments & memories<br />☕ Tech • Travel • Coffee<br />🚀 Wanderer at heart",
         aboutTitle: "About me",
         aboutP1: "I’m a programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).",
@@ -468,6 +469,7 @@
         htmlLang: "pt-PT",
         heroTitle: 'Olá, eu sou o Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span>',
         tagline: "Nascido para explorar 🌍",
+        langLabel: "Idioma:",
         instaVibe: "📸 A capturar momentos e memórias<br />☕ Tech • Viagens • Café<br />🚀 Viajante de coração",
         aboutTitle: "Sobre mim",
         aboutP1: "Sou programador, entusiasta de tecnologia e tradutor/revisor em vários projetos em português europeu (pt-PT).",
@@ -496,6 +498,7 @@
 
       document.getElementById("hero-title").innerHTML = dict.heroTitle;
       document.getElementById("hero-tagline").textContent = dict.tagline;
+      document.getElementById("lang-toggle-label").textContent = dict.langLabel;
       document.getElementById("insta-vibe").innerHTML = dict.instaVibe;
 
       document.getElementById("about-me-title").textContent = dict.aboutTitle;
