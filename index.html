@@ -28,56 +28,85 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg-dark: #1e1e2e;
+      --bg-header: #181825;
+      --text-main: #cdd6f4;
+    
+      --accent-primary: #cba6f7; /* mauve */
+      --accent-hover: #b4befe;
+    
+      --border-color: #45475a;
+    }
+
     body {
-      background-color: #1e1e2e; /* Dark Base */
-      color: #cdd6f4;            /* Light Text */
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       font-family: 'Fira Code', monospace;
       margin: 0;
       padding: 0;
       line-height: 1.6;
     }
-
+    
     /* General Links */
     a {
-      color: #cba6f7;
+      color: var(--accent-primary);
       text-decoration: none;
       transition: color 0.3s;
     }
-
+    
     a:hover {
-      color: #b4befe;
+      color: var(--accent-hover);
       text-decoration: underline;
     }
-
+    
     header {
       text-align: center;
       padding: 3rem 1rem 1rem;
-      background: linear-gradient(180deg, #181825 0%, #1e1e2e 100%);
+      background: linear-gradient(180deg, var(--bg-header) 0%, var(--bg-dark) 100%);
     }
-
+  
     header img {
       border-radius: 50%;
       width: 120px;
       height: 120px;
       object-fit: cover;
       margin-top: 1rem;
-      border: 3px solid #cba6f7;
-      box-shadow: 0 0 15px rgba(203, 166, 247, 0.25);
+      border: 3px solid var(--accent-primary);
+      box-shadow:
+        0 0 15px rgba(203, 166, 247, 0.35),
+        0 0 30px rgba(203, 166, 247, 0.15);
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
     }
-
+    
+    header img:hover {
+      transform: scale(1.04);
+      box-shadow:
+        0 0 25px rgba(203, 166, 247, 0.6),
+        0 0 50px rgba(203, 166, 247, 0.25);
+    }
+ 
     h1 {
       font-size: 1.8rem;
       margin-bottom: 0.2rem;
-      color: #cba6f7;
+      color: var(--accent-primary);
+      text-shadow: 0 0 8px rgba(203, 166, 247, 0.15);
+      transition: text-shadow 0.4s ease;
     }
-
+    
+    header:hover h1 {
+      text-shadow:
+        0 0 12px rgba(203, 166, 247, 0.6),
+        0 0 24px rgba(180, 190, 254, 0.35);
+    }
+  
     .tagline {
       font-size: 1rem;
       opacity: 0.9;
       margin-top: 0.5rem;
       font-weight: 600;
     }
-
+  
     .insta-vibe {
       margin-top: 1.2rem;
       font-size: 0.9rem;
@@ -88,7 +117,7 @@
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
-
+  
     h2 {
       font-size: 1.4rem;
       margin-top: 2.5rem;
@@ -99,23 +128,23 @@
       padding-bottom: 0.5rem;
       display: inline-block;
     }
-
+  
     .section-title-container {
       text-align: center;
     }
-
+  
     main {
       max-width: 650px;
       margin: 0 auto;
       padding: 0 1.5rem 1.5rem;
     }
-
+  
     section {
       margin-bottom: 1.5rem;
       text-align: justify;
     }
-
-    /* Button List */
+  
+    /* Social / contact buttons */
     .link-list {
       list-style: none;
       padding: 0;
@@ -126,32 +155,56 @@
       max-width: 320px;
       margin: 0 auto;
     }
-
+  
+    .icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 10px;
+      filter: brightness(0) invert(1);
+    }
+  
     .button-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       background-color: #313244;
-      color: #cdd6f4;
+      color: var(--text-main);
       padding: 12px;
       border-radius: 8px;
       text-decoration: none;
       transition: all 0.2s ease;
-      border: 1px solid #45475a;
-      text-align: center;
+      border: 1px solid var(--border-color);
       font-size: 0.95rem;
     }
-
+    
     .button-link:hover {
-      background-color: #cba6f7;
-      color: #1e1e2e;
+      background-color: var(--accent-primary);
+      color: var(--bg-dark);
       transform: translateY(-2px) scale(1.02);
       box-shadow: 0 8px 24px rgba(203, 166, 247, 0.35);
     }
-
+  
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.8rem;
       opacity: 0.5;
+    }
+
+    .year-hacker {
+      font-family: 'Fira Code', monospace;
+      color: #a6e3a1;
+      text-shadow: 0 0 6px rgba(166, 227, 161, 0.6);
+      display: inline-block;
+      min-width: 4ch;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    
+    .year-hacker-done {
+      color: #cba6f7;
+      text-shadow: none;
     }
   </style>
 </head>
@@ -173,7 +226,7 @@
       style="border-radius:12px"
       src="https://open.spotify.com/embed/playlist/02IGbxtl3YDh3x6tCSY8Ua?utm_source=generator&theme=0"
       width="100%"
-      height="352"
+      height="152"
       frameborder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy">
@@ -190,7 +243,7 @@
 
   <section aria-labelledby="about-me">
     <p>I’m a programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).</p>
-    <p>I’m the administrator of <a href="https://pipocas.tv" target="_blank" rel="noopener">Pipocas.tv</a> and a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener">TheTVDB</a>.</p>
+    <p>I’m the administrator of <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> and a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.</p>
     <p>I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.</p>
   </section>
 
@@ -212,17 +265,93 @@
 
   <section aria-labelledby="get-in-touch">
     <ul class="link-list">
-      <li><a href="https://github.com/Blackspirits" target="_blank" rel="noopener" class="button-link">🐙 GitHub</a></li>
-      <li><a href="https://pipocas.tv" target="_blank" rel="noopener" class="button-link">🍿 Pipocas.tv</a></li>
-      <li><a href="https://www.thetvdb.com" target="_blank" rel="noopener" class="button-link">📺 TheTVDB</a></li>
-      <li><a href="mailto:blackspirits@gmail.com" class="button-link" target="_blank" rel="noopener">📩 Email Me</a></li>
+
+      <li>
+        <a href="https://github.com/Blackspirits" target="_blank" rel="noopener noreferrer" class="button-link">
+          <img src="assets/github-mark-white.png" class="icon" alt="GitHub icon"> GitHub
+        </a>
+      </li>
+    
+      <li>
+        <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer" class="button-link">
+          <img src="assets/pipocas.png" class="icon" alt="Pipocas.tv icon"> Pipocas.tv
+        </a>
+      </li>
+    
+      <li>
+        <a href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer" class="button-link">
+          <img src="assets/tvdb.svg" class="icon" alt="TheTVDB icon"> TheTVDB
+        </a>
+      </li>
+    
+      <li>
+        <a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer" class="button-link">
+          <img src="assets/insta.png" class="icon" alt="Instagram icon"> Instagram
+        </a>
+      </li>
+    
+      <li>
+        <a href="https://simkl.com/598901/" target="_blank" rel="noopener noreferrer" class="button-link">
+          <img src="assets/simkl.png" class="icon" alt="Simkl icon"> Simkl
+        </a>
+      </li>
+    
+      <li>
+        <a href="mailto:blackspirits@gmail.com" target="_blank" rel="noopener noreferrer" class="button-link">
+          <img src="assets/gmail.png" class="icon" alt="Gmail icon"> Email
+        </a>
+      </li>
+    
     </ul>
+
   </section>
 </main>
 
 <footer>
-  &copy; 2025 BlackSpirits. Built with 💻, ❤️ & ☕
+  &copy; <span id="year" class="year-hacker"></span> BlackSpirits. Built with 💻, ❤️ & ☕
 </footer>
 
+<script>
+  (function () {
+    const yearEl = document.getElementById("year");
+    if (!yearEl) return;
+
+    const currentYear = new Date().getFullYear();
+    let displayYear = currentYear - 1;
+    if (displayYear < 2000) displayYear = currentYear;
+    yearEl.textContent = displayYear;
+
+    const glitchFrames = 8;
+    let frame = 0;
+
+    const glitchInterval = setInterval(() => {
+      const randomYear = Math.floor(2000 + Math.random() * 100);
+      yearEl.textContent = randomYear;
+      frame++;
+
+      if (frame >= glitchFrames) {
+        clearInterval(glitchInterval);
+        startCountUp();
+      }
+    }, 80);
+
+    function startCountUp() {
+      yearEl.textContent = displayYear;
+
+      const stepInterval = setInterval(() => {
+        if (displayYear >= currentYear) {
+          clearInterval(stepInterval);
+          yearEl.textContent = String(currentYear);
+          yearEl.classList.add("year-hacker-done");
+          return;
+        }
+
+        displayYear++;
+        yearEl.textContent = String(displayYear);
+      }, 220);
+    }
+  })();
+</script>
+  
 </body>
 </html>
