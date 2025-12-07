@@ -93,8 +93,7 @@
     }
     
     header:hover h1 {
-      text-shadow:
-        text-shadow: 0 0 8px rgba(203, 166, 247, 0.35);
+      text-shadow: 0 0 8px rgba(203, 166, 247, 0.35);
     }
   
     .tagline {
@@ -102,6 +101,51 @@
       opacity: 0.9;
       margin-top: 0.5rem;
       font-weight: 600;
+    }
+
+    /* Language toggle */
+    .lang-toggle {
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .lang-toggle-label {
+      opacity: 0.8;
+    }
+
+    .lang-toggle-btn {
+      background-color: #313244;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .lang-toggle-btn span {
+      font-weight: 600;
+    }
+
+    .lang-toggle-btn:hover {
+      background-color: var(--accent-primary);
+      color: var(--bg-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(203, 166, 247, 0.35);
+    }
+
+    .lang-toggle-btn:active {
+      transform: translateY(0);
+      box-shadow: none;
     }
   
     .insta-vibe {
@@ -148,43 +192,40 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      max-width: 320px;
+      gap: 12px;
+      max-width: 340px;
       margin: 0 auto;
     }
   
-    .icon {
-      width: 20px;
-      height: 20px;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-  
     .button-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      background-color: #313244;
+      display: block;
+      background-color: #2a2d3e;
       color: var(--text-main);
-      padding: 12px;
-      border-radius: 8px;
+      padding: 14px 20px;
+      border-radius: 10px;
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
       border: 1px solid var(--border-color);
       font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Glow subtil no hover */
+    .button-link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      box-shadow: 0 0 0 rgba(203, 166, 247, 0);
+      transition: box-shadow 0.25s ease;
     }
     
     .button-link:hover {
       background-color: var(--accent-primary);
       color: var(--bg-dark);
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 8px 24px rgba(203, 166, 247, 0.35);
-    }
-
-    .button-link:hover .icon {
-      transform: scale(1.1);
-      transition: transform 0.2s ease;
+      transform: translateY(-2px);
     }
   
     footer {
@@ -194,6 +235,12 @@
       opacity: 0.5;
     }
 
+    .button-link:hover::after {
+      box-shadow:
+        0 0 12px rgba(203, 166, 247, 0.45),
+        0 0 28px rgba(203, 166, 247, 0.18);
+    }
+        
     .year-hacker {
       font-family: 'Fira Code', monospace;
       color: #a6e3a1;
@@ -212,10 +259,23 @@
 <body>
 
 <header>
-  <h1>Hi, I’m Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span></h1>
-  <p class="tagline">Born to explore 🌍</p>
+  <h1 id="hero-title">Hi, I’m Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span></h1>
+  <p class="tagline" id="hero-tagline">Born to explore 🌍</p>
 
-  <div class="insta-vibe">
+  <div class="lang-toggle">
+    <span class="lang-toggle-label">Idioma:</span>
+    <button
+      id="lang-toggle-btn"
+      type="button"
+      class="lang-toggle-btn"
+      aria-pressed="false"
+      aria-label="Alternar idioma entre português e inglês"
+    >
+      <span id="lang-toggle-current">EN</span> ▸ <span id="lang-toggle-next">PT</span>
+    </button>
+  </div>
+
+  <div class="insta-vibe" id="insta-vibe">
     📸 Capturing moments & memories<br />
     ☕ Tech • Travel • Coffee<br />
     🚀 Wanderer at heart
@@ -239,21 +299,21 @@
 
 <main>
   <div class="section-title-container">
-    <h2 id="about-me">About me</h2>
+    <h2 id="about-me-title">About me</h2>
   </div>
 
-  <section aria-labelledby="about-me">
-    <p>I’m a programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).</p>
-    <p>I’m the administrator of <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> and a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.</p>
-    <p>I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.</p>
+  <section aria-labelledby="about-me-title">
+    <p id="about-p1">I’m a programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).</p>
+    <p id="about-p2">I’m the administrator of <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> and a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.</p>
+    <p id="about-p3">I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.</p>
   </section>
 
   <div class="section-title-container">
-    <h2 id="from-instagram">From Instagram?</h2>
+    <h2 id="from-instagram-title">From Instagram?</h2>
   </div>
 
-  <section aria-labelledby="from-instagram">
-    <p style="text-align: center; opacity: 0.8;">
+  <section aria-labelledby="from-instagram-title">
+    <p id="from-instagram-text" style="text-align: center; opacity: 0.8;">
       If you arrived here from Instagram, welcome.<br>
       This is where my technical side lives — scripts, projects, platforms and contributions.<br><br>
       <i>The same traveler, just in code form.</i>
@@ -261,58 +321,27 @@
   </section>
 
   <div class="section-title-container">
-    <h2 id="get-in-touch">Get in Touch</h2>
+    <h2 id="get-in-touch-title">Get in Touch</h2>
   </div>
 
-  <section aria-labelledby="get-in-touch">
+  <section aria-labelledby="get-in-touch-title">
     <ul class="link-list">
-
-      <li>
-        <a href="https://github.com/Blackspirits" target="_blank" rel="noopener noreferrer" class="button-link">
-          <img src="assets/github-mark-white.png" class="icon" alt="GitHub icon"> GitHub
-        </a>
-      </li>
-    
-      <li>
-        <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer" class="button-link">
-          <img src="assets/pipocas.png" class="icon" alt="Pipocas.tv icon"> Pipocas.tv
-        </a>
-      </li>
-    
-      <li>
-        <a href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer" class="button-link">
-          <img src="assets/tvdb.svg" class="icon" alt="TheTVDB icon"> TheTVDB
-        </a>
-      </li>
-    
-      <li>
-        <a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer" class="button-link">
-          <img src="assets/insta.png" class="icon" alt="Instagram icon"> Instagram
-        </a>
-      </li>
-    
-      <li>
-        <a href="https://simkl.com/598901/" target="_blank" rel="noopener noreferrer" class="button-link">
-          <img src="assets/simkl.png" class="icon" alt="Simkl icon"> Simkl
-        </a>
-      </li>
-    
-      <li>
-        <a href="mailto:blackspirits@gmail.com" target="_blank" rel="noopener noreferrer" class="button-link">
-          <img src="assets/gmail.png" class="icon" alt="Gmail icon"> Email
-        </a>
-      </li>
-    
+      <li><a href="https://github.com/Blackspirits" target="_blank" rel="noopener noreferrer" class="button-link">GitHub</a></li>
+      <li><a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer" class="button-link">Pipocas.tv</a></li>
+      <li><a href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer" class="button-link">TheTVDB</a></li>
+      <li><a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer" class="button-link">Instagram</a></li>
+      <li><a href="https://simkl.com/598901/" target="_blank" rel="noopener noreferrer" class="button-link">Simkl</a></li>
+      <li><a href="mailto:blackspirits@gmail.com" target="_blank" rel="noopener noreferrer" class="button-link">Email</a></li>
     </ul>
-
   </section>
 </main>
 
 <footer>
-  &copy; <span id="year" class="year-hacker"></span> BlackSpirits. Built with 💻, ❤️ & ☕
+  &copy; <span id="year" class="year-hacker"></span> <span id="footer-name">BlackSpirits</span>. <span id="footer-text">Built with 💻, ❤️ & ☕</span>
 </footer>
 
 <script>
+  // Ano com efeito "hacker" suave
   (function () {
     const yearEl = document.getElementById("year");
     if (!yearEl) return;
@@ -351,6 +380,108 @@
         yearEl.textContent = String(displayYear);
       }, 500);
     }
+  })();
+
+  // Toggle de idioma EN ↔ PT
+  (function () {
+    const htmlEl = document.documentElement;
+    const toggleBtn = document.getElementById("lang-toggle-btn");
+    const toggleCurrent = document.getElementById("lang-toggle-current");
+    const toggleNext = document.getElementById("lang-toggle-next");
+
+    const t = {
+      en: {
+        htmlLang: "en",
+        heroTitle: 'Hi, I’m Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span>',
+        tagline: "Born to explore 🌍",
+        instaVibe: "📸 Capturing moments & memories<br />☕ Tech • Travel • Coffee<br />🚀 Wanderer at heart",
+        aboutTitle: "About me",
+        aboutP1: "I’m a programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).",
+        aboutP2: 'I’m the administrator of <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> and a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.',
+        aboutP3: "I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.",
+        fromTitle: "From Instagram?",
+        fromText: 'If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects, platforms and contributions.<br><br><i>The same traveler, just in code form.</i>',
+        getInTouch: "Get in Touch",
+        btnGitHub: "GitHub",
+        btnPipocas: "Pipocas.tv",
+        btnTVDB: "TheTVDB",
+        btnInstagram: "Instagram",
+        btnSimkl: "Simkl",
+        btnEmail: "Email",
+        footerText: "Built with 💻, ❤️ & ☕"
+      },
+      pt: {
+        htmlLang: "pt-PT",
+        heroTitle: 'Olá, eu sou o Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span>',
+        tagline: "Nascido para explorar 🌍",
+        instaVibe: "📸 A capturar momentos e memórias<br />☕ Tech • Viagens • Café<br />🚀 Viajante de coração",
+        aboutTitle: "Sobre mim",
+        aboutP1: "Sou programador, entusiasta de tecnologia e tradutor/revisor em vários projetos em português europeu (pt-PT).",
+        aboutP2: 'Sou administrador do <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> e moderador no <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.',
+        aboutP3: "Também sou apaixonado pela Sétima Arte — cinema, filmes, séries e tudo o que envolva narrativa visual.",
+        fromTitle: "Vieste do Instagram?",
+        fromText: 'Se chegaste aqui a partir do Instagram, bem-vindo.<br>É aqui que vive o meu lado mais técnico — scripts, projetos, plataformas e contributos.<br><br><i>O mesmo viajante, só que em versão código.</i>',
+        getInTouch: "Entrar em contacto",
+        btnGitHub: "GitHub",
+        btnPipocas: "Pipocas.tv",
+        btnTVDB: "TheTVDB",
+        btnInstagram: "Instagram",
+        btnSimkl: "Simkl",
+        btnEmail: "Email",
+        footerText: "Feito com 💻, ❤️ & ☕"
+      }
+    };
+
+    let current = "en"; // idioma inicial
+
+    function applyLang(lang) {
+      const dict = t[lang];
+      if (!dict) return;
+
+      htmlEl.setAttribute("lang", dict.htmlLang);
+
+      document.getElementById("hero-title").innerHTML = dict.heroTitle;
+      document.getElementById("hero-tagline").textContent = dict.tagline;
+      document.getElementById("insta-vibe").innerHTML = dict.instaVibe;
+
+      document.getElementById("about-me-title").textContent = dict.aboutTitle;
+      document.getElementById("about-p1").textContent = dict.aboutP1;
+      document.getElementById("about-p2").innerHTML = dict.aboutP2;
+      document.getElementById("about-p3").textContent = dict.aboutP3;
+
+      document.getElementById("from-instagram-title").textContent = dict.fromTitle;
+      document.getElementById("from-instagram-text").innerHTML = dict.fromText;
+
+      document.getElementById("get-in-touch-title").textContent = dict.getInTouch;
+
+      document.getElementById("btn-github").textContent = dict.btnGitHub;
+      document.getElementById("btn-pipocas").textContent = dict.btnPipocas;
+      document.getElementById("btn-tvdb").textContent = dict.btnTVDB;
+      document.getElementById("btn-instagram").textContent = dict.btnInstagram;
+      document.getElementById("btn-simkl").textContent = dict.btnSimkl;
+      document.getElementById("btn-email").textContent = dict.btnEmail;
+
+      document.getElementById("footer-text").textContent = dict.footerText;
+
+      // Atualizar botão
+      if (lang === "en") {
+        toggleCurrent.textContent = "EN";
+        toggleNext.textContent = "PT";
+        toggleBtn.setAttribute("aria-pressed", "false");
+      } else {
+        toggleCurrent.textContent = "PT";
+        toggleNext.textContent = "EN";
+        toggleBtn.setAttribute("aria-pressed", "true");
+      }
+    }
+
+    // estado inicial
+    applyLang(current);
+
+    toggleBtn.addEventListener("click", function () {
+      current = current === "en" ? "pt" : "en";
+      applyLang(current);
+    });
   })();
 </script>
   
