@@ -3,28 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1e1e2e">
+  <meta name="color-scheme" content="dark">
+
   <meta name="author" content="Filipe Mota (BlackSpirits)" />
-  <meta property="article:published_time" content="2025-12-07T12:00:00Z" />
-  <title>Born to explore • Filipe Mota (BlackSpirits)</title>
-
+  <link rel="canonical" href="https://blackspirits.github.io/" />
   <meta name="description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv admin & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
+  <meta name="robots" content="index,follow" />
 
-  <!-- Open Graph -->
+  <meta property="og:updated_time" content="2025-12-30T17:00:00Z" />
+
+  <!-- Open Graph metadata -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://blackspirits.github.io/">
   <meta property="og:title" content="Born to explore • Filipe Mota (BlackSpirits)">
   <meta property="og:description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv admin & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
   <meta property="og:image" content="https://raw.githubusercontent.com/BlackSpirits/blackspirits.github.io/main/assets/avatar.png">
+  <meta property="og:site_name" content="BlackSpirits" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="pt_PT" />
 
-  <!-- Twitter Card -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://blackspirits.github.io/">
-  <meta property="twitter:title" content="Born to explore • Filipe Mota (BlackSpirits)">
-  <meta property="twitter:description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv admin & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
-  <meta property="twitter:image" content="https://raw.githubusercontent.com/BlackSpirits/blackspirits.github.io/main/assets/avatar.png">
+  <!-- Twitter Card metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://blackspirits.github.io/">
+  <meta name="twitter:title" content="Born to explore • Filipe Mota (BlackSpirits)">
+  <meta name="twitter:description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv admin & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/BlackSpirits/blackspirits.github.io/main/assets/avatar.png">
+  <meta name="twitter:site" content="@BlackSpirits" />
+  <meta name="twitter:creator" content="@BlackSpirits" />
 
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/BlackSpirits/blackspirits.github.io/main/assets/avatar.png">
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
@@ -34,10 +44,10 @@
       --bg-dark: #1e1e2e;
       --bg-header: #181825;
       --text-main: #cdd6f4;
-    
+
       --accent-primary: #cba6f7; /* mauve */
       --accent-hover: #b4befe;
-    
+
       --border-color: #45475a;
     }
 
@@ -49,25 +59,24 @@
       padding: 0;
       line-height: 1.6;
     }
-    
-    /* General Links */
+
     a {
       color: var(--accent-primary);
       text-decoration: none;
       transition: color 0.3s;
     }
-    
+
     a:hover {
       color: var(--accent-hover);
       text-decoration: underline;
     }
-    
+
     header {
       text-align: center;
       padding: 3rem 1rem 1rem;
       background: linear-gradient(180deg, var(--bg-header) 0%, var(--bg-dark) 100%);
     }
-  
+
     header img {
       border-radius: 50%;
       width: 120px;
@@ -78,14 +87,14 @@
       box-shadow: 0 0 8px rgba(203, 166, 247, 0.25);
       transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
-    
+
     header img:hover {
       transform: scale(1.04);
       box-shadow:
         0 0 25px rgba(203, 166, 247, 0.6),
         0 0 50px rgba(203, 166, 247, 0.25);
     }
- 
+
     h1 {
       font-size: 1.8rem;
       margin-bottom: 0.2rem;
@@ -93,11 +102,11 @@
       text-shadow: 0 0 4px rgba(203, 166, 247, 0.15);
       transition: text-shadow 0.3s ease;
     }
-    
+
     header:hover h1 {
       text-shadow: 0 0 8px rgba(203, 166, 247, 0.35);
     }
-  
+
     .tagline {
       font-size: 1rem;
       opacity: 0.9;
@@ -105,7 +114,6 @@
       font-weight: 600;
     }
 
-    /* Language toggle */
     .lang-toggle {
       margin-top: 0.8rem;
       font-size: 0.85rem;
@@ -149,7 +157,7 @@
       transform: translateY(0);
       box-shadow: none;
     }
-  
+
     .insta-vibe {
       margin-top: 1.2rem;
       font-size: 0.9rem;
@@ -160,7 +168,7 @@
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
-  
+
     h2 {
       font-size: 1.4rem;
       margin-top: 2.5rem;
@@ -171,23 +179,22 @@
       padding-bottom: 0.5rem;
       display: inline-block;
     }
-  
+
     .section-title-container {
       text-align: center;
     }
-  
+
     main {
       max-width: 650px;
       margin: 0 auto;
       padding: 0 1.5rem 1.5rem;
     }
-  
+
     section {
       margin-bottom: 1.5rem;
       text-align: justify;
     }
-  
-    /* Social / contact buttons */
+
     .link-list {
       list-style: none;
       padding: 0;
@@ -198,7 +205,7 @@
       max-width: 340px;
       margin: 0 auto;
     }
-  
+
     .button-link {
       display: block;
       background-color: #2a2d3e;
@@ -213,8 +220,7 @@
       position: relative;
       overflow: hidden;
     }
-    
-    /* Glow subtil no hover */
+
     .button-link::after {
       content: "";
       position: absolute;
@@ -223,13 +229,13 @@
       box-shadow: 0 0 0 rgba(203, 166, 247, 0);
       transition: box-shadow 0.25s ease;
     }
-    
+
     .button-link:hover {
       background-color: #b38df5; /* mauve elegante */
       color: #1e1e2e;
       transform: translateY(-2px);
     }
-  
+
     footer {
       text-align: center;
       padding: 2rem;
@@ -242,7 +248,7 @@
         0 0 10px rgba(179, 141, 245, 0.45),
         0 0 22px rgba(179, 141, 245, 0.18);
     }
-        
+
     .year-hacker {
       font-family: 'Fira Code', monospace;
       color: #a6e3a1;
@@ -251,7 +257,7 @@
       min-width: 4ch;
       transition: color 0.3s ease, text-shadow 0.3s ease;
     }
-    
+
     .year-hacker-done {
       color: #cba6f7;
       text-shadow: none;
@@ -265,7 +271,7 @@
   <p class="tagline" id="hero-tagline">Born to explore 🌍</p>
 
   <div class="lang-toggle">
-    <span id="lang-toggle-label" class="lang-toggle-label">Idioma:</span>
+    <span id="lang-toggle-label" class="lang-toggle-label">Language:</span>
     <button
       id="lang-toggle-btn"
       type="button"
@@ -277,7 +283,7 @@
     </button>
   </div>
 
-  <div class="insta-vibe" id="insta-vibe">
+  <div class="insta-vibe" id="insta-vibe" aria-live="polite">
     📸 Capturing moments & memories<br />
     ☕ Tech • Travel • Coffee<br />
     🚀 Wanderer at heart
@@ -381,8 +387,6 @@
     <li>
       <a id="btn-email"
          href="mailto:blackspirits@gmail.com"
-         target="_blank"
-         rel="noopener noreferrer"
          class="button-link">
         Email
       </a>
@@ -397,7 +401,7 @@
 </footer>
 
 <script>
-  // Ano com efeito "hacker" suave
+  // Smooth "hacker" year effect
   (function () {
     const yearEl = document.getElementById("year");
     if (!yearEl) return;
@@ -438,7 +442,7 @@
     }
   })();
 
-  // Toggle de idioma EN ↔ PT
+  // EN ↔ PT language toggle
   (function () {
     const htmlEl = document.documentElement;
     const toggleBtn = document.getElementById("lang-toggle-btn");
@@ -454,7 +458,7 @@
         instaVibe: "📸 Capturing moments & memories<br />☕ Tech • Travel • Coffee<br />🚀 Wanderer at heart",
         aboutTitle: "About me",
         aboutP1: "I’m a programmer, technology enthusiast, and translator/reviewer for several projects in European Portuguese (pt-PT).",
-        aboutP2: 'I’m the administrator of <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> and a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.',
+        aboutP2: 'I’m the administrator of <a href="https://pipocas.tv" target=\"_blank\" rel=\"noopener noreferrer\">Pipocas.tv</a> and a moderator at <a href=\"https://thetvdb.com\" target=\"_blank\" rel=\"noopener noreferrer\">TheTVDB</a>.',
         aboutP3: "I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.",
         fromTitle: "From Instagram?",
         fromText: 'If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects, platforms and contributions.<br><br><i>The same traveler, just in code form.</i>',
@@ -475,7 +479,7 @@
         instaVibe: "📸 A capturar momentos e memórias<br />☕ Tech • Viagens • Café<br />🚀 Viajante de coração",
         aboutTitle: "Sobre mim",
         aboutP1: "Sou programador, entusiasta de tecnologia e tradutor/revisor em vários projetos em português europeu (pt-PT).",
-        aboutP2: 'Sou administrador do <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> e moderador no <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.',
+        aboutP2: 'Sou administrador do <a href="https://pipocas.tv" target=\"_blank\" rel=\"noopener noreferrer\">Pipocas.tv</a> e moderador no <a href=\"https://thetvdb.com\" target=\"_blank\" rel=\"noopener noreferrer\">TheTVDB</a>.',
         aboutP3: "Também sou apaixonado pela Sétima Arte — cinema, filmes, séries e tudo o que envolva narrativa visual.",
         fromTitle: "Vieste do Instagram?",
         fromText: 'Se chegaste aqui a partir do Instagram, bem-vindo.<br>É aqui que vive o meu lado mais técnico — scripts, projetos, plataformas e contributos.<br><br><i>O mesmo viajante, só que em versão código.</i>',
@@ -485,12 +489,12 @@
         btnTVDB: "TheTVDB",
         btnInstagram: "Instagram",
         btnSimkl: "Simkl",
-        btnEmail: "Email",
+        btnEmail: "E-mail",
         footerText: "Feito com 💻, ❤️ & ☕"
       }
     };
 
-    let current = "en"; // idioma inicial
+    let current = "en";
 
     function applyLang(lang) {
       const dict = t[lang];
@@ -522,7 +526,6 @@
 
       document.getElementById("footer-text").textContent = dict.footerText;
 
-      // Atualizar botão
       if (lang === "en") {
         toggleCurrent.textContent = "EN";
         toggleNext.textContent = "PT";
@@ -534,7 +537,6 @@
       }
     }
 
-    // estado inicial
     applyLang(current);
 
     toggleBtn.addEventListener("click", function () {
@@ -543,6 +545,6 @@
     });
   })();
 </script>
-  
+
 </body>
 </html>
