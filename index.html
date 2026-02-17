@@ -7,7 +7,7 @@
   <meta name="color-scheme" content="dark">
   
   <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; frame-src https://open.spotify.com; connect-src 'self' https://open.spotify.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://blackspirits.github.io data:; frame-src https://open.spotify.com; connect-src 'self' https://open.spotify.com;">
   
   <meta name="author" content="Filipe Mota (BlackSpirits)" />
   <title>Born to explore • Filipe Mota (BlackSpirits)</title>
@@ -365,6 +365,7 @@
 
   <div style="max-width: 420px; margin: 1.5rem auto 0; opacity: 0.9;">
     <iframe
+      id="spotify-iframe"
       title="BlackSpirits • Coding & Travel"
       style="border-radius:12px"
       src="https://open.spotify.com/embed/playlist/02IGbxtl3YDh3x6tCSY8Ua?utm_source=generator&theme=0"
@@ -372,8 +373,7 @@
       height="152"
       frameborder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"
-      onerror="this.style.display='none'; document.getElementById('spotify-fallback').style.display='block';">
+      loading="lazy">
     </iframe>
     <div id="spotify-fallback" style="display:none; text-align:center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 12px;">
       <p style="margin: 0 0 0.5rem 0;">🎵 Playlist temporarily unavailable</p>
@@ -497,6 +497,19 @@
 </footer>
 
 <script>
+  // Spotify iframe error handler
+  (function () {
+    const spotifyIframe = document.getElementById("spotify-iframe");
+    const fallback = document.getElementById("spotify-fallback");
+    
+    if (spotifyIframe) {
+      spotifyIframe.addEventListener('error', function() {
+        spotifyIframe.style.display = 'none';
+        if (fallback) fallback.style.display = 'block';
+      });
+    }
+  })();
+
   // Smooth "hacker" year effect
   (function () {
     const yearEl = document.getElementById("year");
