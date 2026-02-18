@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#1e1e2e">
   <meta name="color-scheme" content="dark">
   
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://blackspirits.github.io data:; frame-src https://open.spotify.com; connect-src 'self' https://open.spotify.com;">
+  
   <meta name="author" content="Filipe Mota (BlackSpirits)" />
   <title>Born to explore • Filipe Mota (BlackSpirits)</title>
   <link rel="canonical" href="https://blackspirits.github.io/" />
@@ -42,7 +45,50 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Filipe Mota",
+    "alternateName": "BlackSpirits",
+    "url": "https://blackspirits.github.io",
+    "image": "https://blackspirits.github.io/assets/avatar.png",
+    "sameAs": [
+      "https://github.com/Blackspirits",
+      "https://www.instagram.com/blackspirits28/",
+      "https://pipocas.tv",
+      "https://www.thetvdb.com",
+      "https://simkl.com/598901/"
+    ],
+    "jobTitle": "Programmer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Pipocas.tv"
+    },
+    "knowsLanguage": ["Portuguese", "English"],
+    "email": "blackspirits@gmail.com"
+  }
+  </script>
+
   <style>
+    /* Skip to main content link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent-primary);
+      color: var(--bg-dark);
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 100;
+      border-radius: 0 0 4px 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
     :root {
       --bg-dark: #1e1e2e;
       --bg-header: #181825;
@@ -72,6 +118,25 @@
     a:hover {
       color: var(--accent-hover);
       text-decoration: underline;
+    }
+
+    /* Focus styles for keyboard navigation */
+    a:focus,
+    button:focus {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    a:focus:not(:focus-visible),
+    button:focus:not(:focus-visible) {
+      outline: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
     }
 
     header {
@@ -269,6 +334,12 @@
 </head>
 <body>
 
+<!-- Skip to main content link for accessibility -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- =========================== -->
+<!--         HEADER              -->
+<!-- =========================== -->
 <header>
   <h1 id="hero-title">Hi, I’m Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span></h1>
   <p class="tagline" id="hero-tagline">Born to explore 🌍</p>
@@ -294,6 +365,7 @@
 
   <div style="max-width: 420px; margin: 1.5rem auto 0; opacity: 0.9;">
     <iframe
+      id="spotify-iframe"
       title="BlackSpirits • Coding & Travel"
       style="border-radius:12px"
       src="https://open.spotify.com/embed/playlist/02IGbxtl3YDh3x6tCSY8Ua?utm_source=generator&theme=0"
@@ -303,12 +375,24 @@
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy">
     </iframe>
+    <div id="spotify-fallback" style="display:none; text-align:center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 12px;">
+      <p style="margin: 0 0 0.5rem 0;">🎵 Playlist temporarily unavailable</p>
+      <a href="https://open.spotify.com/playlist/02IGbxtl3YDh3x6tCSY8Ua" target="_blank" rel="noopener noreferrer">
+        Open in Spotify
+      </a>
+    </div>
   </div>
 
-  <img src="assets/avatar.png" alt="Avatar of Filipe Mota (BlackSpirits)">
+  <img src="assets/avatar.png" alt="Avatar of Filipe Mota (BlackSpirits)" width="120" height="120" loading="lazy">
 </header>
 
-<main>
+<!-- =========================== -->
+<!--       MAIN CONTENT          -->
+<!-- =========================== -->
+<main id="main">
+  <!-- =========================== -->
+  <!--       ABOUT ME SECTION      -->
+  <!-- =========================== -->
   <div class="section-title-container">
     <h2 id="about-me-title">About me</h2>
   </div>
@@ -319,6 +403,9 @@
     <p id="about-p3">I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.</p>
   </section>
 
+  <!-- =========================== -->
+  <!--   FROM INSTAGRAM SECTION    -->
+  <!-- =========================== -->
   <div class="section-title-container">
     <h2 id="from-instagram-title">From Instagram?</h2>
   </div>
@@ -331,6 +418,9 @@
     </p>
   </section>
 
+  <!-- =========================== -->
+  <!--     GET IN TOUCH SECTION    -->
+  <!-- =========================== -->
   <div class="section-title-container">
     <h2 id="get-in-touch-title">Get in Touch</h2>
   </div>
@@ -399,11 +489,27 @@
 
 </main>
 
+<!-- =========================== -->
+<!--         FOOTER              -->
+<!-- =========================== -->
 <footer>
   &copy; <span id="year" class="year-hacker"></span> <span id="footer-name">BlackSpirits</span>. <span id="footer-text">Built with 💻, ❤️ & ☕</span>
 </footer>
 
 <script>
+  // Spotify iframe error handler
+  (function () {
+    const spotifyIframe = document.getElementById("spotify-iframe");
+    const fallback = document.getElementById("spotify-fallback");
+    
+    if (spotifyIframe) {
+      spotifyIframe.addEventListener('error', function() {
+        spotifyIframe.style.display = 'none';
+        if (fallback) fallback.style.display = 'block';
+      });
+    }
+  })();
+
   // Smooth "hacker" year effect
   (function () {
     const yearEl = document.getElementById("year");
