@@ -30,9 +30,35 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2311111b'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='18' font-weight='bold' fill='%23cba6f7' text-anchor='middle'%3EBS%3C/text%3E%3C/svg%3E">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://open.spotify.com">
+  <link rel="dns-prefetch" href="https://open.spotify.com">
 
   <!-- Preload LCP -->
   <link rel="preload" as="image" href="assets/avatar.webp" type="image/webp">
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Filipe Mota",
+    "alternateName": "BlackSpirits",
+    "url": "https://blackspirits.github.io",
+    "email": "blackspirits@gmail.com",
+    "jobTitle": "Programmer & Open-source Contributor",
+    "knowsLanguage": ["en", "pt-PT"],
+    "sameAs": [
+      "https://github.com/BlackSpirits",
+      "https://pipocas.tv",
+      "https://www.thetvdb.com",
+      "https://www.instagram.com/blackspirits28/",
+      "https://simkl.com/598901/"
+    ]
+  }
+  </script>
 
   <style>
     /* =============================================
@@ -320,8 +346,8 @@
     <section class="sec fi" aria-labelledby="h-ig">
       <h2 id="h-ig" data-en="From Instagram?" data-pt="Vieste do Instagram?">From Instagram?</h2>
       <div class="body tc">
-        <p data-en="If you arrived here from Instagram, welcome.&lt;br&gt;This is where my technical side lives — scripts, projects, platforms and contributions."
-           data-pt="Se chegaste aqui a partir do Instagram, bem-vindo.&lt;br&gt;É aqui que vive o meu lado mais técnico — scripts, projetos, plataformas e contributos.">
+        <p data-en="If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects, platforms and contributions."
+           data-pt="Se chegaste aqui a partir do Instagram, bem-vindo.<br>É aqui que vive o meu lado mais técnico — scripts, projetos, plataformas e contributos.">
           If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects, platforms and contributions.
         </p>
       </div>
@@ -334,7 +360,7 @@
     <section class="sec fi" aria-labelledby="h-links">
       <h2 id="h-links" data-en="Connections" data-pt="Ligações">Connections</h2>
       <ul class="links" role="list">
-        <li><a href="https://github.com/Blackspirits" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer">GitHub</a></li>
         <li><a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a></li>
         <li><a href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a></li>
         <li><a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
@@ -354,24 +380,32 @@
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    /* Language toggle */
+    /* ── Language toggle ── */
     let lang = 'en';
     const btn = document.getElementById('langBtn');
+
+    function applyLang(l) {
+      document.documentElement.lang = l === 'en' ? 'en' : 'pt-PT';
+      btn.textContent = l === 'en' ? 'EN ▸ PT' : 'PT ▸ EN';
+      document.querySelectorAll('[data-en][data-pt]').forEach(el => {
+        const t = el.getAttribute(l === 'en' ? 'data-en' : 'data-pt');
+        // Use innerHTML for any content that contains HTML tags (real < not escaped)
+        el.innerHTML = t;
+      });
+    }
+
     btn.addEventListener('click', () => {
       lang = lang === 'en' ? 'pt' : 'en';
-      document.documentElement.lang = lang === 'en' ? 'en' : 'pt-PT';
-      btn.textContent = lang === 'en' ? 'EN ▸ PT' : 'PT ▸ EN';
-      document.querySelectorAll('[data-en][data-pt]').forEach(el => {
-        const t = el.getAttribute(lang === 'en' ? 'data-en' : 'data-pt');
-        if (t.includes('<') || t.includes('&')) { el.innerHTML = t; } else { el.textContent = t; }
-      });
+      applyLang(lang);
     });
 
-    /* Spotify fallback */
+    /* ── Spotify fallback (only via error event — cross-origin makes contentDocument inaccessible) ── */
     const sp = document.getElementById('spEmbed');
     if (sp) {
-      sp.addEventListener('error', () => { sp.style.display = 'none'; document.getElementById('spFb').style.display = 'block'; });
-      setTimeout(() => { try { if (sp.contentDocument && !sp.contentDocument.body.innerHTML) { sp.style.display = 'none'; document.getElementById('spFb').style.display = 'block'; } } catch(e){} }, 5000);
+      sp.addEventListener('error', () => {
+        sp.style.display = 'none';
+        document.getElementById('spFb').style.display = 'block';
+      });
     }
   </script>
 </body>
