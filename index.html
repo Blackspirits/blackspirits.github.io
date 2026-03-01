@@ -1,659 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#1e1e2e">
-  <meta name="color-scheme" content="dark">
-  
-  <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://blackspirits.github.io data:; frame-src https://open.spotify.com; connect-src 'self' https://open.spotify.com;">
-  
-  <meta name="author" content="Filipe Mota (BlackSpirits)" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Born to explore • Filipe Mota (BlackSpirits)</title>
-  <link rel="canonical" href="https://blackspirits.github.io/" />
-  <meta name="description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv developer & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
-  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Personal landing page of Filipe Mota (BlackSpirits) — Programmer, open-source contributor, pt-PT translator. Born to explore.">
+  <meta name="author" content="Filipe Mota">
+  <meta name="theme-color" content="#11111b">
 
-  <meta property="og:updated_time" content="2025-12-30T17:00:00Z" />
-
-  <!-- Open Graph metadata -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://blackspirits.github.io/">
-  <meta property="og:title" content="Born to explore • Filipe Mota (BlackSpirits)">
-  <meta property="og:description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv developer & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
+  <meta property="og:title" content="Filipe Mota (BlackSpirits)">
+  <meta property="og:description" content="Programmer · Open-source contributor · pt-PT translator · Born to explore.">
   <meta property="og:image" content="https://blackspirits.github.io/assets/og.png">
-  <meta property="og:site_name" content="BlackSpirits" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:locale:alternate" content="pt_PT" />
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://blackspirits.github.io/">
+  <meta property="og:locale" content="en">
+  <meta property="og:locale:alternate" content="pt_PT">
 
-  <!-- Twitter Card metadata -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://blackspirits.github.io/">
-  <meta name="twitter:title" content="Born to explore • Filipe Mota (BlackSpirits)">
-  <meta name="twitter:description" content="Filipe Mota (BlackSpirits) — Programmer, pt-PT translator, Pipocas.tv developer & TheTVDB moderator. Born to explore 🌍 Tech, travel & coffee.">
+  <meta name="twitter:title" content="Filipe Mota (BlackSpirits)">
+  <meta name="twitter:description" content="Programmer · Open-source contributor · pt-PT translator">
   <meta name="twitter:image" content="https://blackspirits.github.io/assets/og.png">
-  <meta name="twitter:site" content="@BlackSpirits" />
-  <meta name="twitter:creator" content="@BlackSpirits" />
 
-  <link rel="icon" type="image/png" href="https://blackspirits.github.io/assets/avatar.png">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://blackspirits.github.io/">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2311111b'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='18' font-weight='bold' fill='%23cba6f7' text-anchor='middle'%3EBS%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Filipe Mota",
-    "alternateName": "BlackSpirits",
-    "url": "https://blackspirits.github.io",
-    "image": "https://blackspirits.github.io/assets/avatar.png",
-    "sameAs": [
-      "https://github.com/Blackspirits",
-      "https://www.instagram.com/blackspirits28/",
-      "https://pipocas.tv",
-      "https://www.thetvdb.com",
-      "https://simkl.com/598901/"
-    ],
-    "jobTitle": "Programmer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Pipocas.tv"
-    },
-    "knowsLanguage": ["Portuguese", "English"],
-    "email": "blackspirits@gmail.com"
-  }
-  </script>
+  <!-- Preload LCP -->
+  <link rel="preload" as="image" href="assets/avatar.webp" type="image/webp">
 
   <style>
-    /* Skip to main content link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--accent-primary);
-      color: var(--bg-dark);
-      padding: 8px 16px;
-      text-decoration: none;
-      z-index: 100;
-      border-radius: 0 0 4px 0;
-    }
-
-    .skip-link:focus {
-      top: 0;
-    }
-
+    /* =============================================
+       Catppuccin Mocha
+       ============================================= */
     :root {
-      --bg-dark: #1e1e2e;
-      --bg-header: #181825;
-      --text-main: #cdd6f4;
+      --crust:    #11111b;
+      --base:     #1e1e2e;
+      --mantle:   #181825;
+      --surface0: #313244;
+      --surface1: #45475a;
+      --surface2: #585b70;
+      --overlay0: #6c7086;
+      --overlay1: #7f849c;
+      --subtext0: #a6adc8;
+      --subtext1: #bac2de;
+      --text:     #cdd6f4;
+      --lavender: #b4befe;
+      --blue:     #89b4fa;
+      --mauve:    #cba6f7;
+      --peach:    #fab387;
+      --teal:     #94e2d5;
+      --green:    #a6e3a1;
+      --pink:     #f5c2e7;
 
-      --accent-primary: #cba6f7; /* mauve */
-      --accent-hover: #b4befe;
-
-      --border-color: #45475a;
+      --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --max-w: 620px;
     }
+
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: 'Fira Code', monospace;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      font-family: var(--mono);
+      background: var(--crust);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100dvh;
+      overflow-x: hidden;
     }
 
-    a {
-      color: var(--accent-primary);
-      text-decoration: none;
-      transition: color 0.3s;
+    a { color: var(--mauve); text-decoration: none; transition: color .2s; }
+    a:hover, a:focus-visible { color: var(--lavender); }
+    a:focus-visible { outline: 2px solid var(--mauve); outline-offset: 2px; border-radius: 4px; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Skip link */
+    .skip { position: absolute; top: -100%; left: 16px; background: var(--mauve); color: var(--crust); padding: 8px 16px; border-radius: 0 0 8px 8px; font-weight: 700; z-index: 100; transition: top .2s; }
+    .skip:focus { top: 0; }
+
+    /* Layout */
+    main { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px 32px; }
+
+    /* Fade-in */
+    .fi { opacity: 0; transform: translateY(18px); animation: up .55s ease forwards; }
+    @keyframes up { to { opacity: 1; transform: translateY(0); } }
+    .fi:nth-child(1)  { animation-delay: .04s; }
+    .fi:nth-child(2)  { animation-delay: .10s; }
+    .fi:nth-child(3)  { animation-delay: .16s; }
+    .fi:nth-child(4)  { animation-delay: .22s; }
+    .fi:nth-child(5)  { animation-delay: .28s; }
+    .fi:nth-child(6)  { animation-delay: .34s; }
+    .fi:nth-child(7)  { animation-delay: .40s; }
+    .fi:nth-child(8)  { animation-delay: .46s; }
+    .fi:nth-child(9)  { animation-delay: .52s; }
+    .fi:nth-child(10) { animation-delay: .58s; }
+    .fi:nth-child(11) { animation-delay: .64s; }
+    .fi:nth-child(12) { animation-delay: .70s; }
+
+    /* ---- Hero ---- */
+    .hero { text-align: center; margin-bottom: 32px; }
+    .hero h1 {
+      font-size: clamp(1.5rem, 5vw, 2.1rem); font-weight: 800;
+      background: linear-gradient(135deg, var(--mauve), var(--blue));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; line-height: 1.25;
+    }
+    .hero__alias { font-size: clamp(.95rem, 3vw, 1.25rem); color: var(--overlay1); font-weight: 600; margin-top: 4px; }
+    .hero__tag { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--subtext1); margin-top: 10px; }
+
+    /* Lang toggle */
+    .lang { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: .85rem; color: var(--overlay1); }
+    .lang button {
+      background: var(--surface0); border: 1px solid var(--surface1); color: var(--subtext1);
+      padding: 5px 14px; border-radius: 20px; font-family: var(--mono); font-size: .8rem;
+      font-weight: 600; cursor: pointer; transition: background .2s, border-color .2s, transform .15s;
+    }
+    .lang button:hover { background: var(--surface1); border-color: var(--surface2); transform: scale(1.04); }
+    .lang button:focus-visible { outline: 2px solid var(--mauve); outline-offset: 2px; }
+
+    /* Bio card */
+    .bio {
+      background: var(--mantle); border: 1px solid var(--surface0); border-radius: 12px;
+      padding: 16px 24px; margin: 20px auto 0; max-width: 360px; text-align: center;
+      font-family: var(--sans); font-size: .9rem; color: var(--subtext0); line-height: 1.8;
     }
 
-    a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
+    /* ---- Spotify ---- */
+    .spotify { margin: 28px auto 0; max-width: 400px; border-radius: 12px; overflow: hidden; }
+    .spotify iframe { display: block; width: 100%; border: none; border-radius: 12px; }
+    .spotify-fb {
+      display: none; background: var(--mantle); border: 1px solid var(--surface0);
+      border-radius: 12px; padding: 20px; text-align: center; color: var(--overlay1); font-size: .85rem;
+    }
+    .spotify-fb a { display: inline-block; margin-top: 8px; color: var(--green); }
+
+    /* ---- Avatar ---- */
+    .av-wrap { display: flex; justify-content: center; margin: 36px 0 40px; }
+    .av {
+      width: 140px; height: 140px; border-radius: 50%;
+      border: 3px solid transparent;
+      background: linear-gradient(var(--crust), var(--crust)) padding-box,
+                  linear-gradient(135deg, var(--mauve), var(--blue), var(--mauve)) border-box;
+      box-shadow: 0 0 40px rgba(203,166,247,.25), 0 0 80px rgba(137,180,250,.12);
+      transition: box-shadow .3s, transform .3s; object-fit: cover;
+    }
+    .av:hover { box-shadow: 0 0 50px rgba(203,166,247,.4), 0 0 100px rgba(137,180,250,.2); transform: scale(1.04); }
+
+    /* ---- Sections ---- */
+    .sec { margin-bottom: 48px; }
+    .sec h2 {
+      font-family: var(--mono); font-size: 1.3rem; font-weight: 800;
+      text-align: center; color: var(--mauve); margin-bottom: 8px; width: 100%;
+    }
+    .sec h2::after {
+      content: ''; display: block; width: 80px; height: 2px; margin: 6px auto 0;
+      background: linear-gradient(90deg, transparent, var(--mauve), transparent); opacity: .5;
+    }
+    .body { font-family: var(--sans); font-size: .95rem; color: var(--subtext0); line-height: 1.8; margin-top: 18px; }
+    .body p + p { margin-top: 14px; }
+    .note { text-align: center; font-style: italic; color: var(--mauve); opacity: .8; margin-top: 14px; font-family: var(--sans); }
+
+    /* ---- Projects ---- */
+    .proj { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+    @media (min-width: 480px) { .proj { grid-template-columns: 1fr 1fr; } }
+    .proj a {
+      background: var(--mantle); border: 1px solid var(--surface0); border-radius: 12px;
+      padding: 18px; transition: border-color .2s, transform .2s, box-shadow .2s;
+      text-decoration: none; display: block;
+    }
+    .proj a:hover { border-color: var(--surface2); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,.3); }
+    .proj__icon { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .proj__icon img { border-radius: 4px; }
+    .proj__name { font-family: var(--mono); font-size: .9rem; font-weight: 700; color: var(--text); }
+    .proj__desc { font-family: var(--sans); font-size: .8rem; color: var(--overlay1); margin-top: 4px; line-height: 1.5; }
+    .proj__tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 4px; }
+    .proj__tag {
+      font-family: var(--mono); font-size: .65rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 6px;
+      background: var(--surface0); color: var(--subtext0);
     }
 
-    /* Focus styles for keyboard navigation */
-    a:focus,
-    button:focus {
-      outline: 2px solid var(--accent-primary);
-      outline-offset: 3px;
-      border-radius: 4px;
+    /* ---- Link buttons ---- */
+    .links { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; max-width: 380px; margin-left: auto; margin-right: auto; }
+    .links a {
+      display: block; background: var(--mantle); border: 1px solid var(--surface0);
+      border-radius: 12px; padding: 13px 20px; text-align: center;
+      font-family: var(--mono); font-size: .9rem; font-weight: 600; color: var(--subtext1);
+      transition: background .2s, border-color .2s, color .2s, transform .15s, box-shadow .2s;
     }
-
-    a:focus:not(:focus-visible),
-    button:focus:not(:focus-visible) {
-      outline: none;
+    .links a:hover {
+      background: var(--surface0); border-color: var(--surface2); color: var(--text);
+      transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.25);
     }
+    .links a:focus-visible { outline: 2px solid var(--mauve); outline-offset: 2px; }
 
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--accent-primary);
-      outline-offset: 3px;
-    }
-
-    header {
-      text-align: center;
-      padding: 3rem 1rem 1rem;
-      background: linear-gradient(180deg, var(--bg-header) 0%, var(--bg-dark) 100%);
-    }
-
-    header img {
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      margin-top: 1rem;
-      border: 3px solid var(--accent-primary);
-      box-shadow: 0 0 8px rgba(203, 166, 247, 0.25);
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-
-    header img:hover {
-      transform: scale(1.04);
-      box-shadow:
-        0 0 25px rgba(203, 166, 247, 0.6),
-        0 0 50px rgba(203, 166, 247, 0.25);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.2rem;
-      color: var(--accent-primary);
-      text-shadow: 0 0 4px rgba(203, 166, 247, 0.15);
-      transition: text-shadow 0.3s ease;
-    }
-
-    header:hover h1 {
-      text-shadow: 0 0 8px rgba(203, 166, 247, 0.35);
-    }
-
-    .tagline {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-top: 0.5rem;
-      font-weight: 600;
-    }
-
-    .lang-toggle {
-      margin-top: 0.8rem;
-      font-size: 0.85rem;
-      opacity: 0.85;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .lang-toggle-label {
-      opacity: 0.8;
-    }
-
-    .lang-toggle-btn {
-      background-color: #313244;
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    }
-
-    .lang-toggle-btn span {
-      font-weight: 600;
-    }
-
-    .lang-toggle-btn:hover {
-      background-color: var(--accent-primary);
-      color: var(--bg-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(203, 166, 247, 0.35);
-    }
-
-    .lang-toggle-btn:active {
-      transform: translateY(0);
-      box-shadow: none;
-    }
-
-    .insta-vibe {
-      margin-top: 1.2rem;
-      font-size: 0.9rem;
-      opacity: 0.85;
-      background: rgba(255, 255, 255, 0.05);
-      display: inline-block;
-      padding: 1rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      color: #89b4fa;
-      border-bottom: 1px dashed #45475a;
-      padding-bottom: 0.5rem;
-      display: inline-block;
-    }
-
-    .section-title-container {
-      text-align: center;
-    }
-
-    main {
-      max-width: 650px;
-      margin: 0 auto;
-      padding: 0 1.5rem 1.5rem;
-    }
-
-    section {
-      margin-bottom: 1.5rem;
-      text-align: justify;
-    }
-
-    .link-list {
-      list-style: none;
-      padding: 0;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 340px;
-      margin: 0 auto;
-    }
-
-    .button-link {
-      display: block;
-      background-color: #2a2d3e;
-      color: var(--text-main);
-      padding: 14px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      border: 1px solid var(--border-color);
-      font-size: 0.95rem;
-      letter-spacing: 0.3px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .button-link::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 10px;
-      box-shadow: 0 0 0 rgba(203, 166, 247, 0);
-      transition: box-shadow 0.25s ease;
-    }
-
-    .button-link:hover {
-      background-color: #b38df5; /* mauve elegante */
-      color: #1e1e2e;
-      transform: translateY(-2px);
-    }
-
+    /* ---- Footer ---- */
     footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      opacity: 0.5;
+      text-align: center; padding: 32px 24px 24px;
+      font-family: var(--sans); font-size: .78rem; color: var(--overlay0);
+      border-top: 1px solid var(--surface0); margin-top: 16px;
     }
+    .btt { display: inline-block; margin-bottom: 14px; font-family: var(--mono); font-size: .75rem; color: var(--overlay1); transition: color .2s; }
+    .btt:hover { color: var(--mauve); }
 
-    .button-link:hover::after {
-      box-shadow:
-        0 0 10px rgba(179, 141, 245, 0.45),
-        0 0 22px rgba(179, 141, 245, 0.18);
-    }
+    .tc { text-align: center; }
 
-    .year-hacker {
-      font-family: 'Fira Code', monospace;
-      color: #a6e3a1;
-      text-shadow: 0 0 6px rgba(166, 227, 161, 0.6);
-      display: inline-block;
-      min-width: 4ch;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-
-    .year-hacker-done {
-      color: #cba6f7;
-      text-shadow: none;
+    @media (prefers-reduced-motion: reduce) {
+      .fi { animation: none; opacity: 1; transform: none; }
+      *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
     }
   </style>
 </head>
-<body>
 
-<!-- Skip to main content link for accessibility -->
-<a href="#main" class="skip-link">Skip to main content</a>
+<body id="top">
+  <a href="#main" class="skip">Skip to main content</a>
 
-<!-- =========================== -->
-<!--         HEADER              -->
-<!-- =========================== -->
-<header>
-  <h1 id="hero-title">Hi, I’m Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span></h1>
-  <p class="tagline" id="hero-tagline">Born to explore 🌍</p>
+  <main id="main">
 
-  <div class="lang-toggle">
-    <span id="lang-toggle-label" class="lang-toggle-label">Language:</span>
-    <button
-      id="lang-toggle-btn"
-      type="button"
-      class="lang-toggle-btn"
-      aria-pressed="false"
-      aria-label="Alternar idioma entre português e inglês"
-    >
-      <span id="lang-toggle-current">EN</span> ▸ <span id="lang-toggle-next">PT</span>
-    </button>
-  </div>
+    <!-- Hero -->
+    <header class="hero fi">
+      <h1 data-en="Hi, I'm Filipe Mota" data-pt="Olá, eu sou o Filipe Mota">Hi, I'm Filipe Mota</h1>
+      <p class="hero__alias">(BlackSpirits)</p>
+      <p class="hero__tag" data-en="Born to explore 🌍" data-pt="Nascido para explorar 🌍">Born to explore 🌍</p>
+      <div class="lang">
+        <span data-en="Language:" data-pt="Idioma:">Language:</span>
+        <button id="langBtn" type="button" aria-label="Switch language">EN ▸ PT</button>
+      </div>
+    </header>
 
-  <div class="insta-vibe" id="insta-vibe" aria-live="polite">
-    📸 Capturing moments & memories<br />
-    ☕ Tech • Travel • Coffee<br />
-    🚀 Wanderer at heart
-  </div>
-
-  <div style="max-width: 420px; margin: 1.5rem auto 0; opacity: 0.9;">
-    <iframe
-      id="spotify-iframe"
-      title="BlackSpirits • Coding & Travel"
-      style="border-radius:12px"
-      src="https://open.spotify.com/embed/playlist/02IGbxtl3YDh3x6tCSY8Ua?utm_source=generator&theme=0"
-      width="100%"
-      height="152"
-      frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
-    <div id="spotify-fallback" style="display:none; text-align:center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 12px;">
-      <p style="margin: 0 0 0.5rem 0;">🎵 Playlist temporarily unavailable</p>
-      <a href="https://open.spotify.com/playlist/02IGbxtl3YDh3x6tCSY8Ua" target="_blank" rel="noopener noreferrer">
-        Open in Spotify
-      </a>
+    <!-- Bio -->
+    <div class="bio fi">
+      <div data-en="📸 Capturing moments &amp; memories" data-pt="📸 A capturar momentos e memórias">📸 Capturing moments &amp; memories</div>
+      <div data-en="☕ Tech • Travel • Coffee" data-pt="☕ Tech • Viagens • Café">☕ Tech • Travel • Coffee</div>
+      <div data-en="🚀 Wanderer at heart" data-pt="🚀 Viajante de coração">🚀 Wanderer at heart</div>
     </div>
-  </div>
 
-  <img src="assets/avatar.png" alt="Avatar of Filipe Mota (BlackSpirits)" width="120" height="120" loading="lazy">
-</header>
+    <!-- Spotify -->
+    <div class="spotify fi">
+      <iframe
+        id="spEmbed"
+        src="https://open.spotify.com/embed/playlist/02IGbxtl3YDh3x6tCSY8Ua?utm_source=generator&theme=0"
+        height="152"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        title="Spotify playlist — BlackSpirits"
+      ></iframe>
+      <div class="spotify-fb" id="spFb">
+        🎵 <span data-en="Playlist temporarily unavailable" data-pt="Playlist temporariamente indisponível">Playlist temporarily unavailable</span><br>
+        <a href="https://open.spotify.com/playlist/02IGbxtl3YDh3x6tCSY8Ua" target="_blank" rel="noopener noreferrer" data-en="Open in Spotify" data-pt="Abrir no Spotify">Open in Spotify</a>
+      </div>
+    </div>
 
-<!-- =========================== -->
-<!--       MAIN CONTENT          -->
-<!-- =========================== -->
-<main id="main">
-  <!-- =========================== -->
-  <!--       ABOUT ME SECTION      -->
-  <!-- =========================== -->
-  <div class="section-title-container">
-    <h2 id="about-me-title">About me</h2>
-  </div>
+    <!-- Avatar -->
+    <div class="av-wrap fi">
+      <picture>
+        <source srcset="assets/avatar.webp" type="image/webp">
+        <img class="av" src="assets/avatar.png" alt="Avatar of Filipe Mota (BlackSpirits)" width="140" height="140">
+      </picture>
+    </div>
 
-  <section aria-labelledby="about-me-title">
-    <p id="about-p1">I’m a programmer and tech enthusiast, also working as a translator/reviewer for several projects in European Portuguese (pt-PT).</p>
-    <p id="about-p2">I develop and maintain <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> and contribute as a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.</p>
-    <p id="about-p3">I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.</p>
-  </section>
+    <!-- About -->
+    <section class="sec fi" aria-labelledby="h-about">
+      <h2 id="h-about" data-en="About me" data-pt="Sobre mim">About me</h2>
+      <div class="body">
+        <p data-en="I'm a programmer and tech enthusiast, also working as a translator/reviewer for several projects in European Portuguese (pt-PT)."
+           data-pt="Sou programador e entusiasta de tecnologia, e trabalho também como tradutor/revisor em vários projetos em português europeu (pt-PT).">
+          I'm a programmer and tech enthusiast, also working as a translator/reviewer for several projects in European Portuguese (pt-PT).
+        </p>
+        <p>
+          <span data-en="I develop and maintain" data-pt="Desenvolvo e mantenho o">I develop and maintain</span>
+          <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a>
+          <span data-en="and contribute as a moderator at" data-pt="e colaboro como moderador no">and contribute as a moderator at</span>
+          <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.
+        </p>
+        <p data-en="I'm also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling."
+           data-pt="Sou também apaixonado pela Sétima Arte — cinema, filmes, séries e tudo o que envolva narrativa visual.">
+          I'm also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.
+        </p>
+      </div>
+    </section>
 
-  <!-- =========================== -->
-  <!--   FROM INSTAGRAM SECTION    -->
-  <!-- =========================== -->
-  <div class="section-title-container">
-    <h2 id="from-instagram-title">From Instagram?</h2>
-  </div>
+    <!-- Projects -->
+    <section class="sec fi" aria-labelledby="h-proj">
+      <h2 id="h-proj" data-en="Projects" data-pt="Projetos">Projects</h2>
+      <div class="proj">
+        <a href="https://github.com/BlackSpirits/UserScripts-UserStyles" target="_blank" rel="noopener noreferrer">
+          <div class="proj__icon"><span style="font-size:1.3rem">🧩</span></div>
+          <div class="proj__name">UserScripts & UserStyles</div>
+          <div class="proj__desc" data-en="Browser automation, media workflows &amp; UX improvements for the open-source community." data-pt="Automação no browser, workflows de media e melhorias de UX para a comunidade open-source.">Browser automation, media workflows &amp; UX improvements for the open-source community.</div>
+          <div class="proj__tags">
+            <span class="proj__tag">JavaScript</span>
+            <span class="proj__tag">CSS</span>
+            <span class="proj__tag">Automation</span>
+          </div>
+        </a>
+        <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">
+          <div class="proj__icon">
+            <img src="assets/logo.png" alt="Pipocas.tv" width="36" height="20" loading="lazy" style="filter: brightness(1.2);">
+          </div>
+          <div class="proj__name">Pipocas.tv</div>
+          <div class="proj__desc" data-en="Portuguese subtitles community — a platform for subtitle sharing and collaboration." data-pt="Comunidade portuguesa de legendas — uma plataforma para partilha e colaboração de legendas.">Portuguese subtitles community — a platform for subtitle sharing and collaboration.</div>
+          <div class="proj__tags">
+            <span class="proj__tag" data-en="Subtitles" data-pt="Legendas">Subtitles</span>
+            <span class="proj__tag">pt-PT</span>
+            <span class="proj__tag">Admin</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
-  <section aria-labelledby="from-instagram-title">
-    <p id="from-instagram-text" style="text-align: center; opacity: 0.8;">
-      If you arrived here from Instagram, welcome.<br>
-      This is where my technical side lives — scripts, projects, platforms and contributions.<br><br>
-      <i>The same traveler, just in code form.</i>
-    </p>
-  </section>
+    <!-- From Instagram -->
+    <section class="sec fi" aria-labelledby="h-ig">
+      <h2 id="h-ig" data-en="From Instagram?" data-pt="Vieste do Instagram?">From Instagram?</h2>
+      <div class="body tc">
+        <p data-en="If you arrived here from Instagram, welcome.&lt;br&gt;This is where my technical side lives — scripts, projects, platforms and contributions."
+           data-pt="Se chegaste aqui a partir do Instagram, bem-vindo.&lt;br&gt;É aqui que vive o meu lado mais técnico — scripts, projetos, plataformas e contributos.">
+          If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects, platforms and contributions.
+        </p>
+      </div>
+      <p class="note" data-en="The same traveler, just in code form." data-pt="O mesmo viajante, só que em versão código.">
+        <em>The same traveler, just in code form.</em>
+      </p>
+    </section>
 
-  <!-- =========================== -->
-  <!--     GET IN TOUCH SECTION    -->
-  <!-- =========================== -->
-  <div class="section-title-container">
-    <h2 id="get-in-touch-title">Get in Touch</h2>
-  </div>
+    <!-- Connections -->
+    <section class="sec fi" aria-labelledby="h-links">
+      <h2 id="h-links" data-en="Connections" data-pt="Ligações">Connections</h2>
+      <ul class="links" role="list">
+        <li><a href="https://github.com/Blackspirits" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a></li>
+        <li><a href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a></li>
+        <li><a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://simkl.com/598901/" target="_blank" rel="noopener noreferrer">Simkl</a></li>
+        <li><a href="mailto:blackspirits@gmail.com" data-en="Email" data-pt="E-mail">Email</a></li>
+      </ul>
+    </section>
 
-  <section aria-labelledby="get-in-touch-title">
-  <ul class="link-list">
-    <li>
-      <a id="btn-github"
-         href="https://github.com/Blackspirits"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="button-link">
-        GitHub
-      </a>
-    </li>
+  </main>
 
-    <li>
-      <a id="btn-pipocas"
-         href="https://pipocas.tv"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="button-link">
-        Pipocas.tv
-      </a>
-    </li>
+  <!-- Footer -->
+  <footer class="fi">
+    <a href="#top" class="btt" data-en="↑ Back to top" data-pt="↑ Voltar ao topo">↑ Back to top</a>
+    <p>© <span id="yr"></span> BlackSpirits. <span data-en="Built with 💻, ❤️ &amp; ☕" data-pt="Feito com 💻, ❤️ &amp; ☕">Built with 💻, ❤️ &amp; ☕</span></p>
+  </footer>
 
-    <li>
-      <a id="btn-tvdb"
-         href="https://www.thetvdb.com"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="button-link">
-        TheTVDB
-      </a>
-    </li>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
 
-    <li>
-      <a id="btn-instagram"
-         href="https://www.instagram.com/blackspirits28/"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="button-link">
-        Instagram
-      </a>
-    </li>
-
-    <li>
-      <a id="btn-simkl"
-         href="https://simkl.com/598901/"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="button-link">
-        Simkl
-      </a>
-    </li>
-
-    <li>
-      <a id="btn-email"
-         href="mailto:blackspirits@gmail.com"
-         class="button-link">
-        Email
-      </a>
-    </li>
-  </ul>
-</section>
-
-</main>
-
-<!-- =========================== -->
-<!--         FOOTER              -->
-<!-- =========================== -->
-<footer>
-  &copy; <span id="year" class="year-hacker"></span> <span id="footer-name">BlackSpirits</span>. <span id="footer-text">Built with 💻, ❤️ & ☕</span>
-</footer>
-
-<script>
-  // Spotify iframe error handler
-  (function () {
-    const spotifyIframe = document.getElementById("spotify-iframe");
-    const fallback = document.getElementById("spotify-fallback");
-    
-    if (spotifyIframe) {
-      spotifyIframe.addEventListener('error', function() {
-        spotifyIframe.style.display = 'none';
-        if (fallback) fallback.style.display = 'block';
+    /* Language toggle */
+    let lang = 'en';
+    const btn = document.getElementById('langBtn');
+    btn.addEventListener('click', () => {
+      lang = lang === 'en' ? 'pt' : 'en';
+      document.documentElement.lang = lang === 'en' ? 'en' : 'pt-PT';
+      btn.textContent = lang === 'en' ? 'EN ▸ PT' : 'PT ▸ EN';
+      document.querySelectorAll('[data-en][data-pt]').forEach(el => {
+        const t = el.getAttribute(lang === 'en' ? 'data-en' : 'data-pt');
+        if (t.includes('<') || t.includes('&')) { el.innerHTML = t; } else { el.textContent = t; }
       });
-    }
-  })();
-
-  // Smooth "hacker" year effect
-  (function () {
-    const yearEl = document.getElementById("year");
-    if (!yearEl) return;
-
-    const currentYear = new Date().getFullYear();
-    let displayYear = currentYear - 1;
-    if (displayYear < 2000) displayYear = currentYear;
-    yearEl.textContent = displayYear;
-
-    const glitchFrames = 12;
-    let frame = 0;
-
-    const glitchInterval = setInterval(() => {
-      const randomYear = Math.floor(2000 + Math.random() * 100);
-      yearEl.textContent = randomYear;
-      frame++;
-
-      if (frame >= glitchFrames) {
-        clearInterval(glitchInterval);
-        startCountUp();
-      }
-    }, 80);
-
-    function startCountUp() {
-      yearEl.textContent = displayYear;
-
-      const stepInterval = setInterval(() => {
-        if (displayYear >= currentYear) {
-          clearInterval(stepInterval);
-          yearEl.textContent = String(currentYear);
-          yearEl.classList.add("year-hacker-done");
-          return;
-        }
-
-        displayYear++;
-        yearEl.textContent = String(displayYear);
-      }, 500);
-    }
-  })();
-
-  // EN ↔ PT language toggle
-  (function () {
-    const htmlEl = document.documentElement;
-    const toggleBtn = document.getElementById("lang-toggle-btn");
-    const toggleCurrent = document.getElementById("lang-toggle-current");
-    const toggleNext = document.getElementById("lang-toggle-next");
-
-    const t = {
-      en: {
-        htmlLang: "en",
-        heroTitle: 'Hi, I’m Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span>',
-        tagline: "Born to explore 🌍",
-        langLabel: "Language:",
-        instaVibe: "📸 Capturing moments & memories<br />☕ Tech • Travel • Coffee<br />🚀 Wanderer at heart",
-        aboutTitle: "About me",
-        aboutP1: "I’m a programmer and tech enthusiast, also working as a translator/reviewer for several projects in European Portuguese (pt-PT).",
-        aboutP2: 'I develop and maintain <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> and contribute as a moderator at <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.',
-        aboutP3: "I’m also passionate about the Seventh Art — cinema, movies, series, and everything related to visual storytelling.",
-        fromTitle: "From Instagram?",
-        fromText: 'If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects, platforms and contributions.<br><br><i>The same traveler, just in code form.</i>',
-        getInTouch: "Connections",
-        btnGitHub: "GitHub",
-        btnPipocas: "Pipocas.tv",
-        btnTVDB: "TheTVDB",
-        btnInstagram: "Instagram",
-        btnSimkl: "Simkl",
-        btnEmail: "Email",
-        footerText: "Built with 💻, ❤️ & ☕"
-      },
-      pt: {
-        htmlLang: "pt-PT",
-        heroTitle: 'Olá, eu sou o Filipe Mota<br /><span style="font-size: 0.8em; opacity: 0.8;">(BlackSpirits)</span>',
-        tagline: "Nascido para explorar 🌍",
-        langLabel: "Idioma:",
-        instaVibe: "📸 A capturar momentos e memórias<br />☕ Tech • Viagens • Café<br />🚀 Viajante de coração",
-        aboutTitle: "Sobre mim",
-        aboutP1: "Sou programador e entusiasta de tecnologia, e trabalho também como tradutor/revisor em vários projetos em português europeu (pt-PT).",
-        aboutP2: 'Desenvolvo e mantenho o <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a> e colaboro como moderador no <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.',
-        aboutP3: "Sou também apaixonado pela Sétima Arte — cinema, filmes, séries e tudo o que envolva narrativa visual.",
-        fromTitle: "Vieste do Instagram?",
-        fromText: 'Se chegaste aqui a partir do Instagram, bem-vindo.<br>É aqui que vive o meu lado mais técnico — scripts, projetos, plataformas e contributos.<br><br><i>O mesmo viajante, só que em versão código.</i>',
-        getInTouch: "Ligações",
-        btnGitHub: "GitHub",
-        btnPipocas: "Pipocas.tv",
-        btnTVDB: "TheTVDB",
-        btnInstagram: "Instagram",
-        btnSimkl: "Simkl",
-        btnEmail: "E-mail",
-        footerText: "Feito com 💻, ❤️ & ☕"
-      }
-    };
-
-    let current = "en";
-
-    function applyLang(lang) {
-      const dict = t[lang];
-      if (!dict) return;
-
-      htmlEl.setAttribute("lang", dict.htmlLang);
-
-      document.getElementById("hero-title").innerHTML = dict.heroTitle;
-      document.getElementById("hero-tagline").textContent = dict.tagline;
-      document.getElementById("lang-toggle-label").textContent = dict.langLabel;
-      document.getElementById("insta-vibe").innerHTML = dict.instaVibe;
-
-      document.getElementById("about-me-title").textContent = dict.aboutTitle;
-      document.getElementById("about-p1").textContent = dict.aboutP1;
-      document.getElementById("about-p2").innerHTML = dict.aboutP2;
-      document.getElementById("about-p3").textContent = dict.aboutP3;
-
-      document.getElementById("from-instagram-title").textContent = dict.fromTitle;
-      document.getElementById("from-instagram-text").innerHTML = dict.fromText;
-
-      document.getElementById("get-in-touch-title").textContent = dict.getInTouch;
-
-      document.getElementById("btn-github").textContent = dict.btnGitHub;
-      document.getElementById("btn-pipocas").textContent = dict.btnPipocas;
-      document.getElementById("btn-tvdb").textContent = dict.btnTVDB;
-      document.getElementById("btn-instagram").textContent = dict.btnInstagram;
-      document.getElementById("btn-simkl").textContent = dict.btnSimkl;
-      document.getElementById("btn-email").textContent = dict.btnEmail;
-
-      document.getElementById("footer-text").textContent = dict.footerText;
-
-      if (lang === "en") {
-        toggleCurrent.textContent = "EN";
-        toggleNext.textContent = "PT";
-        toggleBtn.setAttribute("aria-pressed", "false");
-      } else {
-        toggleCurrent.textContent = "PT";
-        toggleNext.textContent = "EN";
-        toggleBtn.setAttribute("aria-pressed", "true");
-      }
-    }
-
-    applyLang(current);
-
-    toggleBtn.addEventListener("click", function () {
-      current = current === "en" ? "pt" : "en";
-      applyLang(current);
     });
-  })();
-</script>
 
+    /* Spotify fallback */
+    const sp = document.getElementById('spEmbed');
+    if (sp) {
+      sp.addEventListener('error', () => { sp.style.display = 'none'; document.getElementById('spFb').style.display = 'block'; });
+      setTimeout(() => { try { if (sp.contentDocument && !sp.contentDocument.body.innerHTML) { sp.style.display = 'none'; document.getElementById('spFb').style.display = 'block'; } } catch(e){} }, 5000);
+    }
+  </script>
 </body>
 </html>
