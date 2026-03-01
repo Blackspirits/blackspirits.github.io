@@ -1,0 +1,24 @@
+{
+  "name": "Filipe Mota (BlackSpirits)",
+  "short_name": "BlackSpirits",
+  "description": "Programmer · Open-source contributor · pt-PT translator · Born to explore.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#11111b",
+  "theme_color": "#11111b",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
