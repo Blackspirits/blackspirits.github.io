@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Born to explore • Filipe Mota (BlackSpirits)</title>
-  <meta name="description" content="Personal landing page of Filipe Mota (BlackSpirits) — Programmer, open-source contributor, pt-PT translator. Born to explore.">
+  <meta name="description" content="Personal landing page of Filipe Mota (BlackSpirits) — Programmer, open-source contributor, pt-PT translator focused on automation, localization and media tooling.">
   <meta name="author" content="Filipe Mota">
   <meta name="theme-color" content="#11111b">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Filipe Mota (BlackSpirits)">
-  <meta property="og:description" content="Programmer · Open-source contributor · pt-PT translator · Born to explore.">
+  <meta property="og:description" content="Programmer · Open-source contributor · pt-PT translator · Automation, localization and media tooling.">
   <meta property="og:image" content="https://blackspirits.github.io/assets/og.png">
   <meta property="og:url" content="https://blackspirits.github.io/">
   <meta property="og:locale" content="en">
@@ -20,7 +20,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Filipe Mota (BlackSpirits)">
-  <meta name="twitter:description" content="Programmer · Open-source contributor · pt-PT translator">
+  <meta name="twitter:description" content="Programmer · Open-source contributor · pt-PT translator · Automation, localization and media tooling">
   <meta name="twitter:image" content="https://blackspirits.github.io/assets/og.png">
 
   <!-- Canonical -->
@@ -28,7 +28,7 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2311111b'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='18' font-weight='bold' fill='%23cba6f7' text-anchor='middle'%3EBS%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
@@ -139,7 +139,11 @@
       -webkit-text-fill-color: transparent; line-height: 1.25;
     }
     .hero__alias { font-size: clamp(.95rem, 3vw, 1.25rem); color: var(--overlay1); font-weight: 600; margin-top: 4px; }
-    .hero__tag { font-family: var(--sans); font-size: 1rem; font-weight: 700; color: var(--subtext1); margin-top: 10px; }
+    .hero__role {
+      font-family: var(--sans); font-size: .98rem; font-weight: 700; color: var(--subtext1);
+      margin-top: 10px;
+    }
+    .hero__tag { font-family: var(--sans); font-size: .98rem; font-weight: 700; color: var(--mauve); margin-top: 8px; }
 
     /* Lang toggle */
     .lang { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: .85rem; color: var(--overlay1); }
@@ -213,18 +217,32 @@
       background: var(--surface0); color: var(--subtext0);
     }
 
+    /* ---- Focus ---- */
+    .focus {
+      list-style: none; display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 18px;
+    }
+    @media (min-width: 520px) { .focus { grid-template-columns: 1fr 1fr; } }
+    .focus li {
+      background: var(--mantle); border: 1px solid var(--surface0); border-radius: 12px;
+      padding: 14px 16px; font-family: var(--sans); color: var(--subtext0);
+    }
+    .focus strong { display: block; font-family: var(--mono); color: var(--text); margin-bottom: 4px; font-size: .88rem; }
+
     /* ---- Link buttons ---- */
     .links { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; max-width: 380px; margin-left: auto; margin-right: auto; }
     .links a {
       display: block; background: var(--mantle); border: 1px solid var(--surface0);
-      border-radius: 12px; padding: 13px 20px; text-align: center;
-      font-family: var(--mono); font-size: .9rem; font-weight: 600; color: var(--subtext1);
+      border-radius: 12px; padding: 14px 18px; text-align: left;
       transition: background .2s, border-color .2s, color .2s, transform .15s, box-shadow .2s;
     }
+    .links__title { display: block; font-family: var(--mono); font-size: .9rem; font-weight: 700; color: var(--subtext1); }
+    .links__desc { display: block; margin-top: 3px; font-family: var(--sans); font-size: .8rem; color: var(--overlay1); line-height: 1.45; }
     .links a:hover {
       background: var(--surface0); border-color: var(--surface2); color: var(--text);
       transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.25);
     }
+    .links a:hover .links__title { color: var(--text); }
+    .links a:hover .links__desc { color: var(--subtext1); }
     .links a:focus-visible { outline: 2px solid var(--mauve); outline-offset: 2px; }
 
     /* ---- Footer ---- */
@@ -254,7 +272,8 @@
     <header class="hero fi">
       <h1 data-en="Hi, I'm Filipe Mota" data-pt="Olá, eu sou o Filipe Mota">Hi, I'm Filipe Mota</h1>
       <p class="hero__alias">(BlackSpirits)</p>
-      <p class="hero__tag" data-en="Born to explore 🌍" data-pt="Nascido para explorar 🌍">Born to explore 🌍</p>
+      <p class="hero__role" data-en="Programmer · Open-source contributor · pt-PT translator" data-pt="Programador · Contribuidor open-source · Tradutor pt-PT">Programmer · Open-source contributor · pt-PT translator</p>
+      <p class="hero__tag" data-en="Born to explore. Coded to connect. 🌍" data-pt="Nascido para explorar. Programado para ligar pessoas. 🌍">Born to explore. Coded to connect. 🌍</p>
       <div class="lang">
         <span data-en="Language:" data-pt="Idioma:">Language:</span>
         <button id="langBtn" type="button" aria-label="Switch language">EN ▸ PT</button>
@@ -288,7 +307,7 @@
     <div class="av-wrap fi">
       <picture>
         <source srcset="assets/avatar.webp" type="image/webp">
-        <img class="av" src="assets/avatar.png" alt="Avatar of Filipe Mota (BlackSpirits)" width="140" height="140">
+        <img class="av" src="assets/avatar.jpg" alt="Avatar of Filipe Mota (BlackSpirits)" width="140" height="140">
       </picture>
     </div>
 
@@ -313,6 +332,29 @@
       </div>
     </section>
 
+    <!-- Core focus -->
+    <section class="sec fi" aria-labelledby="h-focus">
+      <h2 id="h-focus" data-en="Core focus" data-pt="Foco principal">Core focus</h2>
+      <ul class="focus" role="list">
+        <li>
+          <strong data-en="Automation & scripting" data-pt="Automação e scripting">Automation & scripting</strong>
+          <span data-en="Browser automation, helpers and productivity workflows." data-pt="Automação no browser, ferramentas e workflows de produtividade.">Browser automation, helpers and productivity workflows.</span>
+        </li>
+        <li>
+          <strong data-en="Localization (pt-PT)" data-pt="Localização (pt-PT)">Localization (pt-PT)</strong>
+          <span data-en="Translation and review work focused on natural European Portuguese." data-pt="Tradução e revisão com foco em português europeu natural.">Translation and review work focused on natural European Portuguese.</span>
+        </li>
+        <li>
+          <strong data-en="Media platforms & metadata" data-pt="Plataformas de media e metadados">Media platforms & metadata</strong>
+          <span data-en="Subtitles, cataloguing, metadata quality and streaming-related tooling." data-pt="Legendas, catalogação, qualidade de metadados e ferramentas ligadas ao streaming.">Subtitles, cataloguing, metadata quality and streaming-related tooling.</span>
+        </li>
+        <li>
+          <strong data-en="Open-source tooling" data-pt="Ferramentas open-source">Open-source tooling</strong>
+          <span data-en="Practical tools and improvements shared with the community." data-pt="Ferramentas práticas e melhorias partilhadas com a comunidade.">Practical tools and improvements shared with the community.</span>
+        </li>
+      </ul>
+    </section>
+
     <!-- Projects -->
     <section class="sec fi" aria-labelledby="h-proj">
       <h2 id="h-proj" data-en="Projects" data-pt="Projetos">Projects</h2>
@@ -329,7 +371,7 @@
         </a>
         <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">
           <div class="proj__icon">
-            <img src="assets/logo.png" alt="Pipocas.tv" width="36" height="20" loading="lazy" style="filter: brightness(1.2);">
+            <img src="assets/pipocas.png" alt="Pipocas.tv" width="36" height="20" loading="lazy" style="filter: brightness(1.2);">
           </div>
           <div class="proj__name">Pipocas.tv</div>
           <div class="proj__desc" data-en="Portuguese subtitles community — a platform for subtitle sharing and collaboration." data-pt="Comunidade portuguesa de legendas — uma plataforma para partilha e colaboração de legendas.">Portuguese subtitles community — a platform for subtitle sharing and collaboration.</div>
@@ -346,9 +388,8 @@
     <section class="sec fi" aria-labelledby="h-ig">
       <h2 id="h-ig" data-en="From Instagram?" data-pt="Vieste do Instagram?">From Instagram?</h2>
       <div class="body tc">
-        <p data-en="If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects, platforms and contributions."
-           data-pt="Se chegaste aqui a partir do Instagram, bem-vindo.<br>É aqui que vive o meu lado mais técnico — scripts, projetos, plataformas e contributos.">
-          If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects, platforms and contributions.
+        <p data-html="true" data-en="If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects and contributions." data-pt="Se chegaste aqui a partir do Instagram, bem-vindo.<br>É aqui que vive o meu lado mais técnico — scripts, projetos e contributos.">
+          If you arrived here from Instagram, welcome.<br>This is where my technical side lives — scripts, projects and contributions.
         </p>
       </div>
       <p class="note" data-en="The same traveler, just in code form." data-pt="O mesmo viajante, só que em versão código.">
@@ -360,12 +401,12 @@
     <section class="sec fi" aria-labelledby="h-links">
       <h2 id="h-links" data-en="Connections" data-pt="Ligações">Connections</h2>
       <ul class="links" role="list">
-        <li><a href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a></li>
-        <li><a href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a></li>
-        <li><a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        <li><a href="https://simkl.com/598901/" target="_blank" rel="noopener noreferrer">Simkl</a></li>
-        <li><a href="mailto:blackspirits@gmail.com" data-en="Email" data-pt="E-mail">Email</a></li>
+        <li><a href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer"><span class="links__title">GitHub</span><span class="links__desc" data-en="Code, open-source projects and technical experiments." data-pt="Código, projetos open-source e experiências técnicas.">Code, open-source projects and technical experiments.</span></a></li>
+        <li><a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer"><span class="links__title">Pipocas.tv</span><span class="links__desc" data-en="Portuguese subtitles community platform." data-pt="Plataforma da comunidade portuguesa de legendas.">Portuguese subtitles community platform.</span></a></li>
+        <li><a href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer"><span class="links__title">TheTVDB</span><span class="links__desc" data-en="Metadata moderation and Portuguese title contributions." data-pt="Moderação de metadados e contributos para títulos em português.">Metadata moderation and Portuguese title contributions.</span></a></li>
+        <li><a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer"><span class="links__title">Instagram</span><span class="links__desc" data-en="Travel, moments and the more personal side." data-pt="Viagens, momentos e o lado mais pessoal.">Travel, moments and the more personal side.</span></a></li>
+        <li><a href="https://simkl.com/598901/" target="_blank" rel="noopener noreferrer"><span class="links__title">Simkl</span><span class="links__desc" data-en="What I watch — movies, series and more." data-pt="O que vejo — filmes, séries e mais.">What I watch — movies, series and more.</span></a></li>
+        <li><a href="mailto:blackspirits@gmail.com"><span class="links__title" data-en="Email" data-pt="E-mail">Email</span><span class="links__desc" data-en="For contact, questions or collaboration." data-pt="Para contacto, questões ou colaboração.">For contact, questions or collaboration.</span></a></li>
       </ul>
     </section>
 
@@ -381,23 +422,32 @@
     document.getElementById('yr').textContent = new Date().getFullYear();
 
     /* ── Language toggle ── */
-    let lang = 'en';
     const btn = document.getElementById('langBtn');
+    const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    let lang = localStorage.getItem('site-lang') || (browserLang.startsWith('pt') ? 'pt' : 'en');
 
     function applyLang(l) {
       document.documentElement.lang = l === 'en' ? 'en' : 'pt-PT';
       btn.textContent = l === 'en' ? 'EN ▸ PT' : 'PT ▸ EN';
+
       document.querySelectorAll('[data-en][data-pt]').forEach(el => {
-        const t = el.getAttribute(l === 'en' ? 'data-en' : 'data-pt');
-        // Use innerHTML for any content that contains HTML tags (real < not escaped)
-        el.innerHTML = t;
+        const t = el.getAttribute(l === 'en' ? 'data-en' : 'data-pt') || '';
+        if (el.dataset.html === 'true') {
+          el.innerHTML = t;
+        } else {
+          el.textContent = t;
+        }
       });
+
+      localStorage.setItem('site-lang', l);
     }
 
     btn.addEventListener('click', () => {
       lang = lang === 'en' ? 'pt' : 'en';
       applyLang(lang);
     });
+
+    applyLang(lang);
 
     /* ── Spotify fallback (only via error event — cross-origin makes contentDocument inaccessible) ── */
     const sp = document.getElementById('spEmbed');
