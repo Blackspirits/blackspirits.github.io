@@ -288,7 +288,7 @@
       <p class="hero__tag" data-en="Born to explore. Coded to connect. 🌍" data-pt="Nascido para explorar. 🌍">Born to explore. Coded to connect. 🌍</p>
       <div class="lang">
         <span data-en="Language:" data-pt="Idioma:">Language:</span>
-        <button id="langBtn" type="button" aria-label="Switch language" data-label-en="Switch language"data-label-pt="Mudar idioma">EN ▸ PT</button>
+        <button id="langBtn" type="button" aria-label="Switch language" data-label-en="Switch language" data-label-pt="Mudar idioma">EN ▸ PT</button>
       </div>
     </header>
 
@@ -508,7 +508,11 @@
     function applyLang(l) {
       document.documentElement.lang = l === 'en' ? 'en' : 'pt-PT';
       btn.textContent = l === 'en' ? 'EN ▸ PT' : 'PT ▸ EN';
-  
+      btn.setAttribute(
+        'aria-label',
+        l === 'en' ? btn.dataset.labelEn : btn.dataset.labelPt
+      );
+    
       document.querySelectorAll('[data-en][data-pt]').forEach(el => {
         const t = el.getAttribute(l === 'en' ? 'data-en' : 'data-pt') || '';
         if (el.dataset.html === 'true') {
@@ -517,7 +521,7 @@
           el.textContent = t;
         }
       });
-  
+    
       localStorage.setItem('site-lang', l);
     }
   
