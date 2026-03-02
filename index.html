@@ -28,7 +28,6 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
-  <link rel="icon" type="image/png" sizes="180x180" href="assets/apple-touch-icon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
@@ -256,6 +255,19 @@
 
     .tc { text-align: center; }
 
+    .year-hacker {
+      display: inline-block;
+      min-width: 4ch;
+      color: var(--mauve);
+      text-shadow: 0 0 8px rgba(203, 166, 247, 0.25);
+      transition: color .25s ease, text-shadow .25s ease;
+    }
+
+    .year-hacker-done {
+      color: var(--text);
+      text-shadow: 0 0 10px rgba(137, 180, 250, 0.18);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .fi { animation: none; opacity: 1; transform: none; }
       *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
@@ -307,7 +319,7 @@
     <div class="av-wrap fi">
       <picture>
         <source srcset="assets/avatar.webp" type="image/webp">
-        <img class="av" src="assets/avatar.jpg" alt="Avatar of Filipe Mota (BlackSpirits)" width="140" height="140">
+        <img class="av" src="assets/avatar.jpg" alt="Avatar of Filipe Mota (BlackSpirits)" width="140" height="140" fetchpriority="high">
       </picture>
     </div>
 
@@ -393,7 +405,7 @@
         </p>
       </div>
       <p class="note" data-en="The same traveler, just in code form." data-pt="O mesmo viajante, só que em versão código.">
-        <em>The same traveler, just in code form.</em>
+        The same traveler, just in code form.
       </p>
     </section>
 
@@ -415,11 +427,59 @@
   <!-- Footer -->
   <footer class="fi">
     <a href="#top" class="btt" data-en="↑ Back to top" data-pt="↑ Voltar ao topo">↑ Back to top</a>
-    <p>© <span id="yr"></span> BlackSpirits. <span data-en="Built with 💻, ❤️ &amp; ☕" data-pt="Feito com 💻, ❤️ &amp; ☕">Built with 💻, ❤️ &amp; ☕</span></p>
+    <p>© <span id="yr" class="year-hacker" aria-live="polite"></span> BlackSpirits. <span data-en="Built with 💻, ❤️ &amp; ☕" data-pt="Feito com 💻, ❤️ &amp; ☕">Built with 💻, ❤️ &amp; ☕</span></p>
   </footer>
 
   <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
+    
+  /* ── Footer year effect ── */
+  (function () {
+    const yearEl = document.getElementById('yr');
+    if (!yearEl) return;
+  
+    const currentYear = new Date().getFullYear();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+    if (prefersReducedMotion) {
+      yearEl.textContent = String(currentYear);
+      yearEl.classList.add('year-hacker-done');
+      return;
+    }
+  
+    let displayYear = currentYear - 1;
+    if (displayYear < 2000) displayYear = currentYear;
+  
+    yearEl.textContent = String(displayYear);
+  
+    const glitchFrames = 8;
+    let frame = 0;
+  
+    const glitchInterval = setInterval(() => {
+      yearEl.textContent = String(Math.floor(2000 + Math.random() * 100));
+      frame++;
+  
+      if (frame >= glitchFrames) {
+        clearInterval(glitchInterval);
+        startCountUp();
+      }
+    }, 70);
+  
+    function startCountUp() {
+      yearEl.textContent = String(displayYear);
+  
+      const stepInterval = setInterval(() => {
+        if (displayYear >= currentYear) {
+          clearInterval(stepInterval);
+          yearEl.textContent = String(currentYear);
+          yearEl.classList.add('year-hacker-done');
+          return;
+        }
+  
+        displayYear++;
+        yearEl.textContent = String(displayYear);
+      }, 280);
+    }
+  })();
 
     /* ── Language toggle ── */
     const btn = document.getElementById('langBtn');
