@@ -431,65 +431,84 @@
   </footer>
 
   <script>
-    
-  /* ── Footer year effect ── */
-  (function () {
-    const yearEl = document.getElementById('yr');
-    if (!yearEl) return;
+    /* ── Footer year effect ── */
+    (function () {
+      const yearEl = document.getElementById('yr');
+      if (!yearEl) return;
   
-    const currentYear = new Date().getFullYear();
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const currentYear = new Date().getFullYear();
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   
-    if (prefersReducedMotion) {
-      yearEl.textContent = String(currentYear);
-      yearEl.classList.add('year-hacker-done');
-      return;
-    }
-  
-    let displayYear = currentYear - 1;
-    if (displayYear < 2000) displayYear = currentYear;
-  
-    yearEl.textContent = String(displayYear);
-  
-    const glitchFrames = 8;
-    let frame = 0;
-  
-    const glitchInterval = setInterval(() => {
-      yearEl.textContent = String(Math.floor(2000 + Math.random() * 100));
-      frame++;
-  
-      if (frame >= glitchFrames) {
-        clearInterval(glitchInterval);
-        startCountUp();
+      if (prefersReducedMotion) {
+        yearEl.textContent = String(currentYear);
+        yearEl.classList.add('year-hacker-done');
+        return;
       }
-    }, 70);
   
-    function startCountUp() {
+      const fakeYears = [
+        1998, 2001, 2004, 2010, 2016, 2022, 2088, 2042, 2019, 2033, 2020, 2007
+      ];
+  
+      let displayYear = 1999;
       yearEl.textContent = String(displayYear);
   
-      const stepInterval = setInterval(() => {
-        if (displayYear >= currentYear) {
-          clearInterval(stepInterval);
-          yearEl.textContent = String(currentYear);
-          yearEl.classList.add('year-hacker-done');
-          return;
-        }
+      const glitchFrames = 18;
+      let glitchFrame = 0;
   
-        displayYear++;
+      // Fase 1 — glitch aleatório rápido
+      const glitchInterval = setInterval(() => {
+        yearEl.textContent = String(Math.floor(1995 + Math.random() * 120));
+        glitchFrame++;
+  
+        if (glitchFrame >= glitchFrames) {
+          clearInterval(glitchInterval);
+          startFakeSequence();
+        }
+      }, 90);
+  
+      // Fase 2 — mostra vários anos "falsos" de forma mais legível
+      function startFakeSequence() {
+        let index = 0;
+  
+        const fakeInterval = setInterval(() => {
+          yearEl.textContent = String(fakeYears[index]);
+          index++;
+  
+          if (index >= fakeYears.length) {
+            clearInterval(fakeInterval);
+            startCountUp();
+          }
+        }, 220);
+      }
+  
+      // Fase 3 — sobe lentamente até ao ano atual
+      function startCountUp() {
+        displayYear = 2018;
         yearEl.textContent = String(displayYear);
-      }, 280);
-    }
-  })();
-
+  
+        const stepInterval = setInterval(() => {
+          if (displayYear >= currentYear) {
+            clearInterval(stepInterval);
+            yearEl.textContent = String(currentYear);
+            yearEl.classList.add('year-hacker-done');
+            return;
+          }
+  
+          displayYear++;
+          yearEl.textContent = String(displayYear);
+        }, 650);
+      }
+    })();
+  
     /* ── Language toggle ── */
     const btn = document.getElementById('langBtn');
     const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
     let lang = localStorage.getItem('site-lang') || (browserLang.startsWith('pt') ? 'pt' : 'en');
-
+  
     function applyLang(l) {
       document.documentElement.lang = l === 'en' ? 'en' : 'pt-PT';
       btn.textContent = l === 'en' ? 'EN ▸ PT' : 'PT ▸ EN';
-
+  
       document.querySelectorAll('[data-en][data-pt]').forEach(el => {
         const t = el.getAttribute(l === 'en' ? 'data-en' : 'data-pt') || '';
         if (el.dataset.html === 'true') {
@@ -498,18 +517,18 @@
           el.textContent = t;
         }
       });
-
+  
       localStorage.setItem('site-lang', l);
     }
-
+  
     btn.addEventListener('click', () => {
       lang = lang === 'en' ? 'pt' : 'en';
       applyLang(lang);
     });
-
+  
     applyLang(lang);
-
-    /* ── Spotify fallback (only via error event — cross-origin makes contentDocument inaccessible) ── */
+  
+    /* ── Spotify fallback ── */
     const sp = document.getElementById('spEmbed');
     if (sp) {
       sp.addEventListener('error', () => {
