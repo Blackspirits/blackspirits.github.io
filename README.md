@@ -5,8 +5,7 @@
 
 <p align="center">
   <a href="https://blackspirits.github.io/">
-    <img alt="Website Status" src="https://img.shields.io/website?url=https%3A%2F%2Fblackspirits.github.io&style=flat-square&label=Status&logo=github&color=a6e3a1&up_message=Online&down_message=Offline" />
-  </a>
+    <img alt="Website Status" src="https://img.shields.io/website?url=https%3A%2F%2Fblackspirits.github.io&style=flat-square&label=Status&logo=github&color=a6e3a1&up_message=Online&down_message=Offline" /></a>
   <a href="LICENSE">
     <img alt="License" src="https://img.shields.io/github/license/Blackspirits/blackspirits.github.io?style=flat-square&color=cba6f7&label=License" />
   </a>
@@ -54,21 +53,6 @@ Built with a **back-to-basics** mindset — no frameworks, no build step, just c
 - 🎬 **Smooth Animations** — staggered section reveals
 - 🎵 **Spotify Embed** — with graceful fallback
 - 🧩 **Projects Section** — clean interactive cards
-
-<div align="center">
-  <img src="./assets/divider.svg" alt="" aria-hidden="true">
-</div>
-
-## ▶️ Run Locally
-
-No setup is required.
-
-```bash
-git clone https://github.com/Blackspirits/blackspirits.github.io.git
-cd blackspirits.github.io
-```
-
-Then open `index.html` in your browser.
 
 <div align="center">
   <img src="./assets/divider.svg" alt="" aria-hidden="true">
