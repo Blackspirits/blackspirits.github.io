@@ -29,9 +29,11 @@ My work sits at the intersection of **automation**, **localization**, **media to
 
 I develop and maintain [Pipocas.tv](https://pipocas.tv), a Portuguese subtitles community, and contribute to metadata and moderation work at [TheTVDB](https://thetvdb.com).
 
-The live site brings together selected projects, areas of focus, and useful links across my work in programming, localization, and media tooling.
+The live site brings together selected projects, focus areas, and useful links across my work.
 
----
+<div align="center">
+  <img src="./assets/divider.svg" alt="" aria-hidden="true">
+</div>
 
 ## Core Focus
 
@@ -40,9 +42,11 @@ The live site brings together selected projects, areas of focus, and useful link
 - **Media Tooling** — utilities and experiments related to metadata, subtitles, cataloging, and streaming workflows
 - **Open Source** — practical contributions, fixes, improvements, and community-driven collaboration
 
----
+<div align="center">
+  <img src="./assets/divider.svg" alt="" aria-hidden="true">
+</div>
 
-## Selected Work
+## Work Snapshot
 
 ### [**Pipocas.tv**](https://pipocas.tv)
 A Portuguese subtitles community focused on contribution, discovery, and accessibility.
@@ -58,7 +62,9 @@ Utilities, experiments, and automation around subtitles, cataloging, metadata wo
 
 More projects and links are available on the live site and GitHub profile.
 
----
+<div align="center">
+  <img src="./assets/divider.svg" alt="" aria-hidden="true">
+</div>
 
 ## Tech Stack
 
@@ -83,7 +89,9 @@ Built with a **back-to-basics** mindset — no frameworks, no build step, just c
 - **Minimal dependencies** — fast to load, easy to understand, and easy to evolve
 - **Project-first structure** — focused on identity, clarity, and discoverability
 
----
+<div align="center">
+  <img src="./assets/divider.svg" alt="" aria-hidden="true">
+</div>
 
 ## Philosophy
 
@@ -93,7 +101,9 @@ No unnecessary complexity.
 No heavy tooling for a small personal site.  
 Just a fast, maintainable, and accessible portfolio that reflects how I like to build: with clear structure, practical decisions, and room to evolve.
 
----
+<div align="center">
+  <img src="./assets/divider.svg" alt="" aria-hidden="true">
+</div>
 
 ## Local Development
 
@@ -106,14 +116,16 @@ python -m http.server
 ```
 Then open http://localhost:8000.
 
----
+<div align="center">
+  <img src="./assets/divider.svg" alt="" aria-hidden="true">
+</div>
 
 ## License
 
 - **Code:** MIT License — see [`LICENSE`](LICENSE)
 - **Branding, text, and media assets:** © Filipe Mota. All rights reserved.
 
-This includes personal bio text, avatars, Open Graph visuals, logos, and branding elements unless explicitly stated otherwise.
+This includes personal bio text, avatars, Open Graph assets, logos, and branding elements unless explicitly stated otherwise.
 
 You may reuse the code under the MIT License, but **personal identity assets and branding are not included in that permission**.
 
