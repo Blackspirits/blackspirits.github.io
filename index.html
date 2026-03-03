@@ -326,7 +326,7 @@
 
     <!-- Hero -->
     <header class="hero fi">
-      <h1 data-en="Hi, I'm Filipe Mota" data-pt="Olá, sou o Filipe Mota">Hi, I'm Filipe Mota</h1>
+      <h1 id="heroTitle" data-en="Hi, I'm Filipe Mota" data-pt="Olá, sou o Filipe Mota">Hi, I'm Filipe Mota</h1>
       <p class="hero__alias">(BlackSpirits)</p>
       <p class="hero__role" data-en="Programmer · Open-source contributor · pt-PT translator" data-pt="Programador · Contribuidor de código aberto · Tradutor pt-PT">Programmer · Open-source contributor · pt-PT translator</p>
       <p class="hero__sub"
@@ -541,23 +541,115 @@
     }
   })();
 
-  /* Language toggle */
+  <script>
+  /* Footer year effect */
+  (function () {
+    const yearEl = document.getElementById('yr');
+    if (!yearEl) return;
+
+    const currentYear = new Date().getFullYear();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      yearEl.textContent = String(currentYear);
+      yearEl.classList.add('year-hacker-done');
+      return;
+    }
+
+    const fakeYears = [1998, 2001, 2004, 2010, 2016, 2022, 2088, 2042, 2019, 2033, 2020, 2007];
+    let displayYear = 1999;
+    yearEl.textContent = String(displayYear);
+
+    const glitchFrames = 18;
+    let glitchFrame = 0;
+
+    const glitchInterval = setInterval(() => {
+      yearEl.textContent = String(Math.floor(1995 + Math.random() * 120));
+      glitchFrame++;
+      if (glitchFrame >= glitchFrames) {
+        clearInterval(glitchInterval);
+        startFakeSequence();
+      }
+    }, 90);
+
+    function startFakeSequence() {
+      let index = 0;
+      const fakeInterval = setInterval(() => {
+        yearEl.textContent = String(fakeYears[index]);
+        index++;
+        if (index >= fakeYears.length) {
+          clearInterval(fakeInterval);
+          startCountUp();
+        }
+      }, 220);
+    }
+
+    function startCountUp() {
+      displayYear = 2018;
+      yearEl.textContent = String(displayYear);
+      const stepInterval = setInterval(() => {
+        if (displayYear >= currentYear) {
+          clearInterval(stepInterval);
+          yearEl.textContent = String(currentYear);
+          yearEl.classList.add('year-hacker-done');
+          return;
+        }
+        displayYear++;
+        yearEl.textContent = String(displayYear);
+      }, 650);
+    }
+  })();
+
+  /* Language toggle + hero typing */
   const btn = document.getElementById('langBtn');
+  const heroTitle = document.getElementById('heroTitle');
   const browserLang = (navigator.language || 'en').toLowerCase();
   let savedLang = null;
+  let heroTypingTimer = null;
 
   try { savedLang = localStorage.getItem('site-lang'); } catch (e) {}
 
   let lang = savedLang || (browserLang.startsWith('pt') ? 'pt' : 'en');
 
+  function typeHeroTitle(text) {
+    if (!heroTitle) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    clearTimeout(heroTypingTimer);
+
+    if (prefersReducedMotion) {
+      heroTitle.textContent = text;
+      return;
+    }
+
+    heroTitle.textContent = '';
+    let index = 1;
+
+    function tick() {
+      heroTitle.textContent = text.slice(0, index);
+
+      if (index < text.length) {
+        index++;
+        heroTypingTimer = setTimeout(tick, 55);
+      }
+    }
+
+    tick();
+  }
+
   function applyLang(l) {
+    const attr = l === 'en' ? 'data-en' : 'data-pt';
+
     document.documentElement.lang = l === 'en' ? 'en' : 'pt-PT';
     btn.textContent = l === 'en' ? 'EN ▸ PT' : 'PT ▸ EN';
     btn.setAttribute('aria-label', l === 'en' ? btn.dataset.labelEn : btn.dataset.labelPt);
 
     document.querySelectorAll('[data-en][data-pt]').forEach(el => {
-      el.textContent = el.getAttribute(l === 'en' ? 'data-en' : 'data-pt') || '';
+      if (el === heroTitle) return;
+      el.textContent = el.getAttribute(attr) || '';
     });
+
+    typeHeroTitle(heroTitle.getAttribute(attr) || '');
 
     try { localStorage.setItem('site-lang', l); } catch (e) {}
   }
@@ -582,7 +674,6 @@
   if (sp && spFb) {
     sp.addEventListener('error', showSpotifyFallback);
 
-    // Handle silent iframe blocks (e.g. ad blockers)
     setTimeout(() => {
       const styles = window.getComputedStyle(sp);
       const hidden =
