@@ -128,7 +128,7 @@
     /* ---- Hero ---- */
     .hero { text-align: center; margin-bottom: 32px; }
     .hero h1 {
-      font-size: clamp(1.5rem, 5vw, 2.1rem); font-weight: 800;
+      font-size: clamp(1.5rem, 5vw, 2.1rem); font-weight: 800; min-height: 2.7em;
       background: linear-gradient(135deg, var(--mauve), var(--blue));
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; line-height: 1.25;
@@ -142,6 +142,9 @@
     .hero__sub {
       font-family: var(--sans); font-size: .95rem; color: var(--subtext0);
       max-width: 540px; margin: 14px auto 0; line-height: 1.75;
+    }
+    .hero-title-typing::after { content: '|'; margin-left: 4px; color: var(--mauve); -webkit-text-fill-color: var(--mauve); animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } 
     }
 
     /* ---- Hero CTAs ---- */
@@ -553,6 +556,7 @@
     const browserLang = (navigator.language || 'en').toLowerCase();
     let savedLang = null;
     let heroTypingTimer = null;
+    let heroCursorTimer = null;
   
     try {
       savedLang = localStorage.getItem('site-lang');
@@ -562,27 +566,34 @@
   
     function typeHeroTitle(text) {
       if (!heroTitle) return;
-  
+    
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       clearTimeout(heroTypingTimer);
-  
+      clearTimeout(heroCursorTimer);
+    
       if (prefersReducedMotion) {
         heroTitle.textContent = text;
+        heroTitle.classList.remove('hero-title-typing');
         return;
       }
-  
+    
+      heroTitle.classList.add('hero-title-typing');
       heroTitle.textContent = '';
       let index = 1;
-  
+    
       function tick() {
         heroTitle.textContent = text.slice(0, index);
-  
+    
         if (index < text.length) {
           index++;
-          heroTypingTimer = setTimeout(tick, 55);
+          heroTypingTimer = setTimeout(tick, 75);
+        } else {
+          heroCursorTimer = setTimeout(() => {
+            heroTitle.classList.remove('hero-title-typing');
+          }, 900);
         }
       }
-  
+    
       tick();
     }
   
