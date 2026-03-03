@@ -146,35 +146,37 @@
 
     /* ---- Hero CTAs ---- */
     .hero__ctas {
-      display: flex; justify-content: center; gap: 12px;
-      margin-top: 24px; flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
     }
-    .cta-primary, .cta-secondary {
-      font-family: var(--mono); font-size: .88rem; font-weight: 700;
-      padding: 10px 24px; border-radius: 10px; cursor: pointer;
-      text-decoration: none; transition: transform .18s, box-shadow .18s, background .18s, border-color .18s;
-      display: inline-block;
-    }
-    .cta-primary {
-      background: linear-gradient(135deg, var(--mauve), var(--blue));
-      color: var(--crust); border: none;
-      box-shadow: 0 2px 16px rgba(203,166,247,.25);
-    }
-    .cta-primary:hover, .cta-primary:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(203,166,247,.4);
-      color: var(--crust);
-    }
+    
     .cta-secondary {
-      background: transparent; color: var(--subtext1);
+      font-family: var(--mono);
+      font-size: .88rem;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      background: transparent;
+      color: var(--subtext1);
       border: 1px solid var(--surface1);
+      transition: transform .18s, background .18s, border-color .18s, color .18s;
     }
-    .cta-secondary:hover, .cta-secondary:focus-visible {
-      background: var(--surface0); border-color: var(--surface2);
-      color: var(--text); transform: translateY(-2px);
+    
+    .cta-secondary:hover,
+    .cta-secondary:focus-visible {
+      background: var(--surface0);
+      border-color: var(--surface2);
+      color: var(--text);
+      transform: translateY(-2px);
     }
-    .cta-primary:focus-visible, .cta-secondary:focus-visible {
-      outline: 2px solid var(--mauve); outline-offset: 2px;
+    
+    .cta-secondary:focus-visible {
+      outline: 2px solid var(--mauve);
+      outline-offset: 2px;
     }
 
     /* Lang toggle */
@@ -284,8 +286,9 @@
       font-family: var(--sans); font-size: .82rem; color: var(--overlay0);
       max-width: 420px; line-height: 1.6;
     }
-    .ig-note a { color: var(--overlay1); }
-    .ig-note a:hover { color: var(--mauve); }
+    .ig-note a { color: var(--mauve); }
+    .ig-note a:hover,
+    .ig-note a:focus-visible { color: var(--lavender); }
 
     /* ---- Footer ---- */
     footer {
@@ -335,7 +338,6 @@
 
       <!-- CTAs -->
       <div class="hero__ctas">
-        <a href="#h-proj" class="cta-primary" data-en="View Projects" data-pt="Ver Projetos">View Projects</a>
         <a href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer" class="cta-secondary">GitHub →</a>
       </div>
 
