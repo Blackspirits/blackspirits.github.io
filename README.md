@@ -6,8 +6,8 @@
 <p align="center">
   <a href="https://blackspirits.github.io/">
     <img alt="Website Status" src="https://img.shields.io/website?url=https%3A%2F%2Fblackspirits.github.io&labelColor=313244&style=flat-square&label=Status&logo=github&color=a6e3a1&up_message=Online&down_message=Offline" /></a>
-  <a href="LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/Blackspirits/blackspirits.github.io?style=flat-square&color=cba6f7&label=License&labelColor=313244" />
+  <a href="./LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-a6e3a1?style=flat-square&color=cba6f7&labelColor=313244&logo=readthedocs&logoColor=cdd6f4"></a>
   </a>
 </p>
 
