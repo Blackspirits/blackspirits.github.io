@@ -347,7 +347,16 @@
     <div class="av-wrap fi">
       <picture>
         <source srcset="assets/avatar.webp" type="image/webp">
-        <img class="av" src="assets/avatar.jpg" alt="Avatar of Filipe Mota (BlackSpirits)" width="140" height="140" fetchpriority="high">
+        <img
+          class="av"
+          src="assets/avatar.jpg"
+          alt="Avatar of Filipe Mota (BlackSpirits)"
+          data-alt-en="Avatar of Filipe Mota (BlackSpirits)"
+          data-alt-pt="Avatar do Filipe Mota (BlackSpirits)"
+          width="140"
+          height="140"
+          fetchpriority="high"
+        >
       </picture>
     </div>
 
@@ -407,22 +416,36 @@
     <section class="sec fi" aria-labelledby="h-about">
       <h2 id="h-about" data-en="About" data-pt="Sobre">About</h2>
       <div class="body">
-        <p data-en="I'm a programmer, open-source contributor, and translator/reviewer focused on European Portuguese (pt-PT)."
-           data-pt="Sou programador, contribuidor de código aberto e tradutor/revisor com foco em português europeu (pt-PT).">
-          I'm a programmer, open-source contributor, and translator/reviewer focused on European Portuguese (pt-PT).
-        </p>
-        <p data-en="My work sits at the intersection of automation, localization, media tooling, and clean web experiences."
-           data-pt="O meu trabalho cruza automação, localização, metadados, conteúdos multimédia e experiências web limpas.">
-          My work sits at the intersection of automation, localization, media tooling, and clean web experiences.
-        </p>
         <p>
-          <span data-en="I develop and maintain" data-pt="Desenvolvo e mantenho o">I develop and maintain</span>
-          <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a>
-          <span data-en="and contribute to metadata and moderation work at" data-pt="e contribuo para metadados e moderação no">and contribute to metadata and moderation work at</span>
-          <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.
+          <span data-en="I’m Filipe Mota, also known as " data-pt="Sou o Filipe Mota, também conhecido como ">
+            I’m Filipe Mota, also known as
+          </span>
+          <strong>BlackSpirits</strong>
+          <span data-en=" — a programmer, open-source contributor, and translator/reviewer focused on " data-pt=" — programador, contribuidor de código aberto e tradutor/revisor com foco em ">
+            — a programmer, open-source contributor, and translator/reviewer focused on
+          </span>
+          <strong data-en="European Portuguese (pt-PT)" data-pt="português europeu (pt-PT)">
+            European Portuguese (pt-PT)
+          </strong>.
         </p>
-      </div>
-    </section>
+    
+        <p data-en="I like building practical tools, improving workflows, refining interfaces, and contributing to projects that solve real problems for real users."
+           data-pt="Gosto de criar ferramentas práticas, melhorar fluxos de trabalho, refinar interfaces e contribuir para projetos que resolvem problemas reais de pessoas reais.">
+          I like building practical tools, improving workflows, refining interfaces, and contributing to projects that solve real problems for real users.
+        </p>
+
+    <p>
+      <span data-en="I develop and maintain " data-pt="Desenvolvo e mantenho ">
+        I develop and maintain
+      </span>
+      <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a>
+      <span data-en=" and contribute to metadata and moderation work at " data-pt=" e contribuo para trabalho de metadados e moderação no ">
+        and contribute to metadata and moderation work at
+      </span>
+      <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.
+    </p>
+  </div>
+</section>
 
     <!-- Links -->
     <section class="sec fi" aria-labelledby="h-links">
@@ -445,7 +468,9 @@
         height="152"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
-        title="Spotify playlist — BlackSpirits"
+        title="Spotify playlist — BlackSpirits • Coding & Travel"
+        data-title-en="Spotify playlist — BlackSpirits • Coding & Travel"
+        data-title-pt="Playlist do Spotify — BlackSpirits • Coding & Travel"
       ></iframe>
       <div class="spotify-fb" id="spFb">
         🎵 <span data-en="Playlist temporarily unavailable" data-pt="Playlist temporariamente indisponível">Playlist temporarily unavailable</span>
@@ -593,6 +618,14 @@
       document.querySelectorAll('[data-en][data-pt]').forEach(el => {
         if (el === heroTitle) return;
         el.textContent = el.getAttribute(attr) || '';
+      });
+      
+      document.querySelectorAll('[data-alt-en][data-alt-pt]').forEach(el => {
+        el.setAttribute('alt', l === 'en' ? el.dataset.altEn : el.dataset.altPt);
+      });
+      
+      document.querySelectorAll('[data-title-en][data-title-pt]').forEach(el => {
+        el.setAttribute('title', l === 'en' ? el.dataset.titleEn : el.dataset.titlePt);
       });
   
       typeHeroTitle(heroTitle.getAttribute(attr) || '');
