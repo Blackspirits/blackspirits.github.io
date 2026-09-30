@@ -3,51 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Born to explore • Filipe Mota (BlackSpirits)</title>
-  <meta name="description" content="Personal landing page of Filipe Mota (BlackSpirits) — Programmer, open-source contributor, pt-PT translator focused on automation, localization and media tooling.">
+  <title>Filipe Mota (BlackSpirits) — Developer, Open Source & pt-PT Localization</title>
+  <meta name="description" content="Portfolio of Filipe Mota (BlackSpirits): developer, open-source contributor and European Portuguese (pt-PT) translator/reviewer focused on automation, localization and media tooling.">
   <meta name="author" content="Filipe Mota">
   <meta name="theme-color" content="#11111b">
+  <meta name="color-scheme" content="dark">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Filipe Mota (BlackSpirits)">
-  <meta property="og:description" content="Programmer · Open-source contributor · pt-PT translator · Automation, localization and media tooling.">
+  <meta property="og:description" content="Developer · Open-source contributor · pt-PT translator/reviewer · Automation, localization and media tooling.">
   <meta property="og:image" content="https://blackspirits.github.io/assets/og.png">
   <meta property="og:url" content="https://blackspirits.github.io/">
-  <meta property="og:locale" content="en">
+  <meta property="og:site_name" content="BlackSpirits">
+  <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="pt_PT">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Filipe Mota (BlackSpirits)">
-  <meta name="twitter:description" content="Programmer · Open-source contributor · pt-PT translator · Automation, localization and media tooling">
+  <meta name="twitter:description" content="Developer · Open-source contributor · pt-PT translator/reviewer · Automation, localization and media tooling.">
   <meta name="twitter:image" content="https://blackspirits.github.io/assets/og.png">
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://blackspirits.github.io/">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" sizes="32x32" href="assets/favicon.jpg">
+  <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://open.spotify.com">
-  <link rel="dns-prefetch" href="https://open.spotify.com">
-
-  <!-- Preload LCP -->
   <link rel="preload" as="image" href="assets/avatar.webp" type="image/webp">
 
-  <!-- JSON-LD structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Filipe Mota",
     "alternateName": "BlackSpirits",
-    "url": "https://blackspirits.github.io",
-    "email": "blackspirits@gmail.com",
-    "jobTitle": "Programmer & Open-source Contributor",
+    "url": "https://blackspirits.github.io/",
+    "email": "mailto:blackspirits@gmail.com",
+    "jobTitle": "Developer, Open-source Contributor and pt-PT Translator/Reviewer",
     "knowsLanguage": ["en", "pt-PT"],
     "sameAs": [
       "https://github.com/BlackSpirits",
@@ -60,611 +50,298 @@
   </script>
 
   <style>
-    /* =============================================
-       Catppuccin Mocha
-       ============================================= */
     :root {
-      --crust:    #11111b;
-      --base:     #1e1e2e;
-      --mantle:   #181825;
-      --surface0: #313244;
-      --surface1: #45475a;
-      --surface2: #585b70;
-      --overlay0: #6c7086;
-      --overlay1: #7f849c;
-      --subtext0: #a6adc8;
-      --subtext1: #bac2de;
-      --text:     #cdd6f4;
-      --lavender: #b4befe;
-      --blue:     #89b4fa;
-      --mauve:    #cba6f7;
-
-      --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      --sans: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
-      --max-w: 620px;
+      --crust:#11111b; --base:#1e1e2e; --mantle:#181825;
+      --surface0:#313244; --surface1:#45475a; --surface2:#585b70;
+      --overlay0:#6c7086; --overlay1:#7f849c; --subtext0:#a6adc8;
+      --subtext1:#bac2de; --text:#cdd6f4; --lavender:#b4befe;
+      --blue:#89b4fa; --mauve:#cba6f7; --peach:#fab387; --teal:#94e2d5;
+      --mono:'SF Mono','Fira Code','Cascadia Code','JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      --sans:'Segoe UI',system-ui,-apple-system,Roboto,'Helvetica Neue',Arial,sans-serif;
+      --max-w:980px;
     }
 
-    /* Reset */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:var(--sans);background:var(--crust);color:var(--text);line-height:1.7;min-height:100dvh;overflow-x:hidden}
+    a{color:var(--mauve);text-decoration:none}
+    a:hover{color:var(--lavender)}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--mauve);outline-offset:3px;border-radius:6px}
+    img{max-width:100%;height:auto;display:block}
 
-    body {
-      font-family: var(--mono);
-      background: var(--crust);
-      color: var(--text);
-      line-height: 1.7;
-      min-height: 100dvh;
-      overflow-x: hidden;
-    }
+    .skip{position:absolute;top:-100%;left:16px;background:var(--mauve);color:var(--crust);padding:8px 16px;border-radius:0 0 8px 8px;font-weight:700;z-index:50}
+    .skip:focus{top:0}
 
-    a { color: var(--mauve); text-decoration: none; transition: color .2s; }
-    a:hover, a:focus-visible { color: var(--lavender); }
-    a:focus-visible { outline: 2px solid var(--mauve); outline-offset: 2px; border-radius: 4px; }
-    img { max-width: 100%; height: auto; display: block; }
+    main{max-width:var(--max-w);margin:0 auto;padding:42px 24px 24px}
+    .hero{text-align:center;max-width:800px;margin:0 auto 36px}
+    .eyebrow{font:700 .78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mauve);margin-bottom:12px}
+    .hero h1{font:800 clamp(2rem,7vw,4.25rem)/1.04 var(--sans);letter-spacing:-.04em}
+    .hero h1 span{background:linear-gradient(135deg,var(--mauve),var(--blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero__role{font:700 clamp(.95rem,2vw,1.15rem) var(--mono);color:var(--subtext1);margin-top:18px}
+    .hero__intro{max-width:680px;margin:18px auto 0;color:var(--subtext0);font-size:1.02rem}
+    .hero__tag{margin-top:12px;color:var(--mauve);font-weight:700}
+    .hero__actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border-radius:10px;border:1px solid var(--surface1);font:700 .85rem var(--mono);transition:.18s ease}
+    .btn--primary{background:var(--mauve);border-color:var(--mauve);color:var(--crust)}
+    .btn--primary:hover{background:var(--lavender);border-color:var(--lavender);color:var(--crust);transform:translateY(-2px)}
+    .btn--secondary{color:var(--subtext1);background:var(--mantle)}
+    .btn--secondary:hover{background:var(--surface0);color:var(--text);transform:translateY(-2px)}
+    .lang{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:18px;color:var(--overlay1);font:.8rem var(--mono)}
+    .lang button{border:1px solid var(--surface1);background:var(--surface0);color:var(--subtext1);border-radius:999px;padding:5px 12px;font:700 .76rem var(--mono);cursor:pointer}
 
-    /* Skip link */
-    .skip { position: absolute; top: -100%; left: 16px; background: var(--mauve); color: var(--crust); padding: 8px 16px; border-radius: 0 0 8px 8px; font-weight: 700; z-index: 100; transition: top .2s; }
-    .skip:focus { top: 0; }
+    .identity{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;max-width:720px;margin:34px auto 48px;padding:20px;background:var(--mantle);border:1px solid var(--surface0);border-radius:16px}
+    .avatar{width:116px;height:116px;border-radius:50%;object-fit:cover;border:3px solid transparent;background:linear-gradient(var(--mantle),var(--mantle)) padding-box,linear-gradient(135deg,var(--mauve),var(--blue),var(--peach)) border-box}
+    .identity__copy{color:var(--subtext0)}
+    .identity__copy strong{color:var(--text)}
+    .identity__micro{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{display:inline-flex;align-items:center;padding:4px 9px;border-radius:999px;background:var(--surface0);color:var(--subtext0);font:600 .72rem var(--mono)}
 
-    /* Layout */
-    main { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px 32px; }
+    .proof{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 auto 56px}
+    .metric{background:var(--mantle);border:1px solid var(--surface0);border-radius:14px;padding:16px;text-align:center}
+    .metric strong{display:block;font:800 clamp(1.35rem,4vw,2rem) var(--mono);color:var(--text)}
+    .metric span{display:block;margin-top:4px;color:var(--overlay1);font-size:.78rem}
 
-    /* Fade-in */
-    .fi { opacity: 0; transform: translateY(18px); animation: up .55s ease forwards; }
-    @keyframes up { to { opacity: 1; transform: translateY(0); } }
-    .fi:nth-child(1)  { animation-delay: .04s; }
-    .fi:nth-child(2)  { animation-delay: .10s; }
-    .fi:nth-child(3)  { animation-delay: .16s; }
-    .fi:nth-child(4)  { animation-delay: .22s; }
-    .fi:nth-child(5)  { animation-delay: .28s; }
-    .fi:nth-child(6)  { animation-delay: .34s; }
-    .fi:nth-child(7)  { animation-delay: .40s; }
-    .fi:nth-child(8)  { animation-delay: .46s; }
-    .fi:nth-child(9)  { animation-delay: .52s; }
-    .fi:nth-child(10) { animation-delay: .58s; }
-    .fi:nth-child(11) { animation-delay: .64s; }
-    .fi:nth-child(12) { animation-delay: .70s; }
+    .section{margin:0 0 64px}
+    .section__head{text-align:center;max-width:650px;margin:0 auto 22px}
+    .section__head h2{font:800 clamp(1.5rem,4vw,2rem) var(--sans);letter-spacing:-.02em}
+    .section__head p{margin-top:8px;color:var(--subtext0)}
+    .section__kicker{font:700 .74rem var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--mauve);margin-bottom:5px}
 
-    /* ---- Hero ---- */
-    .hero { text-align: center; margin-bottom: 32px; }
-    .hero h1 {
-      font-size: clamp(1.5rem, 5vw, 2.1rem); font-weight: 800; min-height: 2.7em;
-      background: linear-gradient(135deg, var(--mauve), var(--blue));
-      -webkit-background-clip: text; background-clip: text;
-      -webkit-text-fill-color: transparent; line-height: 1.25;
-    }
-    .hero__alias { font-size: clamp(.95rem, 3vw, 1.25rem); color: var(--overlay1); font-weight: 600; margin-top: 4px; }
-    .hero__role {
-      font-family: var(--sans); font-size: .98rem; font-weight: 700; color: var(--subtext1);
-      margin-top: 10px;
-    }
-    .hero__tag { font-family: var(--sans); font-size: .98rem; font-weight: 700; color: var(--mauve); margin-top: 8px; }
-    .hero__sub {
-      font-family: var(--sans); font-size: .95rem; color: var(--subtext0);
-      max-width: 540px; margin: 14px auto 0; line-height: 1.75;
-    }
-    .hero-title-typing::after { content: '|'; margin-left: 4px; color: var(--mauve); -webkit-text-fill-color: var(--mauve); animation: blink 1s steps(1) infinite; }
-    @keyframes blink { 50% { opacity: 0; } 
-    }
+    .work{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:var(--mantle);border:1px solid var(--surface0);border-radius:14px;padding:18px;display:flex;flex-direction:column;min-height:100%;transition:.18s ease}
+    .card:hover{border-color:var(--surface2);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.2)}
+    .card__top{display:flex;align-items:center;gap:10px;min-height:28px}
+    .card__icon{font-size:1.3rem}
+    .card__logo{max-width:26px;max-height:22px;object-fit:contain}
+    .card h3{font:800 .95rem var(--mono);color:var(--text)}
+    .card p{color:var(--overlay1);font-size:.85rem;line-height:1.6;margin-top:10px;flex:1}
+    .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+    .tag{padding:3px 8px;border-radius:6px;background:var(--surface0);color:var(--subtext0);font:600 .65rem var(--mono)}
+    .card__cta{margin-top:14px;color:var(--mauve);font:700 .75rem var(--mono)}
 
-    /* ---- Hero CTAs ---- */
-    .hero__ctas {
-      display: flex;
-      justify-content: center;
-      margin-top: 24px;
-    }
-    
-    .cta-secondary {
-      font-family: var(--mono); font-size: .88rem; font-weight: 700;
-      padding: 10px 24px; border-radius: 10px; cursor: pointer;
-      text-decoration: none; display: inline-block;
-      background: transparent; color: var(--subtext1);
-      border: 1px solid var(--surface1);
-      transition: transform .18s, background .18s, border-color .18s, color .18s;
-    }
-    .cta-secondary:hover, .cta-secondary:focus-visible {
-      background: var(--surface0); border-color: var(--surface2);
-      color: var(--text); transform: translateY(-2px);
-    }
-    .cta-secondary:focus-visible { outline: 2px solid var(--mauve); outline-offset: 2px; }
+    .localization{background:linear-gradient(145deg,var(--mantle),rgba(30,30,46,.7));border:1px solid var(--surface0);border-radius:18px;padding:24px}
+    .localization__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start}
+    .localization h3{font-size:1.25rem}
+    .localization p{color:var(--subtext0);margin-top:10px}
+    .principles{list-style:none;margin-top:15px;display:grid;gap:8px}
+    .principles li{padding-left:18px;position:relative;color:var(--subtext0);font-size:.9rem}
+    .principles li::before{content:'→';position:absolute;left:0;color:var(--mauve);font-family:var(--mono)}
+    .logos{display:flex;flex-wrap:wrap;gap:8px}
+    .logo-chip{padding:7px 10px;border:1px solid var(--surface0);border-radius:8px;background:var(--base);color:var(--subtext1);font:700 .72rem var(--mono)}
 
-    /* Lang toggle */
-    .lang { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: .85rem; color: var(--overlay1); }
-    .lang button {
-      background: var(--surface0); border: 1px solid var(--surface1); color: var(--subtext1);
-      padding: 5px 14px; border-radius: 20px; font-family: var(--mono); font-size: .8rem;
-      font-weight: 600; cursor: pointer; transition: background .2s, border-color .2s, transform .15s;
-    }
-    .lang button:hover { background: var(--surface1); border-color: var(--surface2); transform: scale(1.04); }
-    .lang button:focus-visible { outline: 2px solid var(--mauve); outline-offset: 2px; }
+    .focus{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .focus article{background:var(--mantle);border:1px solid var(--surface0);border-radius:12px;padding:16px}
+    .focus h3{font:800 .9rem var(--mono)}
+    .focus p{color:var(--overlay1);font-size:.85rem;margin-top:5px}
 
-    /* Bio card */
-    .bio {
-      background: var(--mantle); border: 1px solid var(--surface0); border-radius: 12px;
-      padding: 16px 24px; margin: 20px auto 0; max-width: 360px; text-align: center;
-      font-family: var(--sans); font-size: .9rem; color: var(--subtext0); line-height: 1.8;
-    }
+    .offclock{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .offclock a{background:var(--mantle);border:1px solid var(--surface0);border-radius:12px;padding:16px;display:block}
+    .offclock strong{display:block;color:var(--text);font:800 .88rem var(--mono)}
+    .offclock span{display:block;color:var(--overlay1);font-size:.8rem;margin-top:4px}
 
-    /* ---- Spotify ---- */
-    .spotify { margin: 28px auto 0; max-width: 400px; border-radius: 12px; overflow: hidden; }
-    .spotify--spaced { margin-bottom: 48px; }
-    .spotify iframe { display: block; width: 100%; border: none; border-radius: 12px; }
-    .spotify-fb { display: none; background: var(--mantle); border: 1px solid var(--surface0);
-      border-radius: 12px; padding: 20px; text-align: center; color: var(--overlay1); font-size: .85rem; }
-    .spotify-link { text-align: center; margin-top: 8px; font-family: var(--sans); font-size: .78rem; }
-    .spotify-link a { color: var(--overlay1); }
-    .spotify-link a:hover, .spotify-link a:focus-visible { color: var(--mauve); }
-    
-    /* ---- Avatar ---- */
-    .av-wrap { display: flex; justify-content: center; margin: 36px 0 40px; }
-    .av {
-      width: 140px; height: 140px; border-radius: 50%;
-      border: 3px solid transparent;
-      background: linear-gradient(var(--crust), var(--crust)) padding-box,
-                  linear-gradient(135deg, var(--mauve), var(--blue), var(--mauve)) border-box;
-      box-shadow: 0 0 40px rgba(203,166,247,.25), 0 0 80px rgba(137,180,250,.12);
-      transition: box-shadow .3s, transform .3s; object-fit: cover;
-    }
-    .av:hover { box-shadow: 0 0 50px rgba(203,166,247,.4), 0 0 100px rgba(137,180,250,.2); transform: scale(1.04); }
+    .contact{padding:28px;border:1px solid var(--surface0);border-radius:18px;background:var(--mantle);text-align:center}
+    .contact p{max-width:600px;margin:8px auto 0;color:var(--subtext0)}
+    .contact .hero__actions{margin-top:20px}
 
-    /* ---- Sections ---- */
-    .sec { margin-bottom: 48px; }
-    .sec h2 {
-      font-family: var(--mono); font-size: 1.3rem; font-weight: 800;
-      text-align: center; color: var(--mauve); margin-bottom: 8px; width: 100%;
-    }
-    .sec h2::after {
-      content: ''; display: block; width: 80px; height: 2px; margin: 6px auto 0;
-      background: linear-gradient(90deg, transparent, var(--mauve), transparent); opacity: .5;
-    }
-    .body { font-family: var(--sans); font-size: .95rem; color: var(--subtext0); line-height: 1.8; margin-top: 18px; }
-    .body p + p { margin-top: 14px; }
+    footer{text-align:center;padding:30px 24px 26px;color:var(--overlay0);font-size:.78rem;border-top:1px solid var(--surface0);margin-top:20px}
+    .btt{display:inline-block;margin-bottom:12px;font:700 .75rem var(--mono)}
 
-    /* ---- Projects ---- */
-    .proj { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
-    @media (min-width: 480px) { .proj { grid-template-columns: 1fr 1fr; } }
-    .proj a {
-      background: var(--mantle); border: 1px solid var(--surface0); border-radius: 12px;
-      padding: 18px; transition: border-color .2s, transform .2s, box-shadow .2s;
-      text-decoration: none; display: block;
-    }
-    .proj a:hover { border-color: var(--surface2); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,.3); }
-    .proj__icon { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .proj__icon img { border-radius: 4px; }
-    .proj__logo { filter: brightness(1.2); }
-    .proj__name { font-family: var(--mono); font-size: .9rem; font-weight: 700; color: var(--text); }
-    .proj__desc { font-family: var(--sans); font-size: .8rem; color: var(--overlay1); margin-top: 4px; line-height: 1.5; }
-    .proj__tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 4px; }
-    .proj__tag {
-      font-family: var(--mono); font-size: .65rem; font-weight: 600;
-      padding: 2px 8px; border-radius: 6px;
-      background: var(--surface0); color: var(--subtext0);
-    }
+    .fi{opacity:0;transform:translateY(14px);animation:up .5s ease forwards}
+    @keyframes up{to{opacity:1;transform:none}}
+    .fi:nth-child(2){animation-delay:.05s}.fi:nth-child(3){animation-delay:.1s}.fi:nth-child(4){animation-delay:.15s}
 
-    /* ---- Focus ---- */
-    .focus {
-      list-style: none; display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 18px;
+    @media (max-width:800px){
+      .proof{grid-template-columns:repeat(2,1fr)}
+      .work,.offclock{grid-template-columns:1fr}
+      .localization__grid{grid-template-columns:1fr}
     }
-    @media (min-width: 520px) { .focus { grid-template-columns: 1fr 1fr; } }
-    .focus li {
-      background: var(--mantle); border: 1px solid var(--surface0); border-radius: 12px;
-      padding: 14px 16px; font-family: var(--sans); color: var(--subtext0);
+    @media (max-width:560px){
+      main{padding:32px 16px 20px}
+      .identity{grid-template-columns:1fr;text-align:center}
+      .avatar{margin:0 auto}
+      .identity__micro{justify-content:center}
+      .focus{grid-template-columns:1fr}
     }
-    .focus strong { display: block; font-family: var(--mono); color: var(--text); margin-bottom: 4px; font-size: .88rem; }
-
-    /* ---- Link buttons ---- */
-    .links { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 18px; max-width: 380px; margin-left: auto; margin-right: auto; }
-    .links a {
-      display: block; background: var(--mantle); border: 1px solid var(--surface0);
-      border-radius: 12px; padding: 14px 18px; text-align: left;
-      transition: background .2s, border-color .2s, color .2s, transform .15s, box-shadow .2s;
-    }
-    .links__title { display: block; font-family: var(--mono); font-size: .9rem; font-weight: 700; color: var(--subtext1); }
-    .links__desc { display: block; margin-top: 3px; font-family: var(--sans); font-size: .8rem; color: var(--overlay1); line-height: 1.45; }
-    .links a:hover {
-      background: var(--surface0); border-color: var(--surface2); color: var(--text);
-      transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.25);
-    }
-    .links a:hover .links__title { color: var(--text); }
-    .links a:hover .links__desc { color: var(--subtext1); }
-    .links a:focus-visible { outline: 2px solid var(--mauve); outline-offset: 2px; }
-
-    /* ---- Instagram note ---- */
-    .ig-note {
-      text-align: center; margin: 0 auto 40px;
-      font-family: var(--sans); font-size: .82rem; color: var(--overlay0);
-      max-width: 420px; line-height: 1.6;
-    }
-    .ig-note a { color: var(--mauve); }
-    .ig-note a:hover,
-    .ig-note a:focus-visible { color: var(--lavender); }
-
-    /* ---- Footer ---- */
-    footer {
-      text-align: center; padding: 32px 24px 24px;
-      font-family: var(--sans); font-size: .78rem; color: var(--overlay0);
-      border-top: 1px solid var(--surface0); margin-top: 16px;
-    }
-    .btt { display: inline-block; margin-bottom: 14px; font-family: var(--mono); font-size: .75rem; color: var(--overlay1); transition: color .2s; }
-    .btt:hover { color: var(--mauve); }
-
-    .year-hacker {
-      display: inline-block;
-      min-width: 4ch;
-      color: var(--mauve);
-      text-shadow: 0 0 8px rgba(203, 166, 247, 0.25);
-      transition: color .25s ease, text-shadow .25s ease;
-    }
-
-    .year-hacker-done {
-      color: var(--text);
-      text-shadow: 0 0 10px rgba(137, 180, 250, 0.18);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .fi { animation: none; opacity: 1; transform: none; }
-      *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .fi{opacity:1;transform:none;animation:none}
+      *,*::before,*::after{transition:none!important;animation:none!important}
     }
   </style>
 </head>
-
 <body id="top">
   <a href="#main" class="skip" data-en="Skip to main content" data-pt="Saltar para o conteúdo principal">Skip to main content</a>
 
   <main id="main">
-
-    <!-- Hero -->
     <header class="hero fi">
-      <h1 id="heroTitle" data-en="Hi, I'm Filipe Mota" data-pt="Olá, sou o Filipe Mota">Hi, I'm Filipe Mota</h1>
-      <p class="hero__alias">(BlackSpirits)</p>
-      <p class="hero__role" data-en="Programmer · Open-source contributor · pt-PT translator" data-pt="Programador · Contribuidor de código aberto · Tradutor pt-PT">Programmer · Open-source contributor · pt-PT translator</p>
-      <p class="hero__sub"
-         data-en="I build practical tools, improve workflows, and work across automation, localization, and media tooling."
-         data-pt="Crio ferramentas práticas, melhoro fluxos de trabalho e atuo nas áreas da automação, localização, metadados e conteúdos multimédia.">
-        I build practical tools, improve workflows, and work across automation, localization, and media tooling.
-      </p>
-      <p class="hero__tag" data-en="Born to explore. Coded to connect. 🌍" data-pt="Nascido para explorar. Programado para unir. 🌍">Born to explore. Coded to connect. 🌍</p>
-
-      <!-- CTAs -->
-      <div class="hero__ctas">
-        <a href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer" class="cta-secondary">GitHub →</a>
+      <p class="eyebrow">BlackSpirits</p>
+      <h1><span data-en="Filipe Mota" data-pt="Filipe Mota">Filipe Mota</span></h1>
+      <p class="hero__role" data-en="Developer · Open-source contributor · pt-PT translator/reviewer" data-pt="Programador · Contribuidor de código aberto · Tradutor/revisor pt-PT">Developer · Open-source contributor · pt-PT translator/reviewer</p>
+      <p class="hero__intro" data-en="I build practical tools, improve workflows and help software feel native to European Portuguese users — across automation, localization and media tooling." data-pt="Crio ferramentas práticas, melhoro fluxos de trabalho e ajudo o software a parecer nativo para utilizadores de português europeu — entre automação, localização e ferramentas para conteúdos multimédia.">I build practical tools, improve workflows and help software feel native to European Portuguese users — across automation, localization and media tooling.</p>
+      <p class="hero__tag" data-en="Born to explore. Coded to connect. 🌍" data-pt="Nascido para explorar. Programado para ligar. 🌍">Born to explore. Coded to connect. 🌍</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#work" data-en="View selected work ↓" data-pt="Ver projetos selecionados ↓">View selected work ↓</a>
+        <a class="btn btn--secondary" href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
-
       <div class="lang">
         <span data-en="Language:" data-pt="Idioma:">Language:</span>
-        <button id="langBtn" type="button" aria-label="Switch language" data-label-en="Switch language" data-label-pt="Mudar idioma">EN ▸ PT</button>
+        <button id="langBtn" type="button" aria-label="Switch language">EN ▸ PT</button>
       </div>
     </header>
 
-    <!-- Bio (micro-intro) -->
-    <div class="bio fi">
-      <div data-en="📸 Capturing moments &amp; memories" data-pt="📸 A captar momentos e memórias">📸 Capturing moments &amp; memories</div>
-      <div data-en="☕ Tech • Travel • Coffee" data-pt="☕ Tecnologia • Viagens • Café">☕ Tech • Travel • Coffee</div>
-      <div data-en="🚀 Wanderer at heart" data-pt="🚀 Explorador por natureza">🚀 Wanderer at heart</div>
-    </div>
-
-    <!-- Avatar -->
-    <div class="av-wrap fi">
+    <section class="identity fi" aria-label="Profile summary">
       <picture>
         <source srcset="assets/avatar.webp" type="image/webp">
-        <img
-          class="av"
-          src="assets/avatar.jpg"
-          alt="Avatar of Filipe Mota (BlackSpirits)"
-          data-alt-en="Avatar of Filipe Mota (BlackSpirits)"
-          data-alt-pt="Avatar do Filipe Mota (BlackSpirits)"
-          width="140"
-          height="140"
-          fetchpriority="high"
-        >
+        <img class="avatar" src="assets/avatar.jpg" alt="Filipe Mota (BlackSpirits)" width="116" height="116" fetchpriority="high">
       </picture>
-    </div>
+      <div class="identity__copy">
+        <p data-en="Portuguese developer and localization contributor based in France. I work where practical software, media workflows and language quality meet." data-pt="Programador português e contribuidor de localização a viver em França. Trabalho no ponto onde software prático, fluxos multimédia e qualidade linguística se encontram.">Portuguese developer and localization contributor based in France. I work where practical software, media workflows and language quality meet.</p>
+        <div class="identity__micro">
+          <span class="chip" data-en="🇵🇹 pt-PT" data-pt="🇵🇹 pt-PT">🇵🇹 pt-PT</span>
+          <span class="chip" data-en="🇫🇷 Based in France" data-pt="🇫🇷 Em França">🇫🇷 Based in France</span>
+          <span class="chip" data-en="🛠 Automation" data-pt="🛠 Automação">🛠 Automation</span>
+          <span class="chip" data-en="🎬 Media tooling" data-pt="🎬 Ferramentas multimédia">🎬 Media tooling</span>
+        </div>
+      </div>
+    </section>
 
-    <!-- Projects -->
-    <section class="sec fi" aria-labelledby="h-proj">
-      <h2 id="h-proj" data-en="Projects" data-pt="Projetos">Projects</h2>
-      <div class="proj">
-        <a href="https://github.com/BlackSpirits/UserScripts-UserStyles" target="_blank" rel="noopener noreferrer">
-          <div class="proj__icon"><span style="font-size:1.3rem">🧩</span></div>
-          <div class="proj__name">UserScripts & UserStyles</div>
-          <div class="proj__desc" data-en="Browser automation, media workflows &amp; UX improvements for the open-source community." data-pt="Automação no navegador, fluxos de trabalho ligados a conteúdos multimédia e melhorias de UX para a comunidade de código aberto.">Browser automation, media workflows &amp; UX improvements for the open-source community.</div>
-          <div class="proj__tags">
-            <span class="proj__tag">JavaScript</span>
-            <span class="proj__tag">CSS</span>
-            <span class="proj__tag">Automation</span>
-          </div>
+    <section class="proof fi" aria-label="Work snapshot">
+      <div class="metric"><strong>100+</strong><span data-en="localization projects" data-pt="projetos de localização">localization projects</span></div>
+      <div class="metric"><strong>9.9k+</strong><span data-en="GitHub commits" data-pt="commits no GitHub">GitHub commits</span></div>
+      <div class="metric"><strong>750+</strong><span data-en="pull requests" data-pt="pull requests">pull requests</span></div>
+      <div class="metric"><strong>40+</strong><span data-en="repos contributed to" data-pt="repositórios com contributos">repos contributed to</span></div>
+    </section>
+
+    <section class="section fi" id="work" aria-labelledby="work-title">
+      <div class="section__head">
+        <p class="section__kicker" data-en="Selected work" data-pt="Projetos selecionados">Selected work</p>
+        <h2 id="work-title" data-en="Practical projects, real workflows" data-pt="Projetos práticos, fluxos reais">Practical projects, real workflows</h2>
+        <p data-en="A selection of the places where I build, maintain, automate or improve the experience." data-pt="Uma seleção dos projetos onde desenvolvo, mantenho, automatizo ou melhoro a experiência.">A selection of the places where I build, maintain, automate or improve the experience.</p>
+      </div>
+      <div class="work">
+        <a class="card" href="https://github.com/BlackSpirits/UserScripts-UserStyles" target="_blank" rel="noopener noreferrer">
+          <div class="card__top"><span class="card__icon">🧩</span><h3>UserScripts & UserStyles</h3></div>
+          <p data-en="Browser automation and UX fixes for repetitive workflows, media sites and everyday friction." data-pt="Automação no navegador e melhorias de UX para tarefas repetitivas, sites multimédia e pequenos atritos do dia a dia.">Browser automation and UX fixes for repetitive workflows, media sites and everyday friction.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">CSS</span><span class="tag">Automation</span></div>
+          <span class="card__cta" data-en="View repository →" data-pt="Ver repositório →">View repository →</span>
         </a>
-        <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">
-          <div class="proj__icon">
-            <img class="proj__logo" src="assets/pipocas.png" alt="Pipocas.tv" width="24" height="14" loading="lazy">
-          </div>
-          <div class="proj__name">Pipocas.tv</div>
-          <div class="proj__desc" data-en="Portuguese subtitles community — a platform for subtitle sharing and collaboration." data-pt="Comunidade portuguesa de legendas — uma plataforma para partilha e colaboração de legendas.">Portuguese subtitles community — a platform for subtitle sharing and collaboration.</div>
-          <div class="proj__tags">
-            <span class="proj__tag" data-en="Subtitles" data-pt="Legendas">Subtitles</span>
-            <span class="proj__tag">pt-PT</span>
-            <span class="proj__tag">Admin</span>
-          </div>
+
+        <a class="card" href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">
+          <div class="card__top"><img class="card__logo" src="assets/pipocas.png" alt="" width="26" height="16"><h3>Pipocas.tv</h3></div>
+          <p data-en="Portuguese subtitles community platform: contribution, discovery, moderation and subtitle workflows." data-pt="Plataforma da comunidade portuguesa de legendas: contributos, descoberta, moderação e fluxos de legendagem.">Portuguese subtitles community platform: contribution, discovery, moderation and subtitle workflows.</p>
+          <div class="tags"><span class="tag" data-en="Subtitles" data-pt="Legendas">Subtitles</span><span class="tag">pt-PT</span><span class="tag">Admin</span></div>
+          <span class="card__cta" data-en="Visit Pipocas.tv →" data-pt="Visitar Pipocas.tv →">Visit Pipocas.tv →</span>
+        </a>
+
+        <a class="card" href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer">
+          <div class="card__top"><span class="card__icon">📺</span><h3>TheTVDB</h3></div>
+          <p data-en="Metadata moderation and Portuguese data quality work for series, episodes, people and localized titles." data-pt="Moderação de metadados e melhoria da qualidade de dados em português para séries, episódios, pessoas e títulos localizados.">Metadata moderation and Portuguese data quality work for series, episodes, people and localized titles.</p>
+          <div class="tags"><span class="tag">Metadata</span><span class="tag">Moderation</span><span class="tag">pt-PT</span></div>
+          <span class="card__cta" data-en="Visit TheTVDB →" data-pt="Visitar TheTVDB →">Visit TheTVDB →</span>
         </a>
       </div>
     </section>
 
-    <!-- Core focus -->
-    <section class="sec fi" aria-labelledby="h-focus">
-      <h2 id="h-focus" data-en="Core focus" data-pt="Foco principal">Core focus</h2>
-      <ul class="focus" role="list">
-        <li>
-          <strong data-en="Automation & scripting" data-pt="Automação e scripting">Automation & scripting</strong>
-          <span data-en="Browser automation, helpers and productivity workflows." data-pt="Automação no navegador, ferramentas e fluxos de trabalho de produtividade.">Browser automation, helpers and productivity workflows.</span>
-        </li>
-        <li>
-          <strong data-en="Localization (pt-PT)" data-pt="Localização (pt-PT)">Localization (pt-PT)</strong>
-          <span data-en="Translation and review work focused on natural European Portuguese." data-pt="Tradução e revisão com foco em português europeu natural.">Translation and review work focused on natural European Portuguese.</span>
-        </li>
-        <li>
-          <strong data-en="Media platforms & metadata" data-pt="Conteúdos multimédia e metadados">Media platforms & metadata</strong>
-          <span data-en="Subtitles, cataloguing, metadata quality and streaming-related tooling." data-pt="Legendas, catalogação, qualidade de metadados e ferramentas ligadas a conteúdos multimédia.">Subtitles, cataloguing, metadata quality and streaming-related tooling.</span>
-        </li>
-        <li>
-          <strong data-en="Open-source tooling" data-pt="Ferramentas de código aberto">Open-source tooling</strong>
-          <span data-en="Practical tools and improvements shared with the community." data-pt="Ferramentas práticas e melhorias partilhadas com a comunidade.">Practical tools and improvements shared with the community.</span>
-        </li>
-      </ul>
-    </section>
-
-    <!-- About -->
-    <section class="sec fi" aria-labelledby="h-about">
-      <h2 id="h-about" data-en="About" data-pt="Sobre">About</h2>
-      <div class="body">
-        <p>
-          <span data-en="I’m Filipe Mota, also known as " data-pt="Sou o Filipe Mota, também conhecido como ">
-            I’m Filipe Mota, also known as
-          </span>
-          <strong>BlackSpirits</strong>
-          <span data-en=" — a programmer, open-source contributor, and translator/reviewer focused on " data-pt=" — programador, contribuidor de código aberto e tradutor/revisor com foco em ">
-            — a programmer, open-source contributor, and translator/reviewer focused on
-          </span>
-          <strong data-en="European Portuguese (pt-PT)" data-pt="português europeu (pt-PT)">
-            European Portuguese (pt-PT)
-          </strong>.
-        </p>
-    
-        <p data-en="I like building practical tools, improving workflows, refining interfaces, and contributing to projects that solve real problems for real users."
-           data-pt="Gosto de criar ferramentas práticas, melhorar fluxos de trabalho, refinar interfaces e contribuir para projetos que resolvem problemas reais de pessoas reais.">
-          I like building practical tools, improving workflows, refining interfaces, and contributing to projects that solve real problems for real users.
-        </p>
-
-    <p>
-      <span data-en="I develop and maintain " data-pt="Desenvolvo e mantenho o ">
-        I develop and maintain
-      </span>
-      <a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer">Pipocas.tv</a>
-      <span data-en=" and contribute to metadata and moderation work at " data-pt=" e contribuo para a moderação e melhoria dos metadados no ">
-        and contribute to metadata and moderation work at
-      </span>
-      <a href="https://thetvdb.com" target="_blank" rel="noopener noreferrer">TheTVDB</a>.
-    </p>
-  </div>
-</section>
-
-    <!-- Links -->
-    <section class="sec fi" aria-labelledby="h-links">
-      <h2 id="h-links" data-en="Links" data-pt="Links">Links</h2>
-      <ul class="links" role="list">
-        <li><a href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer"><span class="links__title">GitHub</span><span class="links__desc" data-en="Code, open-source projects and technical experiments." data-pt="Código, projetos de código aberto e experiências técnicas.">Code, open-source projects and technical experiments.</span></a></li>
-        <li><a href="https://pipocas.tv" target="_blank" rel="noopener noreferrer"><span class="links__title">Pipocas.tv</span><span class="links__desc" data-en="Portuguese subtitles community platform." data-pt="Plataforma da comunidade portuguesa de legendas.">Portuguese subtitles community platform.</span></a></li>
-        <li><a href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer"><span class="links__title">TheTVDB</span><span class="links__desc" data-en="Metadata moderation and Portuguese title contributions." data-pt="Moderação de metadados e contributos para títulos em português.">Metadata moderation and Portuguese title contributions.</span></a></li>
-        <li><a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer"><span class="links__title">Instagram</span><span class="links__desc" data-en="Travel, moments and the more personal side." data-pt="Viagens, momentos e o lado mais pessoal.">Travel, moments and the more personal side.</span></a></li>
-        <li><a href="https://simkl.com/598901/" target="_blank" rel="noopener noreferrer"><span class="links__title">Simkl</span><span class="links__desc" data-en="What I watch — movies, series and more." data-pt="O que vejo — filmes, séries e mais.">What I watch — movies, series and more.</span></a></li>
-        <li><a href="mailto:blackspirits@gmail.com"><span class="links__title" data-en="Email" data-pt="E-mail">Email</span><span class="links__desc" data-en="For contact, questions or collaboration." data-pt="Para contacto, questões ou colaboração.">For contact, questions or collaboration.</span></a></li>
-      </ul>
-    </section>
-
-   <!-- Spotify -->
-    <div class="spotify spotify--spaced fi">
-      <iframe
-        id="spEmbed"
-        src="https://open.spotify.com/embed/playlist/02IGbxtl3YDh3x6tCSY8Ua?utm_source=generator&theme=0"
-        height="152"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-        title="Spotify playlist — BlackSpirits • Coding & Travel"
-        data-title-en="Spotify playlist — BlackSpirits • Coding & Travel"
-        data-title-pt="Playlist do Spotify — BlackSpirits • Coding & Travel"
-      ></iframe>
-      <div class="spotify-fb" id="spFb">
-        🎵 <span data-en="Playlist temporarily unavailable" data-pt="Playlist temporariamente indisponível">Playlist temporarily unavailable</span>
+    <section class="section fi" aria-labelledby="loc-title">
+      <div class="section__head">
+        <p class="section__kicker" data-en="Localization & review" data-pt="Localização e revisão">Localization & review</p>
+        <h2 id="loc-title" data-en="European Portuguese that feels native" data-pt="Português europeu que parece original">European Portuguese that feels native</h2>
       </div>
-      <p class="spotify-link">
-        <a href="https://open.spotify.com/playlist/02IGbxtl3YDh3x6tCSY8Ua" target="_blank" rel="noopener noreferrer"
-           data-en="Open in Spotify ↗" data-pt="Abrir no Spotify ↗">Open in Spotify ↗</a>
-      </p>
-    </div>
+      <div class="localization">
+        <div class="localization__grid">
+          <div>
+            <h3 data-en="Beyond literal translation" data-pt="Mais do que tradução literal">Beyond literal translation</h3>
+            <p data-en="I translate and review software with UI context, terminology consistency, functional clarity and natural pt-PT as the priorities." data-pt="Traduzo e revejo software dando prioridade ao contexto da interface, consistência terminológica, clareza funcional e português europeu natural.">I translate and review software with UI context, terminology consistency, functional clarity and natural pt-PT as the priorities.</p>
+            <ul class="principles">
+              <li data-en="Natural European Portuguese, clearly distinct from pt-BR" data-pt="Português europeu natural, claramente distinto de pt-BR">Natural European Portuguese, clearly distinct from pt-BR</li>
+              <li data-en="UI and functional context before literal wording" data-pt="Contexto funcional e da interface antes da tradução literal">UI and functional context before literal wording</li>
+              <li data-en="Consistent technical terminology and software conventions" data-pt="Terminologia técnica e convenções de software consistentes">Consistent technical terminology and software conventions</li>
+              <li data-en="Proofreading, linguistic QA and user-facing clarity" data-pt="Revisão, QA linguístico e clareza para o utilizador">Proofreading, linguistic QA and user-facing clarity</li>
+            </ul>
+          </div>
+          <div>
+            <div class="logos" aria-label="Localization projects">
+              <span class="logo-chip">Mozilla</span><span class="logo-chip">Proton</span><span class="logo-chip">Bitwarden</span>
+              <span class="logo-chip">Notepad++</span><span class="logo-chip">Subtitle Edit</span><span class="logo-chip">AntennaPod</span>
+              <span class="logo-chip">Stremio</span><span class="logo-chip">MagicMirror²</span><span class="logo-chip">Weblate</span>
+            </div>
+            <p style="margin-top:16px;font-style:italic" data-en="Good localization should feel as if the product were originally written for its users." data-pt="Uma boa localização deve parecer escrita de raiz para os seus utilizadores.">Good localization should feel as if the product were originally written for its users.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Instagram note (discrete) -->
-    <p class="ig-note fi">
-      <span data-en="Came from Instagram? Welcome — same traveler, just in code form." data-pt="Vieste do Instagram? Bem-vindo — o mesmo viajante, só que em versão código.">Came from Instagram? Welcome — same traveler, just in code form.</span>
-      <br>
-      <a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer">@blackspirits28</a>
-    </p>
+    <section class="section fi" aria-labelledby="focus-title">
+      <div class="section__head">
+        <p class="section__kicker" data-en="Tech & focus" data-pt="Tecnologia e foco">Tech & focus</p>
+        <h2 id="focus-title" data-en="Where I spend my time" data-pt="Onde concentro o meu trabalho">Where I spend my time</h2>
+      </div>
+      <div class="focus">
+        <article><h3 data-en="Automation & scripting" data-pt="Automação e scripting">Automation & scripting</h3><p data-en="Userscripts, helpers and workflow improvements that remove repetitive work." data-pt="Userscripts, utilitários e melhorias de fluxo que eliminam trabalho repetitivo.">Userscripts, helpers and workflow improvements that remove repetitive work.</p></article>
+        <article><h3 data-en="Localization (pt-PT)" data-pt="Localização (pt-PT)">Localization (pt-PT)</h3><p data-en="Translation, review, terminology and linguistic QA for software and open-source projects." data-pt="Tradução, revisão, terminologia e QA linguístico para software e projetos de código aberto.">Translation, review, terminology and linguistic QA for software and open-source projects.</p></article>
+        <article><h3 data-en="Media & metadata" data-pt="Multimédia e metadados">Media & metadata</h3><p data-en="Subtitles, metadata quality, cataloguing and tools around streaming and media workflows." data-pt="Legendas, qualidade de metadados, catalogação e ferramentas ligadas a fluxos multimédia.">Subtitles, metadata quality, cataloguing and tools around streaming and media workflows.</p></article>
+        <article><h3 data-en="Open source" data-pt="Código aberto">Open source</h3><p data-en="Practical fixes, reviews and contributions aimed at real users rather than demo-only code." data-pt="Correções práticas, revisões e contributos orientados para utilizadores reais, não apenas código de demonstração.">Practical fixes, reviews and contributions aimed at real users rather than demo-only code.</p></article>
+      </div>
+    </section>
 
+    <section class="section fi" aria-labelledby="about-title">
+      <div class="section__head">
+        <p class="section__kicker" data-en="About" data-pt="Sobre">About</p>
+        <h2 id="about-title" data-en="Useful software over unnecessary complexity" data-pt="Software útil acima de complexidade desnecessária">Useful software over unnecessary complexity</h2>
+        <p data-en="I like solving concrete problems: removing repetitive steps, improving interfaces, making metadata cleaner and helping software speak naturally to Portuguese users." data-pt="Gosto de resolver problemas concretos: eliminar passos repetitivos, melhorar interfaces, tornar metadados mais limpos e ajudar o software a comunicar naturalmente com utilizadores portugueses.">I like solving concrete problems: removing repetitive steps, improving interfaces, making metadata cleaner and helping software speak naturally to Portuguese users.</p>
+      </div>
+    </section>
+
+    <section class="section fi" aria-labelledby="off-title">
+      <div class="section__head">
+        <p class="section__kicker" data-en="Off the clock" data-pt="Fora do código">Off the clock</p>
+        <h2 id="off-title" data-en="Travel, media and the human side" data-pt="Viagens, entretenimento e o lado pessoal">Travel, media and the human side</h2>
+      </div>
+      <div class="offclock">
+        <a href="https://www.instagram.com/blackspirits28/" target="_blank" rel="noopener noreferrer"><strong>Instagram ↗</strong><span data-en="Travel, places and everyday moments." data-pt="Viagens, lugares e momentos do dia a dia.">Travel, places and everyday moments.</span></a>
+        <a href="https://simkl.com/598901/" target="_blank" rel="noopener noreferrer"><strong>Simkl ↗</strong><span data-en="Movies and series I watch." data-pt="Filmes e séries que vejo.">Movies and series I watch.</span></a>
+        <a href="https://open.spotify.com/playlist/02IGbxtl3YDh3x6tCSY8Ua" target="_blank" rel="noopener noreferrer"><strong>Spotify ↗</strong><span data-en="Coding & travel playlist." data-pt="Playlist para código e viagens.">Coding & travel playlist.</span></a>
+      </div>
+    </section>
+
+    <section class="section contact fi" aria-labelledby="contact-title">
+      <p class="section__kicker" data-en="Contact" data-pt="Contacto">Contact</p>
+      <h2 id="contact-title" data-en="Want to talk about code, localization or media tooling?" data-pt="Queres falar sobre código, localização ou ferramentas multimédia?">Want to talk about code, localization or media tooling?</h2>
+      <p data-en="GitHub is the best place to explore my work. For direct contact or collaboration, email works too." data-pt="O GitHub é o melhor sítio para explorar o meu trabalho. Para contacto direto ou colaboração, também podes enviar e-mail.">GitHub is the best place to explore my work. For direct contact or collaboration, email works too.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="mailto:blackspirits@gmail.com" data-en="Email me" data-pt="Enviar e-mail">Email me</a>
+        <a class="btn btn--secondary" href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="fi">
-    <a href="#top" class="btt" data-en="↑ Back to top" data-pt="↑ Voltar ao topo">↑ Back to top</a>
-    <p>© <span id="yr" class="year-hacker"></span> BlackSpirits. <span data-en="Built with 💻, ❤️ &amp; ☕" data-pt="Feito com 💻, ❤️ &amp; ☕">Built with 💻, ❤️ &amp; ☕</span></p>
+  <footer>
+    <a class="btt" href="#top" data-en="↑ Back to top" data-pt="↑ Voltar ao topo">↑ Back to top</a>
+    <p>© <span id="yr"></span> BlackSpirits. <span data-en="Built with HTML, CSS & JavaScript — deliberately." data-pt="Feito com HTML, CSS e JavaScript — de propósito.">Built with HTML, CSS & JavaScript — deliberately.</span></p>
   </footer>
 
-
   <script>
-    /* Footer year effect */
-    (function () {
-      const yearEl = document.getElementById('yr');
-      if (!yearEl) return;
-  
-      const currentYear = new Date().getFullYear();
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  
-      if (prefersReducedMotion) {
-        yearEl.textContent = String(currentYear);
-        yearEl.classList.add('year-hacker-done');
-        return;
-      }
-  
-      const fakeYears = [1998, 2001, 2004, 2010, 2016, 2022, 2088, 2042, 2019, 2033, 2020, 2007];
-      let displayYear = 1999;
-      yearEl.textContent = String(displayYear);
-  
-      const glitchFrames = 18;
-      let glitchFrame = 0;
-  
-      const glitchInterval = setInterval(() => {
-        yearEl.textContent = String(Math.floor(1995 + Math.random() * 120));
-        glitchFrame++;
-  
-        if (glitchFrame >= glitchFrames) {
-          clearInterval(glitchInterval);
-          startFakeSequence();
-        }
-      }, 90);
-  
-      function startFakeSequence() {
-        let index = 0;
-  
-        const fakeInterval = setInterval(() => {
-          yearEl.textContent = String(fakeYears[index]);
-          index++;
-  
-          if (index >= fakeYears.length) {
-            clearInterval(fakeInterval);
-            startCountUp();
-          }
-        }, 220);
-      }
-  
-      function startCountUp() {
-        displayYear = 2018;
-        yearEl.textContent = String(displayYear);
-  
-        const stepInterval = setInterval(() => {
-          if (displayYear >= currentYear) {
-            clearInterval(stepInterval);
-            yearEl.textContent = String(currentYear);
-            yearEl.classList.add('year-hacker-done');
-            return;
-          }
-  
-          displayYear++;
-          yearEl.textContent = String(displayYear);
-        }, 650);
-      }
-    })();
-  
-    /* Language toggle + hero typing */
-    const btn = document.getElementById('langBtn');
-    const heroTitle = document.getElementById('heroTitle');
+    const langBtn = document.getElementById('langBtn');
     const browserLang = (navigator.language || 'en').toLowerCase();
-    let savedLang = null;
-    let heroTypingTimer = null;
-    let heroCursorTimer = null;
-  
-    try {
-      savedLang = localStorage.getItem('site-lang');
-    } catch (e) {}
-  
-    let lang = savedLang || (browserLang.startsWith('pt') ? 'pt' : 'en');
-  
-    function typeHeroTitle(text) {
-      if (!heroTitle) return;
-    
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      clearTimeout(heroTypingTimer);
-      clearTimeout(heroCursorTimer);
-    
-      if (prefersReducedMotion) {
-        heroTitle.textContent = text;
-        heroTitle.classList.remove('hero-title-typing');
-        return;
-      }
-    
-      heroTitle.classList.add('hero-title-typing');
-      heroTitle.textContent = '';
-      let index = 1;
-    
-      function tick() {
-        heroTitle.textContent = text.slice(0, index);
-    
-        if (index < text.length) {
-          index++;
-          heroTypingTimer = setTimeout(tick, 85);
-        } else {
-          heroCursorTimer = setTimeout(() => {
-            heroTitle.classList.remove('hero-title-typing');
-          }, 900);
-        }
-      }
-    
-      tick();
-    }
-  
-    function applyLang(l) {
-      const attr = l === 'en' ? 'data-en' : 'data-pt';
-  
-      document.documentElement.lang = l === 'en' ? 'en' : 'pt-PT';
-      btn.textContent = l === 'en' ? 'EN ▸ PT' : 'PT ▸ EN';
-      btn.setAttribute('aria-label', l === 'en' ? btn.dataset.labelEn : btn.dataset.labelPt);
-  
+    let stored = null;
+    try { stored = localStorage.getItem('site-lang'); } catch (_) {}
+    let lang = stored || (browserLang.startsWith('pt') ? 'pt' : 'en');
+
+    function applyLang(next) {
+      lang = next;
+      const attr = lang === 'pt' ? 'data-pt' : 'data-en';
+      document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
       document.querySelectorAll('[data-en][data-pt]').forEach(el => {
-        if (el === heroTitle) return;
-        el.textContent = el.getAttribute(attr) || '';
+        el.textContent = el.getAttribute(attr);
       });
-      
-      document.querySelectorAll('[data-alt-en][data-alt-pt]').forEach(el => {
-        el.setAttribute('alt', l === 'en' ? el.dataset.altEn : el.dataset.altPt);
-      });
-      
-      document.querySelectorAll('[data-title-en][data-title-pt]').forEach(el => {
-        el.setAttribute('title', l === 'en' ? el.dataset.titleEn : el.dataset.titlePt);
-      });
-  
-      typeHeroTitle(heroTitle.getAttribute(attr) || '');
-  
-      try {
-        localStorage.setItem('site-lang', l);
-      } catch (e) {}
+      langBtn.textContent = lang === 'pt' ? 'PT ▸ EN' : 'EN ▸ PT';
+      langBtn.setAttribute('aria-label', lang === 'pt' ? 'Mudar para inglês' : 'Switch to Portuguese');
+      try { localStorage.setItem('site-lang', lang); } catch (_) {}
     }
-  
-    btn.addEventListener('click', () => {
-      lang = lang === 'en' ? 'pt' : 'en';
-      applyLang(lang);
-    });
-  
+
+    langBtn.addEventListener('click', () => applyLang(lang === 'pt' ? 'en' : 'pt'));
     applyLang(lang);
-  
-    /* Spotify fallback */
-    const sp = document.getElementById('spEmbed');
-    const spFb = document.getElementById('spFb');
-  
-    function showSpotifyFallback() {
-      if (!sp || !spFb) return;
-      sp.style.display = 'none';
-      spFb.style.display = 'block';
-    }
-  
-    if (sp && spFb) {
-      sp.addEventListener('error', showSpotifyFallback);
-  
-      setTimeout(() => {
-        const styles = window.getComputedStyle(sp);
-        const hidden =
-          styles.display === 'none' ||
-          styles.visibility === 'hidden' ||
-          sp.getBoundingClientRect().height === 0;
-  
-        if (hidden) showSpotifyFallback();
-      }, 2500);
-    }
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
