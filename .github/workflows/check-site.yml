@@ -1,0 +1,82 @@
+name: Check portfolio
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.html"
+      - "**/*.xml"
+      - "**/*.json"
+      - "site.webmanifest"
+      - "robots.txt"
+      - "assets/**"
+      - ".github/workflows/check-site.yml"
+  pull_request:
+    paths:
+      - "**/*.html"
+      - "**/*.xml"
+      - "**/*.json"
+      - "site.webmanifest"
+      - "robots.txt"
+      - "assets/**"
+      - ".github/workflows/check-site.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+
+      - name: Validate site files
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlparse
+          import json
+          import xml.etree.ElementTree as ET
+
+          root = Path(".")
+
+          json.loads((root / "site.webmanifest").read_text(encoding="utf-8"))
+          ET.parse(root / "sitemap.xml")
+
+          class LocalRefs(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.refs = []
+              def handle_starttag(self, tag, attrs):
+                  data = dict(attrs)
+                  for key in ("href", "src"):
+                      value = data.get(key)
+                      if value:
+                          self.refs.append(value)
+
+          missing = []
+          for html in root.glob("*.html"):
+              parser = LocalRefs()
+              parser.feed(html.read_text(encoding="utf-8"))
+              for ref in parser.refs:
+                  if ref.startswith(("#", "mailto:", "tel:", "data:", "javascript:")):
+                      continue
+                  parsed = urlparse(ref)
+                  if parsed.scheme or parsed.netloc:
+                      continue
+                  path = parsed.path
+                  if not path or path == "/":
+                      continue
+                  target = root / path.lstrip("/")
+                  if not target.exists():
+                      missing.append(f"{html}: {ref}")
+
+          if missing:
+              raise SystemExit("Missing local references:\n" + "\n".join(missing))
+
+          print("Portfolio validation passed.")
+          PY
