@@ -188,6 +188,9 @@
 
     footer{text-align:center;padding:30px 24px 26px;color:var(--overlay0);font-size:.78rem;border-top:1px solid var(--surface0);margin-top:20px}
     .btt{display:inline-block;margin-bottom:12px;font:700 .75rem var(--mono)}
+    .footer-tech{color:var(--overlay0)}
+    .footer-signature{display:flex;justify-content:center;align-items:center;gap:7px;margin-top:7px;color:var(--subtext0);font:700 .72rem var(--mono)}
+    .footer-signature img{width:18px;height:18px;flex:0 0 auto}
     .year-hacker{display:inline-block;min-width:4ch;color:var(--mauve);text-shadow:0 0 8px rgba(203,166,247,.25);transition:color .25s ease,text-shadow .25s ease}
     .year-hacker-done{color:var(--text);text-shadow:0 0 10px rgba(137,180,250,.18)}
 
@@ -381,7 +384,8 @@
 
   <footer>
     <a class="btt" href="#top" data-en="↑ Back to top" data-pt="↑ Voltar ao topo">↑ Back to top</a>
-    <p>© <span id="yr" class="year-hacker"></span> BlackSpirits. <span data-en="Built with code, coffee & care." data-pt="Feito com código, café e carinho.">Built with code, coffee & care.</span></p>
+    <p class="footer-tech">© <span id="yr" class="year-hacker"></span> BlackSpirits · <span data-en="HTML, CSS & JavaScript — deliberately." data-pt="HTML, CSS e JavaScript — de propósito.">HTML, CSS & JavaScript — deliberately.</span></p>
+    <p class="footer-signature"><img src="assets/footer-care.svg" alt="" aria-hidden="true"><span data-en="Built with code, coffee & care." data-pt="Feito com código, café e carinho.">Built with code, coffee & care.</span></p>
   </footer>
 
   <script>
