@@ -26,7 +26,7 @@
   <meta name="twitter:image:alt" content="BlackSpirits — Filipe Mota portfolio">
 
   <link rel="canonical" href="https://blackspirits.github.io/">
-  <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+  <link rel="icon" type="image/svg+xml" href="assets/globe.svg">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" as="image" href="assets/avatar.webp" type="image/webp">
@@ -38,15 +38,14 @@
     "name": "Filipe Mota",
     "alternateName": "BlackSpirits",
     "url": "https://blackspirits.github.io/",
-    "email": "mailto:blackspirits@gmail.com",
+    "email": "blackspirits@gmail.com",
     "jobTitle": "Developer, Open-source Contributor and pt-PT Translator/Reviewer",
     "knowsLanguage": ["en", "pt-PT"],
     "sameAs": [
       "https://github.com/BlackSpirits",
-      "https://pipocas.tv",
-      "https://www.thetvdb.com",
       "https://www.instagram.com/blackspirits28/",
-      "https://simkl.com/598901/"
+      "https://simkl.com/598901/",
+      "https://open.spotify.com/user/11175393066"
     ]
   }
   </script>
@@ -91,15 +90,19 @@
     .btn--primary:hover{background:var(--lavender);border-color:var(--lavender);color:var(--crust);transform:translateY(-2px)}
     .btn--secondary{color:var(--subtext1);background:var(--mantle)}
     .btn--secondary:hover{background:var(--surface0);color:var(--text);transform:translateY(-2px)}
-    .lang{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:18px;color:var(--overlay1);font:.8rem var(--mono)}
-    .lang button{border:1px solid var(--surface1);background:var(--surface0);color:var(--subtext1);border-radius:999px;padding:5px 12px;font:700 .76rem var(--mono);cursor:pointer}
+    .lang{display:flex;justify-content:center;align-items:center;gap:7px;margin-top:18px;color:var(--overlay1);font:.8rem var(--mono)}
+    .lang__choices{display:inline-flex;align-items:center;gap:4px;padding:3px;border:1px solid var(--surface1);background:var(--mantle);border-radius:999px}
+    .lang button{border:0;background:transparent;color:var(--overlay1);border-radius:999px;padding:4px 9px;font:700 .76rem var(--mono);cursor:pointer}
+    .lang button[aria-pressed="true"]{background:var(--surface1);color:var(--text)}
 
     .identity{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;max-width:720px;margin:34px auto 48px;padding:20px;background:var(--mantle);border:1px solid var(--surface0);border-radius:16px}
     .avatar{width:116px;height:116px;border-radius:50%;object-fit:cover;border:3px solid transparent;background:linear-gradient(var(--mantle),var(--mantle)) padding-box,linear-gradient(135deg,var(--mauve),var(--blue),var(--peach)) border-box}
     .identity__copy{color:var(--subtext0)}
     .identity__copy strong{color:var(--text)}
     .identity__micro{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .chip{display:inline-flex;align-items:center;padding:4px 9px;border-radius:999px;background:var(--surface0);color:var(--subtext0);font:600 .72rem var(--mono)}
+    .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;background:var(--surface0);color:var(--subtext0);font:600 .72rem var(--mono)}
+    .chip img{width:16px;height:16px;object-fit:contain;flex:0 0 auto}
+    .chip img.flag{width:21px;height:14px}
 
     .proof{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 auto 56px}
     .metric{background:var(--mantle);border:1px solid var(--surface0);border-radius:14px;padding:16px;text-align:center}
@@ -194,9 +197,12 @@
         <a class="btn btn--primary" href="#work" data-en="View selected work ↓" data-pt="Ver projetos selecionados ↓">View selected work ↓</a>
         <a class="btn btn--secondary" href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
-      <div class="lang">
+      <div class="lang" role="group" aria-label="Language" data-aria-label-en="Language" data-aria-label-pt="Idioma">
         <span data-en="Language:" data-pt="Idioma:">Language:</span>
-        <button id="langBtn" type="button" aria-label="Switch language">EN ▸ PT</button>
+        <span class="lang__choices">
+          <button type="button" data-lang-choice="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-choice="pt" aria-pressed="false">PT</button>
+        </span>
       </div>
     </header>
 
@@ -208,17 +214,17 @@
       <div class="identity__copy">
         <p data-en="Portuguese developer and localization contributor based in France. I work where practical software, media workflows and language quality meet." data-pt="Programador português e colaborador em projetos de localização a viver em França. Trabalho no ponto onde software prático, fluxos multimédia e qualidade linguística se encontram.">Portuguese developer and localization contributor based in France. I work where practical software, media workflows and language quality meet.</p>
         <div class="identity__micro">
-          <span class="chip" data-en="🇵🇹 pt-PT" data-pt="🇵🇹 pt-PT">🇵🇹 pt-PT</span>
-          <span class="chip" data-en="🇫🇷 Based in France" data-pt="🇫🇷 Em França">🇫🇷 Based in France</span>
-          <span class="chip" data-en="🛠 Automation" data-pt="🛠 Automação">🛠 Automation</span>
-          <span class="chip" data-en="🎬 Media tooling" data-pt="🎬 Ferramentas multimédia">🎬 Media tooling</span>
+          <span class="chip"><img class="flag" src="assets/pt-flag.svg" alt="" aria-hidden="true"><span>pt-PT</span></span>
+          <span class="chip"><img class="flag" src="assets/fr-flag.svg" alt="" aria-hidden="true"><span data-en="Based in France" data-pt="Em França">Based in France</span></span>
+          <span class="chip"><img src="assets/automation.svg" alt="" aria-hidden="true"><span data-en="Automation" data-pt="Automação">Automation</span></span>
+          <span class="chip"><img src="assets/media.svg" alt="" aria-hidden="true"><span data-en="Media tooling" data-pt="Ferramentas multimédia">Media tooling</span></span>
         </div>
       </div>
     </section>
 
     <section class="proof fi" aria-label="Work snapshot" data-aria-label-en="Work snapshot" data-aria-label-pt="Resumo do trabalho">
       <div class="metric"><strong>100+</strong><span data-en="localization projects" data-pt="projetos de localização">localization projects</span></div>
-      <div class="metric"><strong>9.9k+</strong><span data-en="GitHub commits" data-pt="commits no GitHub">GitHub commits</span></div>
+      <div class="metric"><strong data-en="9.9k+" data-pt="9,9 mil+">9.9k+</strong><span data-en="GitHub commits" data-pt="commits no GitHub">GitHub commits</span></div>
       <div class="metric"><strong>750+</strong><span data-en="pull requests" data-pt="pull requests">pull requests</span></div>
       <div class="metric"><strong>40+</strong><span data-en="repos contributed to" data-pt="repositórios com contributos">repos contributed to</span></div>
     </section>
@@ -247,7 +253,7 @@
         <a class="card" href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer">
           <div class="card__top"><img class="card__logo" src="assets/thetvdb.svg" alt="" width="24" height="24"><h3>TheTVDB</h3></div>
           <p data-en="Metadata moderation and Portuguese data quality work for series, episodes, people and localized titles." data-pt="Moderação de metadados e melhoria da qualidade de dados em português para séries, episódios, pessoas e títulos localizados.">Metadata moderation and Portuguese data quality work for series, episodes, people and localized titles.</p>
-          <div class="tags"><span class="tag">Metadata</span><span class="tag">Moderation</span><span class="tag">pt-PT</span></div>
+          <div class="tags"><span class="tag" data-en="Metadata" data-pt="Metadados">Metadata</span><span class="tag" data-en="Moderation" data-pt="Moderação">Moderation</span><span class="tag">pt-PT</span></div>
           <span class="card__cta" data-en="Visit TheTVDB →" data-pt="Visitar TheTVDB →">Visit TheTVDB →</span>
         </a>
       </div>
@@ -329,8 +335,8 @@
 
     <section class="section contact fi" aria-labelledby="contact-title">
       <p class="section__kicker" data-en="Contact" data-pt="Contacto">Contact</p>
-      <h2 id="contact-title" data-en="Want to talk about code, localization or media tooling?" data-pt="Queres falar sobre código, localização ou ferramentas multimédia?">Want to talk about code, localization or media tooling?</h2>
-      <p data-en="GitHub is the best place to explore my work. For direct contact or collaboration, email works too." data-pt="O GitHub é o melhor sítio para explorar o meu trabalho. Para contacto direto ou colaboração, também podes enviar e-mail.">GitHub is the best place to explore my work. For direct contact or collaboration, email works too.</p>
+      <h2 id="contact-title" data-en="Want to talk about code, localization or media tooling?" data-pt="Para falar sobre código, localização ou ferramentas multimédia">Want to talk about code, localization or media tooling?</h2>
+      <p data-en="GitHub is the best place to explore my work. For direct contact or collaboration, email works too." data-pt="O GitHub é o melhor sítio para explorar o meu trabalho. Para contacto direto ou colaboração, o e-mail também está disponível.">GitHub is the best place to explore my work. For direct contact or collaboration, email works too.</p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="mailto:blackspirits@gmail.com" data-en="Email me" data-pt="Enviar e-mail">Email me</a>
         <a class="btn btn--secondary" href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -402,8 +408,19 @@
       }
     })();
 
-    const langBtn = document.getElementById('langBtn');
+    const langButtons = document.querySelectorAll('[data-lang-choice]');
     const heroTitle = document.getElementById('heroTitle');
+    const descriptionMeta = document.querySelector('meta[name="description"]');
+    const pageMeta = {
+      en: {
+        title: 'Filipe Mota (BlackSpirits) — Developer, Open Source & pt-PT Localization',
+        description: 'Portfolio of Filipe Mota (BlackSpirits): developer, open-source contributor and European Portuguese (pt-PT) translator/reviewer focused on automation, localization and media tooling.'
+      },
+      pt: {
+        title: 'Filipe Mota (BlackSpirits) — Programador, Código Aberto e Localização pt-PT',
+        description: 'Portefólio de Filipe Mota (BlackSpirits): programador, contribuidor de código aberto e tradutor/revisor de português europeu (pt-PT), com foco em automação, localização e ferramentas multimédia.'
+      }
+    };
     const browserLang = (navigator.language || 'en').toLowerCase();
     let stored = null;
     let heroTypingTimer = null;
@@ -454,12 +471,18 @@
         el.setAttribute('title', lang === 'pt' ? el.dataset.titlePt : el.dataset.titleEn);
       });
       typeHeroTitle(heroTitle.getAttribute(attr) || 'Filipe Mota');
-      langBtn.textContent = lang === 'pt' ? 'PT ▸ EN' : 'EN ▸ PT';
-      langBtn.setAttribute('aria-label', lang === 'pt' ? 'Mudar para inglês' : 'Switch to Portuguese');
+      document.title = pageMeta[lang].title;
+      if (descriptionMeta) descriptionMeta.setAttribute('content', pageMeta[lang].description);
+      langButtons.forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.langChoice === lang));
+      });
+      document.documentElement.dataset.langReady = 'true';
       try { localStorage.setItem('site-lang', lang); } catch (_) {}
     }
 
-    langBtn.addEventListener('click', () => applyLang(lang === 'pt' ? 'en' : 'pt'));
+    langButtons.forEach(button => {
+      button.addEventListener('click', () => applyLang(button.dataset.langChoice));
+    });
     applyLang(lang);
   </script>
 </body>
