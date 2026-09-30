@@ -78,10 +78,13 @@
     .hero{text-align:center;max-width:800px;margin:0 auto 36px}
     .eyebrow{font:700 .78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mauve);margin-bottom:12px}
     .hero h1{font:800 clamp(2rem,7vw,4.25rem)/1.04 var(--sans);letter-spacing:-.04em}
-    .hero h1 span{background:linear-gradient(135deg,var(--mauve),var(--blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero h1{background:linear-gradient(135deg,var(--mauve),var(--blue));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-title-typing::after{content:'|';margin-left:4px;color:var(--mauve);-webkit-text-fill-color:var(--mauve);animation:blink 1s steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
     .hero__role{font:700 clamp(.95rem,2vw,1.15rem) var(--mono);color:var(--subtext1);margin-top:18px}
     .hero__intro{max-width:680px;margin:18px auto 0;color:var(--subtext0);font-size:1.02rem}
-    .hero__tag{margin-top:12px;color:var(--mauve);font-weight:700}
+    .hero__tag{margin-top:12px;color:var(--mauve);font-weight:700;display:flex;align-items:center;justify-content:center;gap:7px}
+    .hero__tag img{width:20px;height:20px;flex:0 0 auto}
     .hero__actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px}
     .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border-radius:10px;border:1px solid var(--surface1);font:700 .85rem var(--mono);transition:.18s ease}
     .btn--primary{background:var(--mauve);border-color:var(--mauve);color:var(--crust)}
@@ -140,6 +143,10 @@
     .offclock a{background:var(--mantle);border:1px solid var(--surface0);border-radius:12px;padding:16px;display:block}
     .offclock strong{display:block;color:var(--text);font:800 .88rem var(--mono)}
     .offclock span{display:block;color:var(--overlay1);font-size:.8rem;margin-top:4px}
+    .spotify-player{max-width:620px;margin:16px auto 0;border:1px solid var(--surface0);background:var(--mantle);border-radius:14px;padding:10px;overflow:hidden}
+    .spotify-player iframe{display:block;width:100%;height:152px;border:0;border-radius:10px}
+    .spotify-player__link{text-align:center;margin-top:8px;font:.74rem var(--mono);color:var(--overlay1)}
+    .spotify-player__link a{color:var(--mauve)}
 
     .contact{padding:28px;border:1px solid var(--surface0);border-radius:18px;background:var(--mantle);text-align:center}
     .contact p{max-width:600px;margin:8px auto 0;color:var(--subtext0)}
@@ -147,6 +154,8 @@
 
     footer{text-align:center;padding:30px 24px 26px;color:var(--overlay0);font-size:.78rem;border-top:1px solid var(--surface0);margin-top:20px}
     .btt{display:inline-block;margin-bottom:12px;font:700 .75rem var(--mono)}
+    .year-hacker{display:inline-block;min-width:4ch;color:var(--mauve);text-shadow:0 0 8px rgba(203,166,247,.25);transition:color .25s ease,text-shadow .25s ease}
+    .year-hacker-done{color:var(--text);text-shadow:0 0 10px rgba(137,180,250,.18)}
 
     .fi{opacity:0;transform:translateY(14px);animation:up .5s ease forwards}
     @keyframes up{to{opacity:1;transform:none}}
@@ -177,10 +186,10 @@
   <main id="main">
     <header class="hero fi">
       <p class="eyebrow">BlackSpirits</p>
-      <h1><span data-en="Filipe Mota" data-pt="Filipe Mota">Filipe Mota</span></h1>
+      <h1 id="heroTitle" data-en="Filipe Mota" data-pt="Filipe Mota">Filipe Mota</h1>
       <p class="hero__role" data-en="Developer · Open-source contributor · pt-PT translator/reviewer" data-pt="Programador · Contribuidor de código aberto · Tradutor/revisor pt-PT">Developer · Open-source contributor · pt-PT translator/reviewer</p>
       <p class="hero__intro" data-en="I build practical tools, improve workflows and help software feel native to European Portuguese users — across automation, localization and media tooling." data-pt="Crio ferramentas práticas, melhoro fluxos de trabalho e ajudo o software a parecer nativo para utilizadores de português europeu — nas áreas da automação, localização e ferramentas para conteúdos multimédia.">I build practical tools, improve workflows and help software feel native to European Portuguese users — across automation, localization and media tooling.</p>
-      <p class="hero__tag" data-en="Born to explore. Coded to connect. 🌍" data-pt="Nascido para explorar. Programado para unir. 🌍">Born to explore. Coded to connect. 🌍</p>
+      <p class="hero__tag"><span data-en="Born to explore. Coded to connect." data-pt="Nascido para explorar. Programado para unir.">Born to explore. Coded to connect.</span><img src="assets/globe.svg" alt="" width="20" height="20" aria-hidden="true"></p>
       <div class="hero__actions">
         <a class="btn btn--primary" href="#work" data-en="View selected work ↓" data-pt="Ver projetos selecionados ↓">View selected work ↓</a>
         <a class="btn btn--secondary" href="https://github.com/BlackSpirits" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -222,7 +231,7 @@
       </div>
       <div class="work">
         <a class="card" href="https://github.com/BlackSpirits/UserScripts-UserStyles" target="_blank" rel="noopener noreferrer">
-          <div class="card__top"><span class="card__icon">🧩</span><h3>UserScripts & UserStyles</h3></div>
+          <div class="card__top"><img class="card__logo" src="assets/userscripts.svg" alt="" width="24" height="24"><h3>UserScripts & UserStyles</h3></div>
           <p data-en="Browser automation and UX fixes for repetitive workflows, media sites and everyday friction." data-pt="Automação no navegador e melhorias de UX para tarefas repetitivas, sites multimédia e pequenos atritos do dia a dia.">Browser automation and UX fixes for repetitive workflows, media sites and everyday friction.</p>
           <div class="tags"><span class="tag">JavaScript</span><span class="tag">CSS</span><span class="tag" data-en="Automation" data-pt="Automação">Automation</span></div>
           <span class="card__cta" data-en="View repository →" data-pt="Ver repositório →">View repository →</span>
@@ -236,7 +245,7 @@
         </a>
 
         <a class="card" href="https://www.thetvdb.com" target="_blank" rel="noopener noreferrer">
-          <div class="card__top"><span class="card__icon">📺</span><h3>TheTVDB</h3></div>
+          <div class="card__top"><img class="card__logo" src="assets/thetvdb.svg" alt="" width="24" height="24"><h3>TheTVDB</h3></div>
           <p data-en="Metadata moderation and Portuguese data quality work for series, episodes, people and localized titles." data-pt="Moderação de metadados e melhoria da qualidade de dados em português para séries, episódios, pessoas e títulos localizados.">Metadata moderation and Portuguese data quality work for series, episodes, people and localized titles.</p>
           <div class="tags"><span class="tag">Metadata</span><span class="tag">Moderation</span><span class="tag">pt-PT</span></div>
           <span class="card__cta" data-en="Visit TheTVDB →" data-pt="Visitar TheTVDB →">Visit TheTVDB →</span>
@@ -304,6 +313,18 @@
         <a href="https://simkl.com/598901/" target="_blank" rel="noopener noreferrer"><strong>Simkl ↗</strong><span data-en="Movies and series I watch." data-pt="Filmes e séries que vejo.">Movies and series I watch.</span></a>
         <a href="https://open.spotify.com/playlist/02IGbxtl3YDh3x6tCSY8Ua" target="_blank" rel="noopener noreferrer"><strong>Spotify ↗</strong><span data-en="Coding & travel playlist." data-pt="Playlist para código e viagens.">Coding & travel playlist.</span></a>
       </div>
+      <div class="spotify-player">
+        <iframe
+          src="https://open.spotify.com/embed/playlist/02IGbxtl3YDh3x6tCSY8Ua?utm_source=generator&theme=0"
+          title="Spotify playlist — BlackSpirits • Coding & Travel"
+          data-title-en="Spotify playlist — BlackSpirits • Coding & Travel"
+          data-title-pt="Playlist do Spotify — BlackSpirits • Coding & Travel"
+          loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <p class="spotify-player__link"><a href="https://open.spotify.com/playlist/02IGbxtl3YDh3x6tCSY8Ua" target="_blank" rel="noopener noreferrer" data-en="Open in Spotify ↗" data-pt="Abrir no Spotify ↗">Open in Spotify ↗</a></p>
+      </div>
     </section>
 
     <section class="section contact fi" aria-labelledby="contact-title">
@@ -319,26 +340,120 @@
 
   <footer>
     <a class="btt" href="#top" data-en="↑ Back to top" data-pt="↑ Voltar ao topo">↑ Back to top</a>
-    <p>© <span id="yr"></span> BlackSpirits. <span data-en="Built with HTML, CSS & JavaScript — deliberately." data-pt="Feito com HTML, CSS e JavaScript — de propósito.">Built with HTML, CSS & JavaScript — deliberately.</span></p>
+    <p>© <span id="yr" class="year-hacker"></span> BlackSpirits. <span data-en="Built with HTML, CSS & JavaScript — deliberately." data-pt="Feito com HTML, CSS e JavaScript — de propósito.">Built with HTML, CSS & JavaScript — deliberately.</span></p>
   </footer>
 
   <script>
+    /* Footer year effect */
+    (function () {
+      const yearEl = document.getElementById('yr');
+      if (!yearEl) return;
+
+      const currentYear = new Date().getFullYear();
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        yearEl.textContent = String(currentYear);
+        yearEl.classList.add('year-hacker-done');
+        return;
+      }
+
+      const fakeYears = [1998, 2001, 2004, 2010, 2016, 2022, 2088, 2042, 2019, 2033, 2020, 2007];
+      let displayYear = 1999;
+      yearEl.textContent = String(displayYear);
+
+      const glitchFrames = 18;
+      let glitchFrame = 0;
+
+      const glitchInterval = setInterval(() => {
+        yearEl.textContent = String(Math.floor(1995 + Math.random() * 120));
+        glitchFrame++;
+        if (glitchFrame >= glitchFrames) {
+          clearInterval(glitchInterval);
+          startFakeSequence();
+        }
+      }, 90);
+
+      function startFakeSequence() {
+        let index = 0;
+        const fakeInterval = setInterval(() => {
+          yearEl.textContent = String(fakeYears[index]);
+          index++;
+          if (index >= fakeYears.length) {
+            clearInterval(fakeInterval);
+            startCountUp();
+          }
+        }, 220);
+      }
+
+      function startCountUp() {
+        displayYear = 2018;
+        yearEl.textContent = String(displayYear);
+        const stepInterval = setInterval(() => {
+          if (displayYear >= currentYear) {
+            clearInterval(stepInterval);
+            yearEl.textContent = String(currentYear);
+            yearEl.classList.add('year-hacker-done');
+            return;
+          }
+          displayYear++;
+          yearEl.textContent = String(displayYear);
+        }, 650);
+      }
+    })();
+
     const langBtn = document.getElementById('langBtn');
+    const heroTitle = document.getElementById('heroTitle');
     const browserLang = (navigator.language || 'en').toLowerCase();
     let stored = null;
+    let heroTypingTimer = null;
+    let heroCursorTimer = null;
     try { stored = localStorage.getItem('site-lang'); } catch (_) {}
     let lang = stored || (browserLang.startsWith('pt') ? 'pt' : 'en');
+
+    function typeHeroTitle(text) {
+      if (!heroTitle) return;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      clearTimeout(heroTypingTimer);
+      clearTimeout(heroCursorTimer);
+
+      if (prefersReducedMotion) {
+        heroTitle.textContent = text;
+        heroTitle.classList.remove('hero-title-typing');
+        return;
+      }
+
+      heroTitle.classList.add('hero-title-typing');
+      heroTitle.textContent = '';
+      let index = 1;
+
+      function tick() {
+        heroTitle.textContent = text.slice(0, index);
+        if (index < text.length) {
+          index++;
+          heroTypingTimer = setTimeout(tick, 85);
+        } else {
+          heroCursorTimer = setTimeout(() => heroTitle.classList.remove('hero-title-typing'), 900);
+        }
+      }
+      tick();
+    }
 
     function applyLang(next) {
       lang = next;
       const attr = lang === 'pt' ? 'data-pt' : 'data-en';
       document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
       document.querySelectorAll('[data-en][data-pt]').forEach(el => {
+        if (el === heroTitle) return;
         el.textContent = el.getAttribute(attr);
       });
       document.querySelectorAll('[data-aria-label-en][data-aria-label-pt]').forEach(el => {
         el.setAttribute('aria-label', lang === 'pt' ? el.dataset.ariaLabelPt : el.dataset.ariaLabelEn);
       });
+      document.querySelectorAll('[data-title-en][data-title-pt]').forEach(el => {
+        el.setAttribute('title', lang === 'pt' ? el.dataset.titlePt : el.dataset.titleEn);
+      });
+      typeHeroTitle(heroTitle.getAttribute(attr) || 'Filipe Mota');
       langBtn.textContent = lang === 'pt' ? 'PT ▸ EN' : 'EN ▸ PT';
       langBtn.setAttribute('aria-label', lang === 'pt' ? 'Mudar para inglês' : 'Switch to Portuguese');
       try { localStorage.setItem('site-lang', lang); } catch (_) {}
@@ -346,7 +461,6 @@
 
     langBtn.addEventListener('click', () => applyLang(lang === 'pt' ? 'en' : 'pt'));
     applyLang(lang);
-    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
