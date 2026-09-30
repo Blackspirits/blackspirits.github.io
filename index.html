@@ -163,7 +163,7 @@
     .offclock a{background:var(--mantle);border:1px solid var(--surface0);border-radius:12px;padding:16px;display:block}
     .offclock strong{display:block;color:var(--text);font:800 .88rem var(--mono)}
     .offclock span{display:block;color:var(--overlay1);font-size:.8rem;margin-top:4px}
-    .now-playing{max-width:720px;margin:16px auto 0;border:1px solid var(--surface0);background:var(--mantle);border-radius:14px;padding:14px;display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center}
+    .now-playing{max-width:620px;margin:16px auto 0;border:1px solid var(--surface0);background:var(--mantle);border-radius:14px;padding:14px;display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center}
     .now-playing[hidden]{display:none}
     .now-playing__art{width:72px;height:72px;border-radius:9px;object-fit:cover;background:var(--surface0)}
     .now-playing__status{display:flex;align-items:center;gap:8px;color:var(--teal);font:700 .7rem var(--mono);text-transform:uppercase;letter-spacing:.08em}
@@ -180,7 +180,7 @@
     .now-playing__progress span{display:block;height:100%;width:0;background:var(--mauve)}
     .now-playing__meta{margin-top:7px;font:.68rem var(--mono);color:var(--overlay1)}
     .spotify-player{max-width:720px;margin:12px auto 0;border:1px solid var(--surface0);background:var(--mantle);border-radius:14px;padding:10px;overflow:hidden}
-    .spotify-player iframe{display:block;width:100%;height:152px;border:0;border-radius:10px}
+    .spotify-player iframe{display:block;width:100%;height:352px;border:0;border-radius:10px}
     .spotify-player__link{text-align:center;margin-top:8px;font:.74rem var(--mono);color:var(--overlay1)}
     .spotify-player__link a{color:var(--mauve)}
 
@@ -575,7 +575,8 @@
       const duration = Number(data.duration_ms) || 0;
       const position = Number(data.progress_ms) || 0;
       progress.style.width = duration > 0 ? Math.min(100, Math.max(0, position / duration * 100)) + '%' : '0%';
-      meta.textContent = 'Spotify · ' + (data.track.album || '');
+      const album = data.track.album || '';
+      meta.textContent = 'Spotify' + (album && album !== data.track.name ? ' · ' + album : '');
     }
 
     function handleNowPlayingFailure() {
