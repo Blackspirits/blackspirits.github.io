@@ -31,6 +31,20 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preload" as="image" href="assets/avatar.webp" type="image/webp">
 
+  <script>
+    (() => {
+      let initialLang = 'en';
+      try {
+        const saved = localStorage.getItem('site-lang');
+        initialLang = saved || ((navigator.language || '').toLowerCase().startsWith('pt') ? 'pt' : 'en');
+      } catch (_) {
+        initialLang = (navigator.language || '').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+      }
+      document.documentElement.dataset.initialLang = initialLang;
+      document.documentElement.lang = initialLang === 'pt' ? 'pt-PT' : 'en';
+    })();
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,6 +79,7 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
     body{font-family:var(--sans);background:var(--crust);color:var(--text);line-height:1.7;min-height:100dvh;overflow-x:hidden}
+    html[data-initial-lang="pt"]:not([data-lang-ready="true"]) body{visibility:hidden}
     a{color:var(--mauve);text-decoration:none}
     a:hover{color:var(--lavender)}
     a:focus-visible,button:focus-visible{outline:2px solid var(--mauve);outline-offset:3px;border-radius:6px}
