@@ -144,12 +144,14 @@
     .card__cta{margin-top:14px;color:var(--mauve);font:700 .75rem var(--mono)}
 
     .localization{padding:0}
-    .localization__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start;background:linear-gradient(145deg,var(--mantle),rgba(30,30,46,.7));border:1px solid var(--surface0);border-radius:18px;padding:20px}
+    .localization__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;background:linear-gradient(145deg,var(--mantle),rgba(30,30,46,.7));border:1px solid var(--surface0);border-radius:18px;padding:20px}
     .localization h3{font-size:1.15rem}
     .localization p{color:var(--subtext0);margin-top:10px}
+    .localization__quote{margin:0;padding:18px 20px;border-left:3px solid var(--mauve);background:rgba(203,166,247,.06);border-radius:0 12px 12px 0;font-style:italic;color:var(--subtext0)}
     .principles{list-style:none;margin-top:15px;display:grid;gap:8px}
     .principles li{padding-left:18px;position:relative;color:var(--subtext0);font-size:.9rem}
     .principles li::before{content:'→';position:absolute;left:0;color:var(--mauve);font-family:var(--mono)}
+    .localization-projects-picture{display:block}
     .localization-projects{width:100%;margin-top:14px;border-radius:12px}
 
     .focus{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -312,11 +314,12 @@
               <li data-en="Proofreading, linguistic QA and user-facing clarity" data-pt="Revisão, QA linguístico e clareza para o utilizador">Proofreading, linguistic QA and user-facing clarity</li>
             </ul>
           </div>
-          <div>
-            <p style="margin-top:0;font-style:italic" data-en="Good localization should feel as if the product were originally written for its users." data-pt="Uma boa localização deve parecer escrita de raiz para os seus utilizadores.">Good localization should feel as if the product were originally written for its users.</p>
-          </div>
+          <blockquote class="localization__quote" data-en="Good localization should feel as if the product were originally written for its users." data-pt="Uma boa localização deve parecer escrita de raiz para os seus utilizadores.">Good localization should feel as if the product were originally written for its users.</blockquote>
         </div>
-        <img class="localization-projects" src="assets/localization-projects.svg" alt="Selected localization projects: Mozilla, Proton, Bitwarden, Notepad++, Subtitle Edit, AntennaPod, Stremio, MagicMirror² and Weblate" loading="lazy">
+        <picture class="localization-projects-picture">
+          <source media="(max-width:600px)" srcset="assets/localization-projects-mobile.svg">
+          <img class="localization-projects" src="assets/localization-projects.svg" alt="Selected localization projects: Mozilla, Proton, Bitwarden, Notepad++, Subtitle Edit, AntennaPod, Stremio, MagicMirror² and Weblate" loading="lazy">
+        </picture>
       </div>
     </section>
 
