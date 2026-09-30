@@ -80,3 +80,6 @@ jobs:
 
           print("Portfolio validation passed.")
           PY
+
+      - name: Validate Spotify backend syntax
+        run: node --check spotify-card/server.mjs
