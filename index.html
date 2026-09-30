@@ -468,6 +468,8 @@
     let profileStats = null;
     const statsUrl = 'https://raw.githubusercontent.com/Blackspirits/BlackSpirits/main/assets/generated/profile-stats.json';
     const nowPlayingUrl = 'https://blackspirits-spotify-card.onrender.com/now-playing';
+    const nowPlayingStaleAfterMs = 2 * 60 * 1000;
+    let nowPlayingLastSuccessAt = 0;
     try { stored = localStorage.getItem('site-lang'); } catch (_) {}
     let lang = stored || (browserLang.startsWith('pt') ? 'pt' : 'en');
 
@@ -527,9 +529,21 @@
       }
     }
 
+    function hideNowPlaying() {
+      const root = document.getElementById('nowPlaying');
+      if (!root) return;
+      root.hidden = true;
+      root.dataset.state = 'offline';
+    }
+
     function renderNowPlaying(data) {
       const root = document.getElementById('nowPlaying');
-      if (!root || !data || !data.track) return;
+      if (!root) return;
+      if (!data || !data.track) {
+        nowPlayingLastSuccessAt = 0;
+        hideNowPlaying();
+        return;
+      }
       const status = document.getElementById('nowPlayingStatus');
       const track = document.getElementById('nowPlayingTrack');
       const artist = document.getElementById('nowPlayingArtist');
@@ -538,6 +552,7 @@
       const progress = document.getElementById('nowPlayingProgress');
       const meta = document.getElementById('nowPlayingMeta');
 
+      nowPlayingLastSuccessAt = Date.now();
       root.dataset.state = data.state || 'recent';
       root.hidden = false;
       track.textContent = data.track.name || '';
@@ -560,13 +575,28 @@
       meta.textContent = 'Spotify · ' + (data.track.album || '');
     }
 
+    function handleNowPlayingFailure() {
+      if (!nowPlayingLastSuccessAt) return;
+      if (Date.now() - nowPlayingLastSuccessAt > nowPlayingStaleAfterMs) {
+        hideNowPlaying();
+      }
+    }
+
     async function loadNowPlaying() {
       try {
         const response = await fetch(nowPlayingUrl, { cache: 'no-store' });
-        if (!response.ok) return;
+        if (!response.ok) {
+          handleNowPlayingFailure();
+          return;
+        }
         renderNowPlaying(await response.json());
       } catch (_) {
-        /* The playlist remains available when the optional backend is offline. */
+        /*
+         * Keep the last successful track through brief backend/network hiccups.
+         * After two minutes of consecutive failures, hide the optional block so
+         * stale playback is never presented indefinitely. The playlist remains.
+         */
+        handleNowPlayingFailure();
       }
     }
 
