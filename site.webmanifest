@@ -10,9 +10,9 @@
   "lang": "en",
   "icons": [
     {
-      "src": "assets/favicon.jpg",
+      "src": "assets/globe.svg",
       "sizes": "any",
-      "type": "image/jpeg",
+      "type": "image/svg+xml",
       "purpose": "any"
     },
     {
