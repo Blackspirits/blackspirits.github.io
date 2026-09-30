@@ -149,8 +149,7 @@
     .principles{list-style:none;margin-top:15px;display:grid;gap:8px}
     .principles li{padding-left:18px;position:relative;color:var(--subtext0);font-size:.9rem}
     .principles li::before{content:'→';position:absolute;left:0;color:var(--mauve);font-family:var(--mono)}
-    .logos{display:flex;flex-wrap:wrap;gap:8px}
-    .logo-chip{padding:7px 10px;border:1px solid var(--surface0);border-radius:8px;background:var(--base);color:var(--subtext1);font:700 .72rem var(--mono)}
+    .localization-projects{width:100%;margin-top:22px;border-radius:12px}
 
     .focus{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
     .focus article{background:var(--mantle);border:1px solid var(--surface0);border-radius:12px;padding:16px}
@@ -239,9 +238,9 @@
 
     <section class="proof fi" aria-label="Work snapshot" data-aria-label-en="Work snapshot" data-aria-label-pt="Resumo do trabalho">
       <div class="metric"><strong>100+</strong><span data-en="localization projects" data-pt="projetos de localização">localization projects</span></div>
-      <div class="metric"><strong data-en="9.9k+" data-pt="9,9 mil+">9.9k+</strong><span data-en="GitHub commits" data-pt="commits no GitHub">GitHub commits</span></div>
-      <div class="metric"><strong>750+</strong><span data-en="pull requests" data-pt="pull requests">pull requests</span></div>
-      <div class="metric"><strong>40+</strong><span data-en="repos contributed to" data-pt="repositórios com contributos">repos contributed to</span></div>
+      <div class="metric"><strong data-stat="commits" data-en="9.9k+" data-pt="9,9 mil+">9.9k+</strong><span data-en="GitHub commits" data-pt="commits no GitHub">GitHub commits</span></div>
+      <div class="metric"><strong data-stat="pull_requests">750+</strong><span data-en="pull requests" data-pt="pull requests">pull requests</span></div>
+      <div class="metric"><strong data-stat="contributed_repositories">40+</strong><span data-en="repos contributed to" data-pt="repositórios com contributos">repos contributed to</span></div>
     </section>
 
     <section class="section fi" id="work" aria-labelledby="work-title">
@@ -292,14 +291,10 @@
             </ul>
           </div>
           <div>
-            <div class="logos" aria-label="Localization projects" data-aria-label-en="Localization projects" data-aria-label-pt="Projetos de localização">
-              <span class="logo-chip">Mozilla</span><span class="logo-chip">Proton</span><span class="logo-chip">Bitwarden</span>
-              <span class="logo-chip">Notepad++</span><span class="logo-chip">Subtitle Edit</span><span class="logo-chip">AntennaPod</span>
-              <span class="logo-chip">Stremio</span><span class="logo-chip">MagicMirror²</span><span class="logo-chip">Weblate</span>
-            </div>
-            <p style="margin-top:16px;font-style:italic" data-en="Good localization should feel as if the product were originally written for its users." data-pt="Uma boa localização deve parecer escrita de raiz para os seus utilizadores.">Good localization should feel as if the product were originally written for its users.</p>
+            <p style="margin-top:0;font-style:italic" data-en="Good localization should feel as if the product were originally written for its users." data-pt="Uma boa localização deve parecer escrita de raiz para os seus utilizadores.">Good localization should feel as if the product were originally written for its users.</p>
           </div>
         </div>
+        <img class="localization-projects" src="assets/localization-projects.svg" alt="Selected localization projects: Mozilla, Proton, Bitwarden, Notepad++, Subtitle Edit, AntennaPod, Stremio, MagicMirror² and Weblate" loading="lazy">
       </div>
     </section>
 
@@ -440,6 +435,8 @@
     let stored = null;
     let heroTypingTimer = null;
     let heroCursorTimer = null;
+    let profileStats = null;
+    const statsUrl = 'https://raw.githubusercontent.com/Blackspirits/BlackSpirits/main/assets/generated/profile-stats.json';
     try { stored = localStorage.getItem('site-lang'); } catch (_) {}
     let lang = stored || (browserLang.startsWith('pt') ? 'pt' : 'en');
 
@@ -471,6 +468,34 @@
       tick();
     }
 
+    function renderStats() {
+      if (!profileStats) return;
+      const locale = lang === 'pt' ? 'pt-PT' : 'en-US';
+      const keys = ['commits', 'pull_requests', 'contributed_repositories'];
+      keys.forEach(key => {
+        const el = document.querySelector('[data-stat="' + key + '"]');
+        const value = Number(profileStats[key]);
+        if (el && Number.isFinite(value)) {
+          el.textContent = new Intl.NumberFormat(locale).format(value);
+          el.title = (lang === 'pt' ? 'Atualizado automaticamente: ' : 'Automatically updated: ') + value.toLocaleString(locale);
+        }
+      });
+    }
+
+    async function loadProfileStats() {
+      try {
+        const response = await fetch(statsUrl, { cache: 'no-store' });
+        if (!response.ok) return;
+        const data = await response.json();
+        if (data && data.schema_version === 1) {
+          profileStats = data;
+          renderStats();
+        }
+      } catch (_) {
+        /* Keep the baked-in fallback values. */
+      }
+    }
+
     function applyLang(next) {
       lang = next;
       const attr = lang === 'pt' ? 'data-pt' : 'data-en';
@@ -491,6 +516,7 @@
       langButtons.forEach(button => {
         button.setAttribute('aria-pressed', String(button.dataset.langChoice === lang));
       });
+      renderStats();
       document.documentElement.dataset.langReady = 'true';
       try { localStorage.setItem('site-lang', lang); } catch (_) {}
     }
@@ -499,6 +525,7 @@
       button.addEventListener('click', () => applyLang(button.dataset.langChoice));
     });
     applyLang(lang);
+    loadProfileStats();
   </script>
 </body>
 </html>
